@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="openModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Регистрация</h3>
+          <h3 class="modal-title">Вход</h3>
+          <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body">
+          <div class="modal-registration">
+            <label for="name">Имя пользователя:</label>
+            <input type="name" id="reg-name" pattern="/^[a-z0-9_-]{3,16}$/" required placeholder="Введите имя" />
+            <label for="email">Адрес электронной почты:</label>
+            <input
+              type="email"
+              id="reg-email"
+              pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+              required
+              placeholder="Введите адрес почты"
+            />
+            <label for="password">Пароль:</label>
+            <input
+              type="password"
+              id="reg-password"
+              pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+              required
+              placeholder="Введите пароль"
+            />
+            <button class="btn-registration">Зарегистрироваться</button>
+          </div>
+          <div class="modal-login">
+            <label for="email">Адрес электронной почты:</label>
+            <input
+              type="email"
+              id="log-email"
+              pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+              required
+              placeholder="Введите адрес почты"
+            />
+            <label for="password">Пароль:</label>
+            <input
+              type="password"
+              id="log-password"
+              pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+              required
+              placeholder="Введите пароль"
+            />
+            <button class="btn-login">Войти</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="words">
+    </div>
+  </body>
+</html>
