@@ -6,32 +6,29 @@ import { createUser } from './services/users/createUser';
 import { getWords } from './services/words/getWords';
 import { EStatusCode, TWordContent } from './types';
 
-const navbarMenu = document.getElementById("menu") as HTMLElement;
-const burgerMenu = document.getElementById("burger") as HTMLElement;
-const headerMenu = document.getElementById("header") as HTMLElement;
+const navbarMenu = <HTMLDivElement>document.getElementById('menu');
+const burgerMenu = <HTMLDivElement>document.getElementById('burger');
+const headerMenu = <HTMLDivElement>document.getElementById('header');
 
-// Open Close Navbar Menu on Click Burger
 if (burgerMenu && navbarMenu) {
-   burgerMenu.addEventListener("click", () => {
-      burgerMenu.classList.toggle("is-active");
-      navbarMenu.classList.toggle("is-active");
+   burgerMenu.addEventListener('click', () => {
+      burgerMenu.classList.toggle('burger_active');
+      navbarMenu.classList.toggle('menu_active');
    });
 }
 
-// Close Navbar Menu on Click Menu Links
-document.querySelectorAll(".menu-link").forEach((link) => {
-   link.addEventListener("click", () => {
-      burgerMenu.classList.remove("is-active");
-      navbarMenu.classList.remove("is-active");
+document.querySelectorAll('.menu-link').forEach((link) => {
+   link.addEventListener('click', () => {
+      burgerMenu.classList.remove('burger_active');
+      navbarMenu.classList.remove('menu_active');
    });
 });
 
-// Change Header Background on Scrolling
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
    if (window.scrollY >= 85) {
-      headerMenu.classList.add("on-scroll");
+      headerMenu.classList.add('on-scroll');
    } else {
-      headerMenu.classList.remove("on-scroll");
+      headerMenu.classList.remove('on-scroll');
    }
 });
 
@@ -110,24 +107,24 @@ if (r.status === EStatusCode.OK) {
   let t = '';
 
   q.forEach((item) => {
-    t += `<div class="word">
-      <img src="${HOST}/${item.image}" alt="" />
-      <div class="word_text">${item.word}</div>
-      <div class="word_transcription">${item.transcription}</div>
+    t += `<div class='word'>
+      <img src='${HOST}/${item.image}' alt='' />
+      <div class='word_text'>${item.word}</div>
+      <div class='word_transcription'>${item.transcription}</div>
       <audio controls>
-        <source src="${HOST}/${item.audio}" />
+        <source src='${HOST}/${item.audio}' />
       </audio>
-      <div class="word_translate">${item.wordTranslate}</div>
-      <div class="word_text_meaning">${item.textMeaning}</div>
+      <div class='word_translate'>${item.wordTranslate}</div>
+      <div class='word_text_meaning'>${item.textMeaning}</div>
       <audio controls>
-        <source src="${HOST}/${item.audioMeaning}" />
+        <source src='${HOST}/${item.audioMeaning}' />
       </audio>
-      <div class="word_text_meaning_translate">${item.textMeaningTranslate}</div>
-      <div class="word_text_example">${item.textExample}</div>
+      <div class='word_text_meaning_translate'>${item.textMeaningTranslate}</div>
+      <div class='word_text_example'>${item.textExample}</div>
       <audio controls>
-        <source src="${HOST}/${item.audioExample}" />
+        <source src='${HOST}/${item.audioExample}' />
       </audio>
-      <div class="word_text_example_translate">${item.textExampleTranslate}</div>
+      <div class='word_text_example_translate'>${item.textExampleTranslate}</div>
     </div>`;
   });
 

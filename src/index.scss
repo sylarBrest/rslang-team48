@@ -258,7 +258,7 @@ video {
   box-shadow: var(--shadow-medium);
   transition: all 0.4s ease-in-out;
 
-  &.is-active {
+  &_active {
     top: 0;
     width: 100%;
     height: auto;
@@ -446,7 +446,7 @@ video {
     }
   }
 
-  &.is-active .burger-line {
+  &_active .burger__line {
     &:nth-child(1) {
       top: 0.5rem;
       transform: rotate(135deg);
