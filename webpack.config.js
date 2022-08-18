@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const mode = process.env.NODE_ENV;
 const isProduction = process.env.NODE_ENV === 'production';
@@ -76,6 +77,9 @@ module.exports = {
     }),
     new StyleLintPlugin({
       files: [path.resolve(__dirname, './src/**/*.scss')]
+    }),
+    new ESLintPlugin({
+      extensions: ['ts']
     }),
   ],
 };
