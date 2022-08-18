@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="navbar container">
+         <a href="./index.html" class="logo"></a>
+         <div class="burger" id="burger">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+         </div>
+         <div class="menu" id="menu">
+            <ul class="menu__inner">
+               <li class="menu__item"><a href="#" class="menu__link menu__link_main">Главная</a></li>
+               <li class="menu__item"><a href="#" class="menu__link menu__link_tutorial menu__link_active">Учебник</a></li>
+               <li class="menu__item"><a href="#" class="menu__link menu__link_games">Игры</a></li>
+               <li class="menu__item"><a href="#" class="menu__link menu__link_stat">Статистика</a></li>
+            </ul>
+         </div>
+         <button class="menu__login-btn">Войти</button>
+      </nav>
+      
+   </header>
+   <!-- Main Section -->
+   <main class="main">
+      <section class="section container words">
+
+      </section>
+   </main>
+   <div class="modal">
+      <div class="modal__content container">
+        <div class="modal__header">
+          <h3 class="modal__title">Регистрация</h3>
+          <h3 class="modal__title" style="display: none;">Вход</h3>
+          <button class="modal__close-btn">X</button>
+        </div>
+        <div class="modal__body">
+          <div class="modal__sign-up">            
+            <div class="modal__row">
+              <label for="email">Email</label>
+              <input
+                class="modal__input"
+                type="email"
+                id="reg-email"
+                pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+                required
+                placeholder="Введите адрес почты"
+              />              
+            </div>
+            <div class="modal__row">
+              <label for="name">Имя</label>
+              <input 
+                class="modal__input"
+                type="name" 
+                id="reg-name" 
+                pattern="/^[a-z0-9_-]{3,16}$/" 
+                required 
+                placeholder="Введите имя" />
+            </div>
+            <div class="modal__row">
+              <label for="password">Пароль</label>
+              <input
+                class="modal__input"
+                type="password"
+                id="reg-password"
+                pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+                required
+                placeholder="Введите пароль"
+              />
+            </div>
+            <button class="btn btn-darken btn-registration">Зарегистрироваться</button>
+          </div>
+          <div class="modal__sign-in">
+            <div class="modal__row">
+              <label for="email">Email:</label>
+              <input
+                class="modal__input"
+                type="email"
+                id="log-email"
+                pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+                required
+                placeholder="Введите адрес почты"
+              />
+            </div>            
+            <div class="modal__row">
+              <label for="password">Пароль:</label>
+              <input
+                class="modal__input"
+                type="password"
+                id="log-password"
+                pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+                required
+                placeholder="Введите пароль"
+              />
+            </div>            
+            <button class="btn btn-darken btn-login">Войти</button>
+          </div>
+        </div>
+        <div class="modal__footer">
+          
+        </div>
+      </div>
+    </div>
+    <!-- <div id="openModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Регистрация</h3>
+          <h3 class="modal-title">Вход</h3>
+          <a href="#close" title="Close" class="close">×</a>
+        </div>
+        <div class="modal-body">
+          <div class="modal-registration">
+            <label for="name">Имя пользователя:</label>
+            <input type="name" id="reg-name" pattern="/^[a-z0-9_-]{3,16}$/" required placeholder="Введите имя" />
+            <label for="email">Адрес электронной почты:</label>
+            <input
+              type="email"
+              id="reg-email"
+              pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+              required
+              placeholder="Введите адрес почты"
+            />
+            <label for="password">Пароль:</label>
+            <input
+              type="password"
+              id="reg-password"
+              pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+              required
+              placeholder="Введите пароль"
+            />
+            <button class="btn-registration">Зарегистрироваться</button>
+          </div>
+          <div class="modal-login">
+            <label for="email">Адрес электронной почты:</label>
+            <input
+              type="email"
+              id="log-email"
+              pattern="^([^ ]+@[^ ]+\.[a-z]{2,6}|)$"
+              required
+              placeholder="Введите адрес почты"
+            />
+            <label for="password">Пароль:</label>
+            <input
+              type="password"
+              id="log-password"
+              pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+              required
+              placeholder="Введите пароль"
+            />
+            <button class="btn-login">Войти</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="words">
+    </div>
+  </body> -->
+  </body>
+</html>
