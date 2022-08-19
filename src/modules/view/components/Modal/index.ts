@@ -1,8 +1,8 @@
 /* eslint-disable no-alert */
 import './style.scss';
-import { signIn } from '../../../services/logins/signIn';
+import signIn from '../../../services/logins/signIn';
 import { updateLocalStorageData } from '../../../services/userData/updateUserData';
-import { createUser } from '../../../services/users/createUser';
+import createUser from '../../../services/users/createUser';
 import { EStatusCode } from '../../../types';
 
 type Props = {

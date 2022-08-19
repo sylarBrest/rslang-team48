@@ -30,7 +30,7 @@
   display: inline-block;
   min-width: 8rem;
   min-height: 3rem;
-  background-image: url('../../../assets/svg/logo.svg');
+  background-image: url('../../../../assets/svg/logo.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -89,19 +89,19 @@
     }
 
     &_main::before {
-      background-image: url('../../../assets/svg/main-icon.svg');
+      background-image: url('../../../../assets/svg/main-icon.svg');
     }
     
     &_tutorial::before {
-      background-image: url('../../../assets/svg/tutorial-icon.svg');
+      background-image: url('../../../../assets/svg/tutorial-icon.svg');
     }
 
     &_games::before {
-      background-image: url('../../../assets/svg/games-icon.svg');
+      background-image: url('../../../../assets/svg/games-icon.svg');
     }
 
     &_stat::before {
-      background-image: url('../../../assets/svg/stat-icon.svg');
+      background-image: url('../../../../assets/svg/stat-icon.svg');
     }
 
     &::after {        
@@ -152,7 +152,7 @@
       display: inline-block;
       width: 1.5rem;
       height: 1.5rem;
-      background-image: url('../../../assets/svg/login-icon.svg');
+      background-image: url('../../../../assets/svg/login-icon.svg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

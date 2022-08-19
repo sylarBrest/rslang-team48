@@ -1,5 +1,5 @@
 import './style.scss';
-import { getWords } from '../../../services/words/getWords';
+import getWords from '../../../services/words/getWords';
 import { HOST } from '../../../services/constants';
 import { TWordContent, EStatusCode } from '../../../types';
 
