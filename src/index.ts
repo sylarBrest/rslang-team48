@@ -1,11 +1,11 @@
 import './index.scss';
 
-import Menu from './view/components/Menu';
-import Modal from './view/components/Modal';
-import Games from './view/pages/Games';
-import Main from './view/pages/Main';
-import Stat from './view/pages/Stat';
-import Tutorial from './view/pages/Tutorial';
+import Menu from './modules/view/components/Menu';
+import Modal from './modules/view/components/Modal';
+import Games from './modules/view/pages/Games';
+import Main from './modules/view/pages/Main';
+import Stat from './modules/view/pages/Stat';
+import Tutorial from './modules/view/pages/Tutorial';
 
 const appView = <HTMLDivElement>document.querySelector('#appView');
 
