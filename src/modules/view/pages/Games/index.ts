@@ -1,11 +1,5 @@
-type Props = {
-  target: HTMLElement,
-};
-
-function Games({ target }: Props) {
-  const gamesContainer = document.createElement('section');
-  gamesContainer.classList.add('container', 'section');
-  gamesContainer.innerHTML = `
+const renderGames = () => `
+  <section class="container section">
     <h2>Игры</h2>
     <div class="games__header">
       <div class="games__toolbar"></div>
@@ -15,9 +9,7 @@ function Games({ target }: Props) {
     </div>
     <div class="games__footer">
     </div>
-  `;
+  </section>
+`;
 
-  target.appendChild(gamesContainer);
-}
-
-export default Games;
+export default renderGames;

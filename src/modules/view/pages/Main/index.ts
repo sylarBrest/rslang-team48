@@ -1,11 +1,7 @@
-type Props = {
-  target: HTMLElement,
-};
+import renderModal from '../../components/Modal';
 
-function Main({ target }: Props) {
-  const mainContainer = document.createElement('section');
-  mainContainer.classList.add('container', 'section');
-  mainContainer.innerHTML = `
+const renderMain = () => `
+  <section class="container section">
     <h2>Главная</h2>
     <div class="tutorial__header">
       <div class="tutorial__toolbar"></div>
@@ -15,9 +11,8 @@ function Main({ target }: Props) {
     </div>
     <div class="tutorial__footer">
     </div>
-  `;
+  </section>
+  ${renderModal()}
+`;
 
-  target.appendChild(mainContainer);
-}
-
-export default Main;
+export default renderMain;

@@ -1,11 +1,5 @@
-type Props = {
-  target: HTMLElement,
-};
-
-function Stat({ target }: Props) {
-  const statContainer = document.createElement('section');
-  statContainer.classList.add('container', 'section');
-  statContainer.innerHTML = `
+const renderStat = () => `
+  <section class="container section">
     <h2>Статистика</h2>
     <div class="stat__header">
       <div class="stat__toolbar"></div>
@@ -15,9 +9,7 @@ function Stat({ target }: Props) {
     </div>
     <div class="stat__footer">
     </div>
-  `;
+  </section>
+`;
 
-  target.appendChild(statContainer);
-}
-
-export default Stat;
+export default renderStat;
