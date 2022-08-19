@@ -42,7 +42,7 @@ async function Tutorial({ target }: Props) {
 
     wordsContainer.innerHTML = t;
   }
-  
+
   target.appendChild(wordsContainer);
 }
 

@@ -1,9 +1,8 @@
 import './style.scss';
-import Modal from '../Modal';
 
 type Props = {
   target: HTMLElement,
-  changeView: (e: Event) => void,  
+  changeView: (e: Event) => void,
 };
 
 function Menu({ target, changeView }: Props) {
@@ -30,32 +29,32 @@ function Menu({ target, changeView }: Props) {
   [...navbar.querySelectorAll('menu__item')].map((el) => el.addEventListener('click', changeView));
   // navbar.querySelector('menu__login-btn')?.addEventListener('click', openModal);
 
-const navbarMenu = <HTMLDivElement>navbar.querySelector('#menu');
-const burgerMenu = <HTMLDivElement>navbar.querySelector('#burger');
+  const navbarMenu = <HTMLDivElement>navbar.querySelector('#menu');
+  const burgerMenu = <HTMLDivElement>navbar.querySelector('#burger');
 
-if (burgerMenu && navbarMenu) {
-   burgerMenu.addEventListener('click', () => {
+  if (burgerMenu && navbarMenu) {
+    burgerMenu.addEventListener('click', () => {
       burgerMenu.classList.toggle('burger_active');
       navbarMenu.classList.toggle('menu_active');
-   });
-}
+    });
+  }
 
-document.querySelectorAll('.menu-link').forEach((link) => {
-   link.addEventListener('click', () => {
+  document.querySelectorAll('.menu-link').forEach((link) => {
+    link.addEventListener('click', () => {
       burgerMenu.classList.remove('burger_active');
       navbarMenu.classList.remove('menu_active');
-   });
-});
+    });
+  });
 
-window.addEventListener('scroll', () => {
-   if (window.scrollY >= 85) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 85) {
       target.classList.add('on-scroll');
-   } else {
+    } else {
       target.classList.remove('on-scroll');
-   }
-});
-  
+    }
+  });
+
   target.appendChild(navbar);
-};
+}
 
 export default Menu;
