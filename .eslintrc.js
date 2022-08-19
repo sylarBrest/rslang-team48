@@ -39,6 +39,7 @@ module.exports = {
   ignorePatterns: [
     'dist/*',
     '.eslintrc.js',
-    'webpack.config.js'
+    'webpack.config.js',
+    'src/services/*',
   ],
 };

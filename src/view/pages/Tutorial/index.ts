@@ -8,8 +8,21 @@ type Props = {
 };
 
 async function Tutorial({ target }: Props) {
-  const wordsContainer = document.createElement('section');
-  wordsContainer.classList.add('section', 'container', 'words');
+  const tutorialContainer = document.createElement('section');
+  tutorialContainer.classList.add('container', 'section');
+  tutorialContainer.innerHTML = `
+    <h2>Учебник</h2>
+    <div class="tutorial__header">
+      <div class="tutorial__toolbar"></div>
+    </div>
+    <div class="tutorial__body">
+      <div class="words"></div>
+    </div>
+    <div class="tutorial__footer">
+    </div>
+  `;
+
+  const wordsContainer = <HTMLDivElement>tutorialContainer.querySelector('.words');
 
   const r = await getWords();
 
@@ -43,7 +56,8 @@ async function Tutorial({ target }: Props) {
     wordsContainer.innerHTML = t;
   }
 
-  target.appendChild(wordsContainer);
+  tutorialContainer.appendChild(wordsContainer);
+  target.appendChild(tutorialContainer);
 }
 
 export default Tutorial;

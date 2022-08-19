@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import './style.scss';
 
 type Props = {
@@ -26,7 +27,8 @@ function Menu({ target, changeView }: Props) {
       <button class="menu__login-btn">Войти</button>    
   `;
 
-  [...navbar.querySelectorAll('menu__item')].map((el) => el.addEventListener('click', changeView));
+  [...navbar.querySelectorAll('.menu__item')]
+    .map((el) => el.addEventListener('click', changeView));
   // navbar.querySelector('menu__login-btn')?.addEventListener('click', openModal);
 
   const navbarMenu = <HTMLDivElement>navbar.querySelector('#menu');

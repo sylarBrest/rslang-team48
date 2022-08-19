@@ -92,11 +92,6 @@ video {
 }
 
 // Elements Section
-.section {
-  margin: 0 auto;
-  padding: 6rem 0 1rem;
-}
-
 .container {
   max-width: 75rem;
   height: auto;
@@ -108,6 +103,11 @@ video {
   margin-bottom: 1rem;
   text-align: center;
   vertical-align: middle;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 6rem 0 1rem;
 }
 
 // Typography
