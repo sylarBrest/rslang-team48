@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     'implicit-arrow-linebreak': 0,
+    'no-alert': 'off',
     'max-len': ['error', { code: 120 }],
     'no-console': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
