@@ -1,5 +1,3 @@
-import renderModal from '../../components/Modal';
-
 const renderMain = () => `
   <main class="main">
     <section class="container section">
@@ -14,7 +12,6 @@ const renderMain = () => `
     </div>
   </section>
   </main>  
-  ${renderModal()}
 `;
 
 export default renderMain;
