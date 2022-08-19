@@ -1,9 +1,11 @@
 import initHeaderHandlers from './headerHandlers';
-import windowHandlers from './windowHandlers';
+import initRouterHandlers from './routerHandlers';
+import initWindowHandlers from './windowHandlers';
 
 const initHandlers = () => {
   initHeaderHandlers();
-  windowHandlers();
+  initRouterHandlers();
+  initWindowHandlers();
 };
 
 export default initHandlers;

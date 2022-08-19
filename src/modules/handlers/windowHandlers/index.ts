@@ -1,6 +1,6 @@
 import { SCROLL_DISTANCE } from '../../constants';
 
-const windowHandlers = () => {
+const initWindowHandlers = () => {
   window.addEventListener('scroll', (e: Event) => {
     const target = <HTMLElement>e.target;
 
@@ -12,4 +12,4 @@ const windowHandlers = () => {
   });
 };
 
-export default windowHandlers;
+export default initWindowHandlers;
