@@ -16,11 +16,23 @@ const renderMenu = () => `
             <li class="menu__item" data-view="tutorial">
               <a href="/#/tutorial" class="menu__link menu__link_tutorial">Учебник</a>
             </li>
-            <li class="menu__item" data-view="games">
-              <a href="/#/games" class="menu__link menu__link_games">Игры</a>
+            <li class="menu__item menu__dropdown-item" data-view="games">
+              <button class="menu__link menu__link_games">Игры</button>
+                <ul class="menu__dropdown-content">
+                  <li class="menu__item" data-view="audiocall">
+                    <a href="/#/audiocall" class="menu__link menu__link_audiocall">Аудиовызов</a>
+                  </li>
+                  <li class="menu__item" data-view="sprint">
+                    <a href="/#/sprint" class="menu__link menu__link_sprint">Спринт</a>
+                  </li>
+                </ul>
             </li>
+            
             <li class="menu__item" data-view="stat">
               <a href="/#/statistic" class="menu__link menu__link_stat">Статистика</a>
+            </li>
+            <li class="menu__item" data-view="team">
+              <a href="/#/team" class="menu__link menu__link_team">О команде</a>
             </li>
         </ul>
       </div>

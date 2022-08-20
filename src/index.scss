@@ -39,6 +39,7 @@
 *,
 *::before,
 *::after {
+  position: relative;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -94,7 +95,6 @@ video {
 // Elements Section
 .container {
   max-width: 75rem;
-  height: auto;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
