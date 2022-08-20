@@ -14,11 +14,11 @@ const navHandlers = () => {
 
   document.querySelectorAll('.menu__link').forEach((link) => {
     link.addEventListener('click', () => {
-      burgerMenu.classList.remove('burger_active');
-      navbarMenu.classList.remove('menu_active');
       if (!link.classList.contains('menu__link_games')) {
         dropDownContent.classList.remove('menu__dropdown-content_active');
         dropDownBtn.classList.remove('menu__link_games-active');
+        burgerMenu.classList.remove('burger_active');
+        navbarMenu.classList.remove('menu_active');
       }
     });
   });
