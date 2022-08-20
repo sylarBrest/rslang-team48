@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 50;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -38,20 +38,24 @@
 
 .menu {
   position: fixed;
-  top: -100%;
+  top: calc(-100% - 3.5rem);
   left: 0;
   width: 100%;
   height: auto;
   padding: 4rem 0 3rem;
-  overflow: hidden;
+  // overflow: hidden;
   background-color: var(--color-blue-600);
   box-shadow: var(--shadow-medium);
+  visibility: hidden;
+  opacity: 0;
   transition: all 0.4s ease-in-out;
 
   &_active {
     top: 0;
     width: 100%;
     height: auto;
+    visibility: visible;
+    opacity: 1;
   }
 
   &__inner {
@@ -62,19 +66,23 @@
     row-gap: 1.25rem;
   }
 
+  &__item {
+    position: relative;
+  }
+
   &__link {
     position: relative;
     display: flex;
     gap: 0.3rem;
     align-items: center;
     justify-content: center;
-    padding: 0.65rem 1.5rem;
+    padding: 0.65rem 1rem;
     color: var(--color-white-100);
     font-weight: 500;
     font-size: 1rem;
     font-family: inherit;
     line-height: 1.5;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     border-radius: 3rem;
     transition: all 0.3s ease;
 
@@ -97,11 +105,29 @@
     }
 
     &_games::before {
-      background-image: url('../../../../assets/svg/games-icon.svg');
+      background-image: url('../../../../assets/svg/down.svg');
+      transform: rotate(-90deg);
+      transition: 0.3s ease-out;
+    }
+
+    &_games-active::before {
+      transform: rotate(0);
+    }
+
+    &_audiocall::before {
+      background-image: url('../../../../assets/svg/ear-icon.svg');
+    }
+
+    &_sprint::before {
+      background-image: url('../../../../assets/svg/run-icon.svg');
     }
 
     &_stat::before {
       background-image: url('../../../../assets/svg/stat-icon.svg');
+    }
+
+    &_team::before {
+      background-image: url('../../../../assets/svg/team-icon.svg');
     }
 
     &::after {        
@@ -123,6 +149,30 @@
     }
   }
 
+  &__dropdown-content {
+    position: absolute;
+    top: -1rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0.5rem 0.8rem;
+    background-color: var(--color-blue-500);
+    border-radius: 0.5rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  &__dropdown-content_active {
+    // display: flex;
+    top: 3rem;
+    box-shadow: var(--shadow-medium);
+    visibility: visible;
+    opacity: 1;
+  }
+
   &__login-btn {    
     display: flex;
     gap: 0.3rem;
@@ -137,7 +187,7 @@
     line-height: 1.25;
     white-space: nowrap;
     text-align: center;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     background-color: var(--color-white-600);
     border-radius: 3rem;
     box-shadow: var(--shadow-medium);
@@ -170,6 +220,8 @@
     padding: 0;
     background: none;
     box-shadow: none;
+    visibility: visible;
+    opacity: 1;
 
     &__inner {
       display: flex;
@@ -177,9 +229,13 @@
       margin: 0 auto;
     }
 
-    &__link {
-      text-transform: capitalize;
+    &__dropdown-content {
+      flex-direction: row;
     }
+
+    // &__link {
+    //   text-transform: capitalize;
+    // }
 
     &__login-btn {
       margin-left: 2rem;
@@ -189,7 +245,7 @@
 
 .burger {
   position: relative;
-  z-index: 10;
+  z-index: 50;
   display: block;
   order: -1;
   width: 1.75rem;

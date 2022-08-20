@@ -1,7 +1,9 @@
 import Router from '../../../library/Router';
-import renderGames from '../../view/pages/Games';
+import renderAudiocall from '../../view/pages/Audiocall';
 import renderMain from '../../view/pages/Main';
+import renderSprint from '../../view/pages/Sprint';
 import renderStat from '../../view/pages/Stat';
+import renderTeam from '../../view/pages/Team';
 import renderTutorial from '../../view/pages/Tutorial';
 import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
 
@@ -18,14 +20,24 @@ const initRouterHandlers = () => {
     activeLinkHandler('tutorial');
   });
 
-  router.add(/games/, () => {
-    main.innerHTML = renderGames();
-    activeLinkHandler('games');
+  router.add(/sprint/, () => {
+    main.innerHTML = renderSprint();
+    activeLinkHandler('sprint');
+  });
+
+  router.add(/audiocall/, () => {
+    main.innerHTML = renderAudiocall();
+    activeLinkHandler('audiocall');
   });
 
   router.add(/statistic/, () => {
     main.innerHTML = renderStat();
     activeLinkHandler('stat');
+  });
+
+  router.add(/team/, () => {
+    main.innerHTML = renderTeam();
+    activeLinkHandler('team');
   });
 
   router.add('', () => {
