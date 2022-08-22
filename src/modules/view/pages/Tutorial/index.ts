@@ -1,6 +1,6 @@
-import { HOST } from '../../../services/constants';
-import getWords from '../../../services/words/getWords';
-import { EStatusCode, TWordContent } from '../../../types';
+import { HOST } from '@services/constants';
+import getWords from '@services/words/getWords';
+import { EStatusCode, TWordContent } from '@types';
 
 import './style.scss';
 

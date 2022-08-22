@@ -1,5 +1,5 @@
-import initHandlers from './handlers';
-import renderLayout from './view/layout';
+import initHandlers from '@handlers';
+import renderLayout from '@view/layout';
 
 const app = () => {
   renderLayout();
