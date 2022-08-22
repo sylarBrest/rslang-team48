@@ -25,5 +25,3 @@ export const PUT = 'PUT';
 export const DELETE = 'DELETE';
 
 export const UPDATE = 'UPDATE';
-
-export const USER_DATA = 'userData';
