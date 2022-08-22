@@ -1,6 +1,6 @@
-import signIn from '../../../services/logins/signIn';
-import updateUserData from '../../../store/userData/updateUserData';
-import { EStatusCode } from '../../../types';
+import signIn from '@services/logins/signIn';
+import updateUserData from '@store/userData/updateUserData';
+import { EStatusCode } from '@types';
 
 const loginHandler = () => {
   const loginBtn = <HTMLButtonElement>document.querySelector('.btn-login');

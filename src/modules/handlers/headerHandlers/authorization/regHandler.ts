@@ -1,7 +1,7 @@
-import signIn from '../../../services/logins/signIn';
-import createUser from '../../../services/users/createUser';
-import updateUserData from '../../../store/userData/updateUserData';
-import { EStatusCode } from '../../../types';
+import signIn from '@services/logins/signIn';
+import createUser from '@services/users/createUser';
+import updateUserData from '@store/userData/updateUserData';
+import { EStatusCode } from '@types';
 
 const regHandler = () => {
   const regBtn = <HTMLButtonElement>document.querySelector('.btn-registration');

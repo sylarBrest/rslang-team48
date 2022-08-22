@@ -1,11 +1,11 @@
-import Router from '../../../library/Router';
-import renderAudiocall from '../../view/pages/Audiocall';
-import renderMain from '../../view/pages/Main';
-import renderSprint from '../../view/pages/Sprint';
-import renderStat from '../../view/pages/Stat';
-import renderTeam from '../../view/pages/Team';
-import renderTutorial from '../../view/pages/Tutorial';
-import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
+import Router from '@library/Router.js';
+import renderAudiocall from '@view/pages/Audiocall';
+import renderMain from '@view/pages/Main';
+import renderSprint from '@view/pages/Sprint';
+import renderStat from '@view/pages/Stat';
+import renderTeam from '@view/pages/Team';
+import renderTutorial from '@view/pages/Tutorial';
+import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 
 const router = new Router({
   mode: 'hash',
