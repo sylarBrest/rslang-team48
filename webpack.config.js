@@ -67,6 +67,18 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    alias: {
+      '@library': path.resolve(__dirname, 'src/library'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@modules': path.resolve(__dirname, 'src/modules'),
+      '@constants': path.resolve(__dirname, 'src/modules/constants'),
+      '@handlers': path.resolve(__dirname, 'src/modules/handlers'),
+      '@services': path.resolve(__dirname, 'src/modules/services'),
+      '@store': path.resolve(__dirname, 'src/modules/store'),
+      '@types': path.resolve(__dirname, 'src/modules/types'),
+      '@utils': path.resolve(__dirname, 'src/modules/utils'),
+      '@view': path.resolve(__dirname, 'src/modules/view'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
