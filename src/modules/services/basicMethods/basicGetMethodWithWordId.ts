@@ -1,5 +1,5 @@
 import { HOST, URL_USERS, GET } from '../constants';
-import { userDataLocal } from '../userData/initUserData';
+import { userDataLocal } from '../../store/userData/initUserData';
 
 const basicGetMethodWithWordId = async (wordId: string, url: string) =>
   fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}${url}/${wordId}`, {
