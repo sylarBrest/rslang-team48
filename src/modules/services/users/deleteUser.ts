@@ -1,5 +1,5 @@
+import { userDataLocal } from '@store/userData/initUserData';
 import { HOST, DELETE, URL_USERS } from '../constants';
-import { userDataLocal } from '../../store/userData/initUserData';
 
 const deleteUser = async () =>
   fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}`, {

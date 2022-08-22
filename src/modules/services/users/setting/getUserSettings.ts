@@ -1,5 +1,5 @@
-import { URL_SETTINGS } from '../../constants';
-import basicGetMethod from '../../basicMethods/basicGetMethod';
+import { URL_SETTINGS } from '@services/constants';
+import basicGetMethod from '@services/basicMethods/basicGetMethod';
 
 const getUserStatistic = async () => basicGetMethod(URL_SETTINGS);
 

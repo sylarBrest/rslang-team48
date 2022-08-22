@@ -1,5 +1,5 @@
+import { userDataLocal } from '@store/userData/initUserData';
 import { HOST, PUT, URL_USERS } from '../constants';
-import { userDataLocal } from '../../store/userData/initUserData';
 
 const updateUser = async (email: string, password: string) =>
   fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}`, {
