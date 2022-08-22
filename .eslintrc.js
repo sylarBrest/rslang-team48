@@ -8,7 +8,7 @@ module.exports = {
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'airbnb-base',
-    'airbnb-typescript/base'
+    'airbnb-typescript/base',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -17,10 +17,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
   rules: {
+    'implicit-arrow-linebreak': 0,
+    'no-alert': 'off',
+    'max-len': ['error', { code: 120 }],
     'no-console': 'off',
     '@typescript-eslint/no-explicit-any': 'error',
     'no-debugger': 'off',
@@ -31,14 +32,10 @@ module.exports = {
       {
         blankLine: 'always',
         prev: ['block', 'block-like', 'cjs-export', 'class', 'export', 'import'],
-        next: '*'
+        next: '*',
       },
-      { blankLine: 'any', prev: ['import'], next: ['import'] }
-    ]
+      { blankLine: 'any', prev: ['import'], next: ['import'] },
+    ],
   },
-  ignorePatterns: [
-    'dist/*',
-    '.eslintrc.js',
-    'webpack.config.js'
-  ],
+  ignorePatterns: ['dist/*', '.eslintrc.js', 'webpack.config.js'],
 };

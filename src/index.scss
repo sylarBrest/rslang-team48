@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-blue-100: hsl(209, 84%, 57%);
+  --color-white-100: hsl(206, 5%, 98%);
+  --color-white-200: hsl(206, 5%, 90%);
+  --color-white-300: hsl(206, 5%, 80%);
+  --color-white-400: hsl(206, 5%, 65%);
+  --color-white-500: hsl(206, 5%, 50%);
+  --color-white-600: hsl(206, 5%, 35%);
+
+  --color-black-100: hsl(213, 20%, 9%);
+  --color-black-200: hsl(213, 23%, 8%);
+  --color-black-300: hsl(214, 21%, 6%);
+  --color-black-400: hsl(210, 21%, 6%);
+  --color-black-500: hsl(216, 22%, 4%);
+  --color-black-600: hsl(220, 18%, 3%);
+  --color-black-700: hsl(220, 27%, 2%);
+  --color-black-800: hsl(180, 20%, 1%);
+
+  --color-blue-100: hsl(214, 95%, 93%);
+  --color-blue-200: hsl(213, 97%, 87%);
+  --color-blue-300: hsl(212, 96%, 78%);
+  --color-blue-400: hsl(213, 94%, 68%);
+  --color-blue-500: hsl(217, 91%, 60%);
+  --color-blue-600: hsl(221, 83%, 53%);
+  --color-blue-700: hsl(224, 76%, 48%);
+  --color-blue-800: hsl(226, 71%, 40%);
+  --color-blue-900: hsl(224, 64%, 33%);
+
+  --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+*,
+*::before,
+*::after {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  list-style-type: none;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  box-sizing: inherit;
+  height: -webkit-fill-available;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  height: -webkit-fill-available;
+  color: var(--color-black-100);
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-family: 'Rubik', sans-serif;
+  line-height: 1.5;
+  background-color: var(--color-white-100);
+}
+
+main {
+  overflow: hidden;
+}
+
+a,
+button {
+  text-decoration: none;
+  background: none;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+// Elements Section
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.centered {
+  margin-bottom: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 6rem 0 1rem;
+}
+
+// Typography
+.heading {
+  &-xl {
+    font-weight: 700;
+    font-size: clamp(2.648rem, 6vw, 4.241rem);
+    font-family: inherit;
+        
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  &-lg {
+    font-weight: 700;
+    font-size: clamp(2.179rem, 5vw, 3.176rem);
+    font-family: inherit;
+    
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  &-md {
+    font-weight: 700;
+    font-size: clamp(1.794rem, 4vw, 2.379rem);
+    font-family: inherit;
+
+    line-height: 1.25;
+    letter-spacing: -1px;
+  }
+
+  &-sm {
+    font-weight: 600;
+    font-size: clamp(1.476rem, 3vw, 1.782rem);
+    font-family: inherit;
+
+    line-height: 1.5;
+  }
+
+  &-xs {
+    font-weight: 500;
+    font-size: clamp(1.215rem, 2vw, 1.335rem);
+    font-family: inherit;
+
+    line-height: 1.5;
+  }
+}
+
+.paragraph {
+  max-width: 95%;
+  height: auto;
+  color: var(--color-white-200);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-family: inherit;
+
+  line-height: inherit;
+  text-transform: unset;
+}
+
+// Button
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: inherit;
+
+  line-height: 1.5;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: unset;
+  vertical-align: middle;
+  border: 0;
+  border-radius: 0.25rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+
+  &-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+  }
+
+  &-darken {
+    padding: 0.75rem 2rem;
+    color: var(--color-white-100);
+    background-color: var(--color-black-200);
+    box-shadow: var(--shadow-medium);
+  }
+
+  &-neutral {
+    padding: 0.75rem 2rem;
+    color: var(--color-black-500);
+    background-color: var(--color-white-100);
+    box-shadow: var(--shadow-medium);
+  }
+}
