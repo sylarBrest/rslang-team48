@@ -1,4 +1,4 @@
-import { USER_DATA } from '../../constants';
+import { USER_DATA } from '@constants';
 import { initUserData } from './initUserData';
 
 const updateUserData = (name: string, userId: string, token: string, refreshToken: string) => {

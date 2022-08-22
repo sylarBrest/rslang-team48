@@ -1,4 +1,4 @@
-import { WORDS_DATA } from '../../constants';
+import { WORDS_DATA } from '@constants';
 import { initWordsData } from './initWordsData';
 
 const updateWordsData = (group: string, page: string) => {

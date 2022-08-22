@@ -1,4 +1,4 @@
-import { USER_DATA } from '../../constants';
+import { USER_DATA } from '@constants';
 
 export const getUserData = () => {
   const value: string | null = localStorage.getItem(USER_DATA);
