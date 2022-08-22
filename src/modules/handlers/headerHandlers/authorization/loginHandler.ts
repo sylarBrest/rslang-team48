@@ -1,5 +1,5 @@
 import signIn from '../../../services/logins/signIn';
-import updateLocalStorageData from '../../../services/userData/updateUserData';
+import updateUserData from '../../../store/userData/updateUserData';
 import { EStatusCode } from '../../../types';
 
 const loginHandler = () => {
@@ -18,7 +18,7 @@ const loginHandler = () => {
         token, refreshToken, userId, name,
       } = loginData;
 
-      updateLocalStorageData(name, token, refreshToken, userId);
+      updateUserData(name, token, refreshToken, userId);
 
       alert(`${name} успешно вошел в систему`);
     }

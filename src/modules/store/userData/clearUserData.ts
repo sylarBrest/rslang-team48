@@ -1,10 +1,10 @@
-import { USER_DATA } from '../constants';
+import { USER_DATA } from '../../constants';
 import { initUserData } from './initUserData';
 
-const clearLocalStorageData = () => {
+const clearUserData = () => {
   localStorage.removeItem(USER_DATA);
 
   initUserData();
 };
 
-export default clearLocalStorageData;
+export default clearUserData;

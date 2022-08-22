@@ -1,7 +1,7 @@
 import { USER_DATA } from '../../constants';
 import { initUserData } from './initUserData';
 
-const updateLocalStorageData = (name: string, userId: string, token: string, refreshToken: string) => {
+const updateUserData = (name: string, userId: string, token: string, refreshToken: string) => {
   const value = JSON.stringify({
     name,
     userId,
@@ -13,4 +13,4 @@ const updateLocalStorageData = (name: string, userId: string, token: string, ref
   initUserData();
 };
 
-export default updateLocalStorageData;
+export default updateUserData;

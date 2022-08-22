@@ -1,6 +1,6 @@
 import signIn from '../../../services/logins/signIn';
-import updateLocalStorageData from '../../../services/userData/updateUserData';
 import createUser from '../../../services/users/createUser';
+import updateUserData from '../../../store/userData/updateUserData';
 import { EStatusCode } from '../../../types';
 
 const regHandler = () => {
@@ -21,7 +21,7 @@ const regHandler = () => {
         token, refreshToken, userId, name,
       } = loginData;
 
-      updateLocalStorageData(name, token, refreshToken, userId);
+      updateUserData(name, token, refreshToken, userId);
 
       alert(`${name} успешно зарегистрирован`);
     }

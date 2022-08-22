@@ -1,4 +1,4 @@
-import { getLocalStorageData } from './getUserData';
+import { getUserData } from './getUserData';
 
 export const userDataLocal: Record<string, string | null> = {
   name: null,
@@ -10,7 +10,7 @@ export const userDataLocal: Record<string, string | null> = {
 export const initUserData = () => {
   const {
     name, userId, token, refreshToken,
-  } = getLocalStorageData();
+  } = getUserData();
 
   userDataLocal.name = name || null;
   userDataLocal.userId = userId || null;
