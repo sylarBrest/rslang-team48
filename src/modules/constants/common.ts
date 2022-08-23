@@ -14,6 +14,10 @@ export const FIRST_PAGE = 0;
 
 export const LAST_PAGE = 29;
 
+export const TRUE = 'true';
+
+export const FALSE = 'false';
+
 export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',

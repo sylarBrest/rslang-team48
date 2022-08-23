@@ -16,3 +16,22 @@ export type TWordContent = {
   textMeaningTranslate: string;
   textExampleTranslate: string;
 };
+
+export type TTemporalSprintWordsData = {
+  sprintWordPairs: [] | TSprintWordPairs[];
+  sprintGameAnswers: [] | TSprintGameAnswers[];
+};
+
+export type TSprintWordPairs = {
+  id: string,
+  word: string;
+  wordTranslate: string;
+  isCorrect: string;
+};
+
+export type TSprintGameAnswers = {
+  id: string,
+  wordText: string;
+  wordTranslateText: string;
+  isCorrectAnswer: string;
+};
