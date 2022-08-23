@@ -1,4 +1,4 @@
-import { USER_DATA } from '@constants';
+import { ELocalStorage } from '@constants';
 import { initUserData } from './initUserData';
 
 const updateUserData = (name: string, userId: string, token: string, refreshToken: string) => {
@@ -8,7 +8,7 @@ const updateUserData = (name: string, userId: string, token: string, refreshToke
     token,
     refreshToken,
   });
-  localStorage.setItem(USER_DATA, value);
+  localStorage.setItem(ELocalStorage.USER, value);
 
   initUserData();
 };

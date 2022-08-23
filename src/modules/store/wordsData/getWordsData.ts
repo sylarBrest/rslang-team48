@@ -1,7 +1,7 @@
-import { WORDS_DATA } from '@constants';
+import { ELocalStorage } from '@constants';
 
 export const getWordsData = () => {
-  const value: string | null = localStorage.getItem(WORDS_DATA);
+  const value: string | null = localStorage.getItem(ELocalStorage.WORDS);
   return value ? JSON.parse(value) : null;
 };
 

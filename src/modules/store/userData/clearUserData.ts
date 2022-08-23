@@ -1,8 +1,8 @@
-import { USER_DATA } from '@constants';
+import { ELocalStorage } from '@constants';
 import { initUserData } from './initUserData';
 
 const clearUserData = () => {
-  localStorage.removeItem(USER_DATA);
+  localStorage.removeItem(ELocalStorage.USER);
 
   initUserData();
 };

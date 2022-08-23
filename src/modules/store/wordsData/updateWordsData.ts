@@ -1,4 +1,4 @@
-import { WORDS_DATA } from '@constants';
+import { ELocalStorage } from '@constants';
 import { initWordsData } from './initWordsData';
 
 const updateWordsData = (group: string, page: string) => {
@@ -6,7 +6,7 @@ const updateWordsData = (group: string, page: string) => {
     group,
     page,
   });
-  localStorage.setItem(WORDS_DATA, value);
+  localStorage.setItem(ELocalStorage.WORDS, value);
 
   initWordsData();
 };

@@ -1,6 +1,6 @@
-import { URL_WORDS } from '@services/constants';
+import { EUrl } from '@constants';
 import basicGetMethod from '@services/basicMethods/basicGetMethod';
 
-const getAllUserWords = async () => basicGetMethod(URL_WORDS);
+const getAllUserWords = async () => basicGetMethod(EUrl.WORDS);
 
 export default getAllUserWords;

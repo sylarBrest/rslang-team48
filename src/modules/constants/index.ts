@@ -1,7 +1,3 @@
-export const SCROLL_DISTANCE = 85;
+export * from './common';
 
-export const USER_DATA = 'userData';
-
-export const WORDS_DATA = 'wordsData';
-
-export const ZERO = '0';
+export * from './services';

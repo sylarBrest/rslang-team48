@@ -1,8 +1,8 @@
-import { HOST, POST, URL_SIGNIN } from '../constants';
+import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const signIn = async (email: string, password: string) =>
-  fetch(`${HOST}${URL_SIGNIN}`, {
-    method: POST,
+  fetch(`${HOST}${EUrl.SIGNIN}`, {
+    method: EHttpMethod.POST,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

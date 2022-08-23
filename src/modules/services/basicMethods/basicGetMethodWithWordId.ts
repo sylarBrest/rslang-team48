@@ -1,9 +1,9 @@
 import { userDataLocal } from '@store/userData/initUserData';
-import { HOST, URL_USERS, GET } from '../constants';
+import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const basicGetMethodWithWordId = async (wordId: string, url: string) =>
-  fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}${url}/${wordId}`, {
-    method: GET,
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${url}/${wordId}`, {
+    method: EHttpMethod.GET,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
       Accept: 'application/json',

@@ -1,6 +1,6 @@
-import { URL_STATISTICS } from '@services/constants';
+import { EUrl } from '@constants';
 import basicGetMethod from '@services/basicMethods/basicGetMethod';
 
-const getUserStatistic = async () => basicGetMethod(URL_STATISTICS);
+const getUserStatistic = async () => basicGetMethod(EUrl.STATISTICS);
 
 export default getUserStatistic;

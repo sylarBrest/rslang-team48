@@ -1,6 +1,6 @@
-import { URL_TOKENS } from '../constants';
+import { EUrl } from '@constants';
 import basicGetMethod from '../basicMethods/basicGetMethod';
 
-const getNewUserToken = async () => basicGetMethod(URL_TOKENS);
+const getNewUserToken = async () => basicGetMethod(EUrl.TOKENS);
 
 export default getNewUserToken;
