@@ -18,20 +18,19 @@ export type TWordContent = {
 };
 
 export type TTemporalSprintWordsData = {
-  sprintWordPairs: [] | TSprintWordPairs[];
-  sprintGameAnswers: [] | TSprintGameAnswers[];
+  dictionary: Record<string, string>;
+  wordPairs: [] | TSprintWordPairs[];
+  gameAnswers: [] | TSprintGameAnswers[];
 };
 
 export type TSprintWordPairs = {
-  id: string,
   word: string;
   wordTranslate: string;
-  isCorrect: string;
 };
 
 export type TSprintGameAnswers = {
   id: string,
-  wordText: string;
-  wordTranslateText: string;
+  word: string;
+  wordTranslate: string;
   isCorrectAnswer: string;
 };

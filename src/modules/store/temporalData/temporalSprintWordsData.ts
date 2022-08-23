@@ -1,14 +1,19 @@
-import { FALSE, TRUE } from '@modules/constants/common';
+/* eslint-disable no-underscore-dangle */
 import { TTemporalSprintWordsData, TWordContent } from '@modules/types';
 import getRandomInteger from '@modules/utils/getRandomInteger';
 
 export const temporalSprintWordsData: TTemporalSprintWordsData = {
-  sprintWordPairs: [],
-  sprintGameAnswers: [],
+  dictionary: {},
+  wordPairs: [],
+  gameAnswers: [],
 };
 
 export const initTemporalSprintWordsData = (array: TWordContent[]) => {
-  temporalSprintWordsData.sprintWordPairs = array.map((elem, idx, arr) => {
+  const tempArr = array.map((elem) => [elem.word, { wordTranslate: elem.wordTranslate, id: elem.id }]);
+
+  temporalSprintWordsData.dictionary = Object.fromEntries(tempArr);
+
+  temporalSprintWordsData.wordPairs = array.map((elem, idx, arr) => {
     const flag = Math.random() < 0.6;
 
     let index = getRandomInteger(0, arr.length);
@@ -18,10 +23,8 @@ export const initTemporalSprintWordsData = (array: TWordContent[]) => {
     }
 
     return {
-      id: elem.id,
       word: elem.word,
       wordTranslate: flag ? elem.wordTranslate : arr[index].wordTranslate,
-      isCorrect: flag ? TRUE : FALSE,
     };
   });
 };

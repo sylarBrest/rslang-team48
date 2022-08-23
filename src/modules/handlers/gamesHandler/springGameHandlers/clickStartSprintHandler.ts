@@ -4,9 +4,12 @@ import getWords from '@modules/services/words/getWords';
 import {
   initTemporalSprintWordsData, temporalSprintWordsData,
 } from '@modules/store/temporalData/temporalSprintWordsData';
+
 import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
 import getRandomInteger from '@modules/utils/getRandomInteger';
+import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
+import renderSprintGame from '@modules/view/pages/Sprint';
 
 const clickStartSprintHandler = (flag: boolean) => {
   const main = <HTMLElement>document.querySelector('.main');
@@ -30,17 +33,12 @@ const clickStartSprintHandler = (flag: boolean) => {
 
     if (response.status === EStatusCode.OK) {
       const words: TWordContent[] = await response.json();
-      console.log(words, main);
       initTemporalSprintWordsData(words);
-      console.log(temporalSprintWordsData.sprintWordPairs);
+      console.log(temporalSprintWordsData.dictionary, temporalSprintWordsData.wordPairs);
 
-      // initTemporalWordsData(words);
+      const { word, wordTranslate } = getRandomWordPairs();
 
-      // const sprint = <HTMLElement>document.querySelector('.sprint');
-
-      // const pair = getRandomPairOfWords();
-
-      // if (pair) sprint.innerHTML = renderSprintGame(pair.word, pair.wordTranslate);
+      main.innerHTML = renderSprintGame(word, wordTranslate);
 
       // timer();
       // sprintClickHandler();
