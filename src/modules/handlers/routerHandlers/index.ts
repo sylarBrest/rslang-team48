@@ -6,6 +6,7 @@ import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
+import initCardHandlers from '../cardHandlers';
 
 const router = new Router({
   mode: 'hash',
@@ -18,6 +19,7 @@ const initRouterHandlers = () => {
   router.add(/tutorial/, async () => {
     main.innerHTML = await renderTutorial();
     activeLinkHandler('tutorial');
+    initCardHandlers();
   });
 
   router.add(/sprint/, () => {
