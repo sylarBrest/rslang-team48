@@ -5,8 +5,9 @@ import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
-import { SPRINT_DESCRIPTION, SPRINT_TITLE } from '@modules/constants';
-import renderStartGame from '@modules/view/pages/Game';
+import renderStartGame from '@modules/view/pages/Game/menuGame';
+import { SPRINT_DESCRIPTION, SPRINT_TITLE } from '@modules/constants/common';
+import clickLvlButtonHandler from '../gamesHandler/springGameHandlers/clickLvlButtonHandler';
 
 const router = new Router({
   mode: 'hash',
@@ -23,6 +24,7 @@ const initRouterHandlers = () => {
 
   router.add(/sprint/, () => {
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION);
+    clickLvlButtonHandler();
     activeLinkHandler('sprint');
   });
 

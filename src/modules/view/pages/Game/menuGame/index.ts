@@ -9,7 +9,7 @@ const renderStartGame = (title: string, description: string) => `
           ${description}
         </div>
         <div class="game__level-buttons">
-          <button class="game__level-button" data-group="0">A1</button>
+          <button class="game__level-button active-level-btn" data-group="0">A1</button>
           <button class="game__level-button" data-group="1">A2</button>
           <button class="game__level-button" data-group="2">B1</button>
           <button class="game__level-button" data-group="3">B2</button>
