@@ -54,13 +54,13 @@
 
 html {
   box-sizing: inherit;
-  height: -webkit-fill-available;
+  height: 100%;
   font-size: 100%;
   scroll-behavior: smooth;
 }
 
 body {
-  height: -webkit-fill-available;
+  height: 100%;
   color: var(--color-black-100);
   font-weight: 400;
   font-size: clamp(1rem, 2vw, 1.125rem);
@@ -69,8 +69,14 @@ body {
   background-color: var(--color-white-100);
 }
 
+body > * {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 main {
-  overflow: hidden;
+  height: 100%;
 }
 
 a,
