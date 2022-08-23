@@ -18,6 +18,10 @@ export const TRUE = 'true';
 
 export const FALSE = 'false';
 
+export const ANSWER_TIME = 30;
+
+export const SECOND = 1000;
+
 export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',
