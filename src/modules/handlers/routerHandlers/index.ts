@@ -1,13 +1,14 @@
 import Router from '@library/Router.js';
-import renderAudiocall from '@view/pages/Audiocall';
 import renderMain from '@view/pages/Main';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 import renderStartGame from '@modules/view/pages/Game/menuGame';
-import { SPRINT_DESCRIPTION, SPRINT_TITLE } from '@modules/constants/common';
-import clickLvlButtonHandler from '../gamesHandler/springGameHandlers/clickLvlButtonHandler';
+import {
+  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE, SPRINT_DESCRIPTION, SPRINT_TITLE,
+} from '@modules/constants/common';
+import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 
 const router = new Router({
   mode: 'hash',
@@ -24,12 +25,12 @@ const initRouterHandlers = () => {
 
   router.add(/sprint/, () => {
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION);
-    clickLvlButtonHandler();
+    startSprintGameHandler(true);
     activeLinkHandler('sprint');
   });
 
   router.add(/audiocall/, () => {
-    main.innerHTML = renderAudiocall();
+    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION);
     activeLinkHandler('audiocall');
   });
 
