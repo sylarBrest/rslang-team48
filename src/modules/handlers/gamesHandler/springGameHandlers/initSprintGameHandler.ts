@@ -2,7 +2,7 @@ import clickLvlButtonHandler from '../clickLvlButtonHandler';
 import clickStartSprintHandler from './clickStartSprintHandler';
 
 const startSprintGameHandler = (flag: boolean) => {
-  clickLvlButtonHandler();
+  if (flag) clickLvlButtonHandler();
   clickStartSprintHandler(flag);
 };
 

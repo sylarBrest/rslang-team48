@@ -22,12 +22,12 @@
     margin: 0 auto;
   }
 
-  &-logic-button:hover {
+  &-logic-button:active {
     transform: scale(1.1);
   }
 }
 
-[data-boolean='false'] {
+.sprint__play-false {
   width: 9.5vw;
   height: inherit;
   margin-left: 2.5vw;
@@ -38,7 +38,7 @@
   clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
 }
 
-[data-boolean='true'] {
+.sprint__play-true {
   width: 9.5vw;
   height: inherit;
   margin-left: -2.5vw;

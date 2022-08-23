@@ -11,8 +11,8 @@ const renderSprintGame = () => {
         <div class="game__sprint-word-translate">${wordTranslate}</div>
       </div>        
       <div class="game__sprint-buttons">
-        <button data-boolean="false" class="game__sprint-logic-button">не верно</button>
-        <button data-boolean="true" class="game__sprint-logic-button">верно</button>
+        <button data-boolean="false" class="game__sprint-logic-button sprint__play-false">не верно</button>
+        <button data-boolean="true" class="game__sprint-logic-button sprint__play-true">верно</button>
       </div>
     </div> 
 `;

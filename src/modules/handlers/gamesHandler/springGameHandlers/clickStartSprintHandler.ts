@@ -1,13 +1,17 @@
 import { FIRST_PAGE, LAST_PAGE } from '@modules/constants/common';
 import { EStatusCode } from '@modules/constants/services';
 import getWords from '@modules/services/words/getWords';
-import { initTemporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import {
+  initTemporalSprintWordsData,
+  temporalSprintWordsData,
+} from '@modules/store/temporalData/temporalSprintWordsData';
 
 import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
 import changeTimer from '@modules/utils/changeTimer';
 import getRandomInteger from '@modules/utils/getRandomInteger';
 import renderSprintGame from '@modules/view/pages/Sprint';
+import sprintClickHandler from './sprintButtonClickHandler';
 
 const clickStartSprintHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
@@ -36,7 +40,10 @@ const clickStartSprintHandler = (flag: boolean) => {
       gameLayout.innerHTML = renderSprintGame();
 
       changeTimer();
+
+      console.log(temporalSprintWordsData.dictionary);
       // sprintClickHandler();
+      sprintClickHandler();
     }
   });
 };

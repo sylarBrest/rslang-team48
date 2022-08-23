@@ -18,9 +18,14 @@ export type TWordContent = {
 };
 
 export type TTemporalSprintWordsData = {
-  dictionary: Record<string, string>;
-  wordPairs: [] | TSprintWordPairs[];
-  gameAnswers: [] | TSprintGameAnswers[];
+  dictionary: Record<string, TTemporalDictionary>;
+  wordPairs: TSprintWordPairs[];
+  gameAnswers: TSprintGameAnswers[];
+};
+
+export type TTemporalDictionary = {
+  wordTranslate: string;
+  id: string;
 };
 
 export type TSprintWordPairs = {
@@ -29,7 +34,7 @@ export type TSprintWordPairs = {
 };
 
 export type TSprintGameAnswers = {
-  id: string,
+  id: string;
   word: string;
   wordTranslate: string;
   isCorrectAnswer: string;
