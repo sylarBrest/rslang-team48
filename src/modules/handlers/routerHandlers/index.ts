@@ -1,11 +1,12 @@
 import Router from '@library/Router.js';
 import renderAudiocall from '@view/pages/Audiocall';
 import renderMain from '@view/pages/Main';
-import renderSprint from '@view/pages/Sprint';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
+import { SPRINT_DESCRIPTION, SPRINT_TITLE } from '@modules/constants';
+import renderStartGame from '@modules/view/pages/Game';
 
 const router = new Router({
   mode: 'hash',
@@ -21,7 +22,7 @@ const initRouterHandlers = () => {
   });
 
   router.add(/sprint/, () => {
-    main.innerHTML = renderSprint();
+    main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION);
     activeLinkHandler('sprint');
   });
 

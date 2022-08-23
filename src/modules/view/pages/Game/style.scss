@@ -1,0 +1,24 @@
+.game {
+  &__layout {
+    width: 70vw;
+    height: 40vh;
+    margin: 15vh auto;
+    border: 2px solid #b22222;
+  }
+
+  &__sprint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 90%;
+  }
+
+  &__title {
+    font-size: 32px;
+  }
+
+  &__description {
+    font-size: 18px;
+  }
+}
