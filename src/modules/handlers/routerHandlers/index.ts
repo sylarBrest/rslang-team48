@@ -23,13 +23,13 @@ const initRouterHandlers = () => {
     activeLinkHandler('tutorial');
   });
 
-  router.add(/sprint/, () => {
+  router.add('games/sprint', () => {
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION);
     startSprintGameHandler(true);
     activeLinkHandler('sprint');
   });
 
-  router.add(/audiocall/, () => {
+  router.add('games/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION);
     activeLinkHandler('audiocall');
   });
