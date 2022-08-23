@@ -1,6 +1,7 @@
-// import { HOST } from '../../../services/constants';
-import getWords from '../../../services/words/getWords';
-import { EStatusCode, TWordContent } from '../../../types';
+
+import { EStatusCode } from '@constants';
+import getWords from '@services/words/getWords';
+import { TWordContent } from '@types';
 import Card from '../../components/Card';
 
 import './style.scss';

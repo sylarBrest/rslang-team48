@@ -1,3 +1,8 @@
+/*
+  Using routing library taken from:
+  https://github.com/thecreazy/create-a-modern-javascript-router
+*/
+
 class Router {
   routes = [];
 

@@ -1,6 +1,6 @@
-import signIn from '../../../services/logins/signIn';
-import updateLocalStorageData from '../../../services/userData/updateUserData';
-import { EStatusCode } from '../../../types';
+import signIn from '@services/logins/signIn';
+import updateUserData from '@store/userData/updateUserData';
+import { EStatusCode } from '@constants';
 
 const loginHandler = () => {
   const loginBtn = <HTMLButtonElement>document.querySelector('.btn-login');
@@ -18,7 +18,7 @@ const loginHandler = () => {
         token, refreshToken, userId, name,
       } = loginData;
 
-      updateLocalStorageData(name, token, refreshToken, userId);
+      updateUserData(name, token, refreshToken, userId);
 
       alert(`${name} успешно вошел в систему`);
     }

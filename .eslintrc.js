@@ -37,5 +37,5 @@ module.exports = {
       { blankLine: 'any', prev: ['import'], next: ['import'] },
     ],
   },
-  ignorePatterns: ['dist/*', '.eslintrc.js', 'webpack.config.js', 'src/services/*'],
+  ignorePatterns: ['dist/*', '.eslintrc.js', 'webpack.config.js'],
 };

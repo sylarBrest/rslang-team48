@@ -1,8 +1,8 @@
-import { HOST, POST, URL_USERS } from '../constants';
+import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const createUser = async (name: string, email: string, password: string) =>
-  fetch(`${HOST}${URL_USERS}`, {
-    method: POST,
+  fetch(`${HOST}${EUrl.USERS}`, {
+    method: EHttpMethod.POST,
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',

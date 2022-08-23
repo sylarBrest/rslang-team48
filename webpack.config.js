@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const mode = process.env.NODE_ENV;
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -67,6 +68,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js'],
+    plugins: [new TsconfigPathsPlugin()],
   },
   plugins: [
     new HtmlWebpackPlugin({

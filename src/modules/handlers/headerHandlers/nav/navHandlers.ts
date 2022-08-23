@@ -1,4 +1,3 @@
-
 const navHandlers = () => {
   const navbarMenu = <HTMLDivElement>document.querySelector('#menu');
   const burgerMenu = <HTMLDivElement>document.querySelector('#burger');

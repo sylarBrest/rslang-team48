@@ -43,7 +43,6 @@
   width: 100%;
   height: auto;
   padding: 4rem 0 3rem;
-  // overflow: hidden;
   background-color: var(--color-blue-600);
   box-shadow: var(--shadow-medium);
   visibility: hidden;
@@ -82,7 +81,6 @@
     font-size: 1rem;
     font-family: inherit;
     line-height: 1.5;
-    // text-transform: uppercase;
     border-radius: 3rem;
     transition: all 0.3s ease;
 
@@ -97,15 +95,15 @@
     }
 
     &_main::before {
-      background-image: url('../../../../assets/svg/main-icon.svg');
+      background-image: url('@assets/svg/main-icon.svg');
     }
     
     &_tutorial::before {
-      background-image: url('../../../../assets/svg/tutorial-icon.svg');
+      background-image: url('@assets/svg/tutorial-icon.svg');
     }
 
     &_games::before {
-      background-image: url('../../../../assets/svg/down.svg');
+      background-image: url('@assets/svg/down.svg');
       transform: rotate(-90deg);
       transition: 0.3s ease-out;
     }
@@ -115,19 +113,19 @@
     }
 
     &_audiocall::before {
-      background-image: url('../../../../assets/svg/ear-icon.svg');
+      background-image: url('@assets/svg/ear-icon.svg');
     }
 
     &_sprint::before {
-      background-image: url('../../../../assets/svg/run-icon.svg');
+      background-image: url('@assets/svg/run-icon.svg');
     }
 
     &_stat::before {
-      background-image: url('../../../../assets/svg/stat-icon.svg');
+      background-image: url('@assets/svg/stat-icon.svg');
     }
 
     &_team::before {
-      background-image: url('../../../../assets/svg/team-icon.svg');
+      background-image: url('@assets/svg/team-icon.svg');
     }
 
     &::after {        
@@ -166,7 +164,6 @@
   }
 
   &__dropdown-content_active {
-    // display: flex;
     top: 3rem;
     box-shadow: var(--shadow-medium);
     visibility: visible;
@@ -187,7 +184,6 @@
     line-height: 1.25;
     white-space: nowrap;
     text-align: center;
-    // text-transform: capitalize;
     background-color: var(--color-white-600);
     border-radius: 3rem;
     box-shadow: var(--shadow-medium);
@@ -202,7 +198,7 @@
       display: inline-block;
       width: 1.5rem;
       height: 1.5rem;
-      background-image: url('../../../../assets/svg/login-icon.svg');
+      background-image: url('@assets/svg/login-icon.svg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -232,10 +228,6 @@
     &__dropdown-content {
       flex-direction: row;
     }
-
-    // &__link {
-    //   text-transform: capitalize;
-    // }
 
     &__login-btn {
       margin-left: 2rem;

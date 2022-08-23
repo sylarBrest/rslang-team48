@@ -1,5 +1,5 @@
-import { TWordContent } from '../../../types';
-import { HOST } from '../../../services/constants';
+import { HOST } from '@constants';
+import { TWordContent } from '@types';
 import './style.scss';
 
 const Card = ({
