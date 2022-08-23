@@ -17,7 +17,7 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20rem;
+  width: 15rem;
 
   &__heading,
   &__subheading {    
@@ -51,15 +51,15 @@ h6 {
   }
 
   &__audio-btn {    
-    background-image: url('../../../../assets/svg/audio.svg');    
+    background-image: url('@assets/svg/audio.svg');    
   }
 
   &__done-btn {
-    background-image: url('../../../../assets/svg/done.svg');
+    background-image: url('@assets/svg/done.svg');
   }
 
   &__complex-btn {
-    background-image: url('../../../../assets/svg/favorite.svg');
+    background-image: url('@assets/svg/favorite.svg');
   }
 
   &__header-buttons {
@@ -110,7 +110,7 @@ h6 {
     transition: 0.3s ease-in-out;
     
     &_active {
-      transform: translateY(3rem);
+      transform: translateY(4rem);
       // transform: scaleY(1);
       visibility: visible;
       opacity: 1;
