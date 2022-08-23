@@ -1,7 +1,7 @@
 import './style.scss';
 
 const renderStartGame = (title: string, description: string) => `
-  <section class="container section sprint-background">
+  <section class="container section">
     <div class="game__layout">
       <div class="game__sprint game__audiocall">
         <div class="game__title">${title}</div>

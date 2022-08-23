@@ -1,9 +1,10 @@
 .game {
   &__layout {
-    width: 70vw;
+    width: 40vw;
     height: 40vh;
     margin: 15vh auto;
-    border: 2px solid #b22222;
+    border: 3px solid #000;
+    border-radius: 5vh;
   }
 
   &__sprint {
@@ -20,6 +21,7 @@
 
   &__description {
     font-size: 18px;
+    text-align: center;
   }
 
   &__level-buttons {
@@ -39,7 +41,7 @@
   &__play-button {
     width: 100px;
     height: 35px;
-    border: 2px solid #c0c0c0;
+    border: 3px solid #000;
   }
 
   &__play-button:hover {

@@ -2,20 +2,20 @@ import { FIRST_PAGE, LAST_PAGE } from '@modules/constants/common';
 import { EStatusCode } from '@modules/constants/services';
 import getWords from '@modules/services/words/getWords';
 import {
-  initTemporalSprintWordsData, temporalSprintWordsData,
+  initTemporalSprintWordsData,
+  temporalSprintWordsData,
 } from '@modules/store/temporalData/temporalSprintWordsData';
 
 import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
 import getRandomInteger from '@modules/utils/getRandomInteger';
-import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
 import renderSprintGame from '@modules/view/pages/Sprint';
 
 const clickStartSprintHandler = (flag: boolean) => {
-  const main = <HTMLElement>document.querySelector('.main');
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
+    const gameLayout = <HTMLElement>document.querySelector('.game__layout');
     const activeLvlBtn = document.querySelectorAll<HTMLButtonElement>('.game__level-button');
 
     let selectedGroup = '';
@@ -36,9 +36,7 @@ const clickStartSprintHandler = (flag: boolean) => {
       initTemporalSprintWordsData(words);
       console.log(temporalSprintWordsData.dictionary, temporalSprintWordsData.wordPairs);
 
-      const { word, wordTranslate } = getRandomWordPairs();
-
-      main.innerHTML = renderSprintGame(word, wordTranslate);
+      gameLayout.innerHTML = renderSprintGame();
 
       // timer();
       // sprintClickHandler();
