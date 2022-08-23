@@ -32,12 +32,11 @@ h6 {
     
   }
 
-  &__audio {
+  &__btn {
     display: inline-block;
     width: 1.3rem;
     height: 1.3rem;
     padding: 0.7rem;
-    background-image: url('../../../../assets/svg/audio.svg');
     background-size: cover;
     border-radius: 50%;
     transition: 0.2s;
@@ -51,8 +50,26 @@ h6 {
     }
   }
 
+  &__audio-btn {    
+    background-image: url('../../../../assets/svg/audio.svg');    
+  }
 
-  &__row {
+  &__done-btn {
+    background-image: url('../../../../assets/svg/done.svg');
+  }
+
+  &__complex-btn {
+    background-image: url('../../../../assets/svg/favorite.svg');
+  }
+
+  &__header-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    transform: translateX(1rem);
+  }
+
+  &__header-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -68,14 +85,11 @@ h6 {
     cursor: pointer;
     transition: 0.3s;
     
-    &:hover {
+    &:hover,
+    &_active {
       z-index: 2;
       background-color: $card-header-hover-color;
       box-shadow: var(--shadow-small);
-    }
-    
-    &_active {
-      z-index: 2;
     }
   }
 
@@ -84,20 +98,26 @@ h6 {
     top: 0;
     z-index: 1;
     max-width: 18rem;
-    padding: 1rem;
+    padding: 2rem;
+    font-size: 1rem;
     background-color: var(--color-white-200);
-    transform: translateY(-6rem);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-small);
+    transform: translateY(0);
     // transform: scaleY(0.1);
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in-out;
-
-
+    
     &_active {
-      transform: translateY(6rem);
+      transform: translateY(3rem);
       // transform: scaleY(1);
       visibility: visible;
       opacity: 1;
+
+      &:hover {
+        z-index: 1;
+      }
     }
   }
 
