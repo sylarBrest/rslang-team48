@@ -1,9 +1,9 @@
-import { HOST, URL_USERS, GET } from '../constants';
-import { userDataLocal } from '../userData/initUserData';
+import { userDataLocal } from '@store/userData/initUserData';
+import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const basicGetMethod = async (url?: string) =>
-  fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}${url}`, {
-    method: GET,
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${url}`, {
+    method: EHttpMethod.GET,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
       Accept: 'application/json',

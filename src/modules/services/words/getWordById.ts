@@ -1,5 +1,5 @@
-import { HOST, URL_WORDS } from '../constants';
+import { HOST, EUrl } from '@constants';
 
-const getWordById = async (id: string) => fetch(`${HOST}${URL_WORDS}/${id}`);
+const getWordById = async (id: string) => fetch(`${HOST}${EUrl.WORDS}/${id}`);
 
 export default getWordById;

@@ -1,9 +1,9 @@
-import { HOST, DELETE, URL_USERS } from '../constants';
-import { userDataLocal } from '../userData/initUserData';
+import { userDataLocal } from '@store/userData/initUserData';
+import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const deleteUser = async () =>
-  fetch(`${HOST}${URL_USERS}/${userDataLocal.userId}`, {
-    method: DELETE,
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}`, {
+    method: EHttpMethod.DELETE,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
       Accept: 'application/json',

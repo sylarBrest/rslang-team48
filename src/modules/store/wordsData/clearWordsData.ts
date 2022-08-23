@@ -1,8 +1,8 @@
-import { WORDS_DATA } from '../../constants';
+import { ELocalStorage } from '@constants';
 import { initWordsData } from './initWordsData';
 
 const clearWordsData = () => {
-  localStorage.removeItem(WORDS_DATA);
+  localStorage.removeItem(ELocalStorage.WORDS);
 
   initWordsData();
 };
