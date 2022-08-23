@@ -7,7 +7,9 @@ const renderLayout = () => {
 
   root.innerHTML = `
     ${renderHeader()}
-    ${renderMain()}
+    <main class="main">
+      ${renderMain()}
+    </main>  
     ${renderFooter()}
   `;
 };
