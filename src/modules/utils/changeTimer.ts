@@ -1,5 +1,5 @@
 /* eslint-disable no-plusplus */
-import { ANSWER_TIME, SECOND, ZERO } from '@modules/constants/common';
+import { ANSWER_TIME, SECOND, ZERO } from '@constants';
 import showGameResult from './showGameResult';
 
 const changeTimer = () => {

@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
-import { TTemporalSprintWordsData, TWordContent } from '@modules/types';
-import getRandomInteger from '@modules/utils/getRandomInteger';
+import { TTemporalSprintWordsData, TWordContent } from '@types';
+import { getRandomInteger } from '@utils';
 
 export const temporalSprintWordsData: TTemporalSprintWordsData = {
   dictionary: {},

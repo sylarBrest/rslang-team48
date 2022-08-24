@@ -1,4 +1,4 @@
-import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
+import { getRandomWordPairs } from '@utils';
 
 import './style.scss';
 

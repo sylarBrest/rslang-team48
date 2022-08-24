@@ -4,11 +4,11 @@ import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
-import renderStartGame from '@modules/view/pages/Game/startPage';
+import renderStartGame from '@view/pages/Game/startPage';
 import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
   SPRINT_DESCRIPTION, SPRINT_TITLE,
-} from '@modules/constants/common';
+} from '@constants';
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
 

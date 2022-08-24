@@ -1,5 +1,3 @@
-export type RemoveLater = 'remove' | 'delete';
-
 export type TWordContent = {
   id: string;
   group: number;

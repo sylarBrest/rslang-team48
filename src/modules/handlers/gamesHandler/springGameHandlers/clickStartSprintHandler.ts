@@ -1,13 +1,10 @@
-import { FIRST_PAGE, LAST_PAGE } from '@modules/constants/common';
-import { EStatusCode } from '@modules/constants/services';
-import getWords from '@modules/services/words/getWords';
-import { initTemporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
-
-import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
-import { TWordContent } from '@modules/types';
-import changeTimer from '@modules/utils/changeTimer';
-import getRandomInteger from '@modules/utils/getRandomInteger';
-import renderSprintGame from '@modules/view/pages/Sprint';
+import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
+import getWords from '@services/words/getWords';
+import { initTemporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { wordsDataLocal } from '@store/wordsData/initWordsData';
+import { TWordContent } from '@types';
+import { changeTimer, getRandomInteger } from '@utils';
+import renderSprintGame from '@view/pages/Sprint';
 import sprintClickHandler from './sprintButtonClickHandler';
 
 const clickStartSprintHandler = (flag: boolean) => {

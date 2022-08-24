@@ -1,4 +1,4 @@
-import { ZERO } from '@modules/constants/common';
+import { ZERO } from '@constants';
 import { getWordsData } from './getWordsData';
 
 export const wordsDataLocal: Record<string, string> = {

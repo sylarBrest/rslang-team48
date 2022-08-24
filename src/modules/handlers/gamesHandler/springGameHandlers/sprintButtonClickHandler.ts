@@ -1,7 +1,6 @@
-import { FALSE, TRUE } from '@modules/constants/common';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
-import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
-import showGameResult from '@modules/utils/showGameResult';
+import { FALSE, TRUE } from '@constants';
+import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { getRandomWordPairs, showGameResult } from '@utils';
 
 export const getWordsDataByMouseClick = (e: Event) => {
   const wordElem = <HTMLElement>document.querySelector('.game__sprint-word');
