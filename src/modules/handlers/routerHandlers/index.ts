@@ -7,6 +7,7 @@ import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 import initCardHandlers from '../cardHandlers';
+import initLevelHandlers from '../levelHandlers';
 
 const router = new Router({
   mode: 'hash',
@@ -16,10 +17,11 @@ const router = new Router({
 const initRouterHandlers = () => {
   const main = <HTMLElement>document.querySelector('.main');
 
-  router.add(/tutorial/, async () => {
-    main.innerHTML = await renderTutorial();
+  router.add(/tutorial\/(.*)\/(.*)/, async (group: string, page: string) => {
+    main.innerHTML = await renderTutorial(group, page);
     activeLinkHandler('tutorial');
     initCardHandlers();
+    initLevelHandlers();
   });
 
   router.add(/sprint/, () => {

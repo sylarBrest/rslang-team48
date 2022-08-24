@@ -5,8 +5,8 @@ import Card from '@view/components/Card';
 
 import './style.scss';
 
-const renderTutorial = async () => {
-  const response = await getWords();
+const renderTutorial = async (group: string, page: string) => {
+  const response = await getWords(group, page);
   let content = '';
   if (response.status === EStatusCode.OK) {
     const words: TWordContent[] = await response.json();
@@ -19,12 +19,12 @@ const renderTutorial = async () => {
     <section class="tutorial section container">
       <div class="tutorial__header">
         <div class="tutorial__difficulties-bar">
-          <button class="btn btn-darken difficulty-btn">A1</button>
-          <button class="btn btn-darken difficulty-btn">A2</button>
-          <button class="btn btn-darken difficulty-btn">B1</button>
-          <button class="btn btn-darken difficulty-btn">B2</button>
-          <button class="btn btn-darken difficulty-btn">C1</button>
-          <button class="btn btn-darken difficulty-btn">C2</button>
+          <button class="btn btn-darken difficulty-btn" data-group="0">A1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="1">A2</button>
+          <button class="btn btn-darken difficulty-btn" data-group="2">B1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="3">B2</button>
+          <button class="btn btn-darken difficulty-btn" data-group="4">C1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="5">C2</button>
         </div>
         <div class="tutorial__games-bar">
           <button class="btn btn-neutral">Аудиовызов</button>
