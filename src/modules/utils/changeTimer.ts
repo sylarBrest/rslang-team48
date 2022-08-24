@@ -1,6 +1,5 @@
 /* eslint-disable no-plusplus */
 import { ANSWER_TIME, SECOND, ZERO } from '@modules/constants/common';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
 import showGameResult from './showGameResult';
 
 const changeTimer = () => {
@@ -12,7 +11,6 @@ const changeTimer = () => {
     if (value.textContent === ZERO) {
       clearInterval(timerID);
 
-      console.log(temporalSprintWordsData.gameAnswers);
       showGameResult();
     }
 

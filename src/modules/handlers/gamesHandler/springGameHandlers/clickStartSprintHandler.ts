@@ -1,10 +1,7 @@
 import { FIRST_PAGE, LAST_PAGE } from '@modules/constants/common';
 import { EStatusCode } from '@modules/constants/services';
 import getWords from '@modules/services/words/getWords';
-import {
-  initTemporalSprintWordsData,
-  temporalSprintWordsData,
-} from '@modules/store/temporalData/temporalSprintWordsData';
+import { initTemporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
 
 import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
@@ -40,9 +37,6 @@ const clickStartSprintHandler = (flag: boolean) => {
       gameLayout.innerHTML = renderSprintGame();
 
       changeTimer();
-
-      console.log(temporalSprintWordsData.dictionary);
-      // sprintClickHandler();
       sprintClickHandler();
     }
   });
