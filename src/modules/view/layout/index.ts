@@ -1,6 +1,6 @@
 import renderFooter from '../components/Footer';
 import renderHeader from '../components/Header';
-import renderMain from '../pages/Main';
+import renderHome from '../pages/Home';
 
 const renderLayout = () => {
   const root = <HTMLElement>document.querySelector('#root');
@@ -8,7 +8,7 @@ const renderLayout = () => {
   root.innerHTML = `
     ${renderHeader()}
     <main class="main">
-      ${renderMain()}
+      ${renderHome()}
     </main>  
     ${renderFooter()}
   `;

@@ -1,6 +1,6 @@
 import Router from '@library/Router.js';
 import renderAudiocall from '@view/pages/Audiocall';
-import renderMain from '@view/pages/Main';
+import renderHome from '@view/pages/Home';
 import renderSprint from '@view/pages/Sprint';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
@@ -43,8 +43,8 @@ const initRouterHandlers = () => {
   });
 
   router.add('', () => {
-    main.innerHTML = renderMain();
-    activeLinkHandler('main');
+    main.innerHTML = renderHome();
+    activeLinkHandler('home');
   });
 };
 

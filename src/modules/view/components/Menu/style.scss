@@ -95,8 +95,8 @@
       content: '';
     }
 
-    &_main::before {
-      background-image: url('@assets/svg/main-icon.svg');
+    &_home::before {
+      background-image: url('@assets/svg/home-icon.svg');
     }
     
     &_tutorial::before {
