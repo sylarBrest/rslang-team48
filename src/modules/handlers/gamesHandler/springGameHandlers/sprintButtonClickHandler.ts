@@ -1,6 +1,7 @@
 import { FALSE, TRUE } from '@modules/constants/common';
 import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
 import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
+import showGameResult from '@modules/utils/showGameResult';
 
 export const getWordsDataByMouseClick = (e: Event) => {
   const wordElem = <HTMLElement>document.querySelector('.game__sprint-word');
@@ -10,12 +11,6 @@ export const getWordsDataByMouseClick = (e: Event) => {
   const audioCorrect = new Audio('./src/assets/audio/correct.mp3');
   const audioIncorrect = new Audio('./src/assets/audio/error.mp3');
   const bool = (<HTMLButtonElement>e.target).getAttribute('data-boolean');
-
-  // if (e instanceof KeyboardEvent && e.key === 'ArrowLeft') {
-  //   bool = FALSE;
-  // } else {
-  //   bool = TRUE;
-  // }
 
   let answer = false;
 
@@ -53,28 +48,14 @@ export const getWordsDataByMouseClick = (e: Event) => {
   const pair = getRandomWordPairs();
 
   if (!temporalSprintWordsData.wordPairs?.length) {
-    alert('закончились');
-    // let fragment = '';
-    // temporalWordsData.sprintGameAnswers.forEach((item) => {
-    //   fragment += renderSprintResult(String(item.wordText), String(item.wordTranslateText), String(item.answer));
-    // });
-    // const sprint = <HTMLElement>document.querySelector('.sprint');
-    // sprint.innerHTML = `
-    //     <div class="sprint__result">
-    //     <button class="sprint__result-play-again">Играть снова</button>
-    //       ${fragment}
-    //     </div>
-    //   `;
-    // temporalWordsData.sprintGameAnswers = [];
-    // window.removeEventListener('keydown', getWordsDataByClick);
-    // sprintPlayAgainHandler();
+    showGameResult();
   }
 
   wordElem.innerHTML = pair.word;
   wordTranslateElem.innerHTML = pair.wordTranslate;
 };
 
-const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
+export const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
   const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
   const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
 

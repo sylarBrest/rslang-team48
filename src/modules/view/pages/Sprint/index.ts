@@ -1,4 +1,5 @@
 import getRandomWordPairs from '@modules/utils/getRandomWordPairs';
+
 import './style.scss';
 
 const renderSprintGame = () => {
