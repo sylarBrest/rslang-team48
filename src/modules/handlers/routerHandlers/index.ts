@@ -43,7 +43,7 @@ const initRouterHandlers = () => {
   });
 
   router.add('textbook/audiocall', () => {
-    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
+    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
   });
 
   router.add(/statistic/, () => {
