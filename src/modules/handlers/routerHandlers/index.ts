@@ -1,5 +1,5 @@
 import Router from '@library/Router.js';
-import renderMain from '@view/pages/Main';
+import renderHome from '@view/pages/Home';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
@@ -10,6 +10,7 @@ import {
   SPRINT_DESCRIPTION, SPRINT_TITLE,
 } from '@modules/constants/common';
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
+import initCardHandlers from '../cardHandlers';
 
 const router = new Router({
   mode: 'hash',
@@ -22,6 +23,7 @@ const initRouterHandlers = () => {
   router.add(/tutorial/, async () => {
     main.innerHTML = await renderTutorial();
     activeLinkHandler('tutorial');
+    initCardHandlers();
   });
 
   router.add('games/sprint', () => {
@@ -55,8 +57,8 @@ const initRouterHandlers = () => {
   });
 
   router.add('', () => {
-    main.innerHTML = renderMain();
-    activeLinkHandler('main');
+    main.innerHTML = renderHome();
+    activeLinkHandler('home');
   });
 };
 

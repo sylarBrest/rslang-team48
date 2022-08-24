@@ -10,8 +10,8 @@ const renderMenu = () => `
       </div>
       <div class="menu" id="menu">
         <ul class="menu__inner">
-            <li class="menu__item" data-view="main">
-              <a href="/#/" class="menu__link menu__link_main menu__link_active">Главная</a>
+            <li class="menu__item" data-view="home">
+              <a href="/#/" class="menu__link menu__link_home menu__link_active">Главная</a>
             </li>
             <li class="menu__item" data-view="tutorial">
               <a href="/#/tutorial" class="menu__link menu__link_tutorial">Учебник</a>

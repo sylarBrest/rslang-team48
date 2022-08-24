@@ -1,0 +1,57 @@
+.footer {
+  background-color: var(--color-blue-600);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+
+  .github {
+    display: flex;
+    gap: 10px;
+
+    .link {
+      width: 30px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: 50%;
+    }
+
+    &__sylarbrest {
+      background-image: url('@assets/img/sylarbrest.webp');
+    }
+
+    &__ivankoliada {
+      background-image: url('@assets/img/ivankoliada.webp');
+    }
+
+    &__knyazigor {
+      background-image: url('@assets/img/knyazigor.webp');
+    }
+  }
+
+  .copyright {
+    display: flex;
+    gap: 5px;
+    font-size: 25px;
+  }
+
+  .rss-logo {
+    width: 109px;
+    height: 40px;
+    background: url('@assets/svg/rss.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  @media only screen and (max-width: 470px) {
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+  }
+}
