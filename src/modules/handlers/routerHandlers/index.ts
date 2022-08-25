@@ -3,7 +3,6 @@ import renderHome from '@view/pages/Home';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
-import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
@@ -12,6 +11,7 @@ import {
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
 import initLevelHandlers from '../levelHandlers';
+import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
 
 const router = new Router({
   mode: 'hash',

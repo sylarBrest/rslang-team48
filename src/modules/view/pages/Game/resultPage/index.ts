@@ -1,5 +1,5 @@
-import { TRUE } from '@modules/constants';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { TRUE } from '@constants';
+import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
 
 import './style.scss';
 
