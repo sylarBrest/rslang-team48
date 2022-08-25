@@ -11,7 +11,7 @@ import {
 import { initWordsData, updateWordsData } from '@store';
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
-import initLevelHandlers from '../levelHandlers';
+import initButtonHandlers from '../buttonHandlers';
 import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
 
 const router = new Router({
@@ -36,7 +36,7 @@ const initRouterHandlers = () => {
     main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
-    initLevelHandlers();
+    initButtonHandlers();
   });
 
   router.add('games/sprint', () => {

@@ -25,9 +25,20 @@
 
   &__pagination {
     display: flex;
-    gap: 1.5rem;
+    gap: 0.25rem;
+
+    .btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+    
+      &:hover {
+        background-color: var(--color-blue-100);
+      }
+
+      &:disabled {
+        background-color: unset;
+      }
+    }    
   }
 }
-
-
-

@@ -41,13 +41,15 @@ export const renderTextbook = async () => {
       </div>
       <div class="textbook__footer">
         <div class="textbook__pagination">
-          <button class="btn">1</button>
-          <button class="btn">2</button>
-          <button class="btn">3</button>
-          <button class="btn">4</button>
-          <button class="btn">5</button>
-          <button class="btn">...</button>
-          <button class="btn">30</button>
+          <button class="btn first" disabled>&laquo;</button>
+          <button class="btn prev" disabled>&lt;</button>
+          <button class="btn page" data-page="0">1</button>
+          <button class="btn page" data-page="1">2</button>
+          <button class="btn page" data-page="2">3</button>
+          <button class="btn page" data-page="3">4</button>
+          <button class="btn page" data-page="4">5</button>
+          <button class="btn next">&gt;</button>
+          <button class="btn last">&raquo;</button>
         </div>
       </div>
     </section>    
