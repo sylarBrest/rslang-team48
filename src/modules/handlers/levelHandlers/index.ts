@@ -1,5 +1,5 @@
 import { ZERO } from '@constants';
-import { wordsDataLocal } from '@store';
+import { updateWordsData, wordsDataLocal } from '@store';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
 
@@ -11,6 +11,7 @@ const initLevelHandlers = () => {
     const targetButton = <HTMLButtonElement>event.target;
     wordsDataLocal.group = targetButton.dataset.group || ZERO;
     wordsDataLocal.page = ZERO;
+    updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
     textbookBody.innerHTML = await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
   });

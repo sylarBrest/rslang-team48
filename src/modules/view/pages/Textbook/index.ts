@@ -6,7 +6,11 @@ import Card from '@view/components/Card';
 
 import './style.scss';
 
-export const renderTextbookBody = async (group: string, page: string) => {
+export const renderTextbookBody = async (
+  group: string = wordsDataLocal.group,
+  page: string = wordsDataLocal.page,
+) => {
+  console.log('2', wordsDataLocal);
   const response = await getWords(group, page);
   let content = '';
   if (response.status === EStatusCode.OK) {
