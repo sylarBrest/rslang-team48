@@ -30,7 +30,7 @@ const clickStartSprintHandler = (flag: boolean) => {
     if (response.status === EStatusCode.OK) {
       const words: TWordContent[] = await response.json();
       initTemporalSprintWordsData(words);
-      console.log(temporalSprintWordsData.dictionary);
+      console.log(temporalSprintWordsData.translationOptions);
 
       gameLayout.innerHTML = renderSprintGame();
 

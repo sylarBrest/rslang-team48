@@ -18,6 +18,7 @@ export type TWordContent = {
 export type TTemporalSprintWordsData = {
   dictionary: Record<string, TTemporalDictionary>;
   wordPairs: TSprintWordPairs[];
+  translationOptions: TTranslationOptions[];
   gameAnswers: TSprintGameAnswers[];
 };
 
@@ -31,6 +32,15 @@ export type TTemporalDictionary = {
 export type TSprintWordPairs = {
   word: string;
   wordTranslate: string;
+};
+
+export type TTranslationOptions = {
+  word: string;
+  wordTranslateOne: string;
+  wordTranslateTwo: string;
+  wordTranslateThree: string;
+  wordTranslateFour: string;
+  wordTranslateFive: string;
 };
 
 export type TSprintGameAnswers = {
