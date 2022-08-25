@@ -1,5 +1,5 @@
 import { HOST } from '@constants';
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { temporalSprintWordsData } from '@store';
 
 const clickAudioResultHandler = () => {
   const tableBody = <HTMLTableElement>document.querySelector('table');

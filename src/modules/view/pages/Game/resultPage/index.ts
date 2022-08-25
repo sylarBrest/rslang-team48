@@ -1,5 +1,5 @@
 import { TRUE } from '@constants';
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { temporalSprintWordsData } from '@store';
 
 import './style.scss';
 

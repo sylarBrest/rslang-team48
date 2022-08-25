@@ -1,7 +1,10 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
 import getWords from '@services/words/getWords';
-import { initTemporalSprintWordsData, temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
-import { wordsDataLocal } from '@store/wordsData/initWordsData';
+import {
+  initTemporalSprintWordsData,
+  temporalSprintWordsData,
+  wordsDataLocal,
+} from '@store';
 import { TWordContent } from '@types';
 import { changeTimer, getRandomInteger } from '@utils';
 import renderSprintGame from '@view/pages/Sprint';

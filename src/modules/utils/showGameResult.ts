@@ -2,7 +2,7 @@ import { getWordsDataByKeyboardClick }
   from '@handlers/gamesHandler/springGameHandlers/sprintButtonClickHandler';
 import sprintPlayAgainHandler from '@handlers/gamesHandler/springGameHandlers/sprintPlayAgainHandler';
 import clickAudioResultHandler from '@handlers/gamesHandler/clickAudioResultHandler';
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { temporalSprintWordsData } from '@store';
 import renderGameResult from '@view/pages/Game/resultPage';
 
 const showGameResult = () => {

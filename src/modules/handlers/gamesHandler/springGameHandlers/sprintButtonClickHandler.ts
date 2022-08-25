@@ -1,5 +1,5 @@
 import { FALSE, TRUE } from '@constants';
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { temporalSprintWordsData } from '@store';
 import { getRandomWordPairs, showGameResult } from '@utils';
 
 export const getWordsDataByMouseClick = (e: Event) => {
