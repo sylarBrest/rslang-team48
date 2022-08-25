@@ -5,7 +5,7 @@ import Card from '@view/components/Card';
 
 import './style.scss';
 
-const renderTutorial = async (group: string, page: string) => {
+const renderTextbook = async (group: string, page: string) => {
   const response = await getWords(group, page);
   let content = '';
   if (response.status === EStatusCode.OK) {
@@ -16,9 +16,9 @@ const renderTutorial = async (group: string, page: string) => {
   }
 
   const template = `
-    <section class="tutorial section container">
-      <div class="tutorial__header">
-        <div class="tutorial__difficulties-bar">
+    <section class="textbook section container">
+      <div class="textbook__header">
+        <div class="textbook__difficulties-bar">
           <button class="btn btn-darken difficulty-btn" data-group="0">A1</button>
           <button class="btn btn-darken difficulty-btn" data-group="1">A2</button>
           <button class="btn btn-darken difficulty-btn" data-group="2">B1</button>
@@ -26,16 +26,16 @@ const renderTutorial = async (group: string, page: string) => {
           <button class="btn btn-darken difficulty-btn" data-group="4">C1</button>
           <button class="btn btn-darken difficulty-btn" data-group="5">C2</button>
         </div>
-        <div class="tutorial__games-bar">
+        <div class="textbook__games-bar">
           <a href="/#/textbook/audiocall" class="btn btn-neutral">Аудиовызов</a>
           <a href="/#/textbook/sprint" class="btn btn-neutral">Спринт</a>
         </div>
       </div>
-      <div class="tutorial__body">
+      <div class="textbook__body">
         ${content}
       </div>
-      <div class="tutorial__footer">
-        <div class="tutorial__pagination">
+      <div class="textbook__footer">
+        <div class="textbook__pagination">
           <button class="btn">1</button>
           <button class="btn">2</button>
           <button class="btn">3</button>
@@ -50,4 +50,4 @@ const renderTutorial = async (group: string, page: string) => {
   return template;
 };
 
-export default renderTutorial;
+export default renderTextbook;
