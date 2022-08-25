@@ -1,11 +1,12 @@
 import { EStatusCode } from '@constants';
 import getWords from '@services/words/getWords';
+import { wordsDataLocal } from '@store';
 import { TWordContent } from '@types';
 import Card from '@view/components/Card';
 
 import './style.scss';
 
-const renderTextbook = async (group: string, page: string) => {
+export const renderTextbookBody = async (group: string, page: string) => {
   const response = await getWords(group, page);
   let content = '';
   if (response.status === EStatusCode.OK) {
@@ -15,6 +16,10 @@ const renderTextbook = async (group: string, page: string) => {
       .reduce((acc, item) => `${acc}${item}`, '');
   }
 
+  return content;
+};
+
+export const renderTextbook = async () => {
   const template = `
     <section class="textbook section container">
       <div class="textbook__header">
@@ -32,7 +37,7 @@ const renderTextbook = async (group: string, page: string) => {
         </div>
       </div>
       <div class="textbook__body">
-        ${content}
+        ${await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)}
       </div>
       <div class="textbook__footer">
         <div class="textbook__pagination">
@@ -49,5 +54,3 @@ const renderTextbook = async (group: string, page: string) => {
   `;
   return template;
 };
-
-export default renderTextbook;

@@ -2,7 +2,7 @@ import Router from '@library/Router.js';
 import renderHome from '@view/pages/Home';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
-import renderTextbook from '@view/pages/Textbook';
+import { renderTextbook } from '@view/pages/Textbook';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
@@ -21,8 +21,8 @@ const router = new Router({
 const initRouterHandlers = () => {
   const main = <HTMLElement>document.querySelector('.main');
 
-  router.add(/textbook\/(.*)\/(.*)/, async (group: string, page: string) => {
-    main.innerHTML = await renderTextbook(group, page);
+  router.add(/textbook/, async () => {
+    main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
     initLevelHandlers();
