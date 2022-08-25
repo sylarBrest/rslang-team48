@@ -1,11 +1,15 @@
 import Router from '@library/Router.js';
-import renderAudiocall from '@view/pages/Audiocall';
 import renderHome from '@view/pages/Home';
-import renderSprint from '@view/pages/Sprint';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
 import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
+import renderStartGame from '@view/pages/Game/startPage';
+import {
+  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
+  SPRINT_DESCRIPTION, SPRINT_TITLE,
+} from '@constants';
+import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
 import initLevelHandlers from '../levelHandlers';
 
@@ -24,14 +28,24 @@ const initRouterHandlers = () => {
     initLevelHandlers();
   });
 
-  router.add(/sprint/, () => {
-    main.innerHTML = renderSprint();
+  router.add('games/sprint', () => {
+    main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, true);
+    startSprintGameHandler(true);
     activeLinkHandler('sprint');
   });
 
-  router.add(/audiocall/, () => {
-    main.innerHTML = renderAudiocall();
+  router.add('textbook/sprint', () => {
+    main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, false);
+    startSprintGameHandler(false);
+  });
+
+  router.add('games/audiocall', () => {
+    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
     activeLinkHandler('audiocall');
+  });
+
+  router.add('textbook/audiocall', () => {
+    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
   });
 
   router.add(/statistic/, () => {

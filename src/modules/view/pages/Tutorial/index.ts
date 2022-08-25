@@ -27,8 +27,8 @@ const renderTutorial = async (group: string, page: string) => {
           <button class="btn btn-darken difficulty-btn" data-group="5">C2</button>
         </div>
         <div class="tutorial__games-bar">
-          <button class="btn btn-neutral">Аудиовызов</button>
-          <button class="btn btn-neutral">Спринт</button>
+          <a href="/#/textbook/audiocall" class="btn btn-neutral">Аудиовызов</a>
+          <a href="/#/textbook/sprint" class="btn btn-neutral">Спринт</a>
         </div>
       </div>
       <div class="tutorial__body">

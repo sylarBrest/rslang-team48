@@ -1,5 +1,3 @@
-export type RemoveLater = 'remove' | 'delete';
-
 export type TWordContent = {
   id: string;
   group: number;
@@ -15,4 +13,29 @@ export type TWordContent = {
   wordTranslate: string;
   textMeaningTranslate: string;
   textExampleTranslate: string;
+};
+
+export type TTemporalSprintWordsData = {
+  dictionary: Record<string, TTemporalDictionary>;
+  wordPairs: TSprintWordPairs[];
+  gameAnswers: TSprintGameAnswers[];
+};
+
+export type TTemporalDictionary = {
+  wordTranslate: string;
+  id: string;
+  audio: string;
+  image: string;
+};
+
+export type TSprintWordPairs = {
+  word: string;
+  wordTranslate: string;
+};
+
+export type TSprintGameAnswers = {
+  id: string;
+  word: string;
+  wordTranslate: string;
+  isCorrectAnswer: string;
 };
