@@ -24,6 +24,8 @@ export type TTemporalSprintWordsData = {
 export type TTemporalDictionary = {
   wordTranslate: string;
   id: string;
+  audio: string;
+  image: string;
 };
 
 export type TSprintWordPairs = {

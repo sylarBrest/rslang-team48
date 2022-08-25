@@ -41,6 +41,16 @@ table {
   margin: 15px auto;
 }
 
+tr td:first-child {
+  width: 50px;
+  background: url('@assets/svg/audio.svg') center no-repeat;
+}
+
+tr td:first-child:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 tr:nth-child(3n + 1) {
   background: #f2fff5;
 }

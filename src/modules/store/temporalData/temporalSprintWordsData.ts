@@ -9,7 +9,15 @@ export const temporalSprintWordsData: TTemporalSprintWordsData = {
 };
 
 export const initTemporalSprintWordsData = (array: TWordContent[]) => {
-  const tempArr = array.map((elem) => [elem.word, { wordTranslate: elem.wordTranslate, id: elem.id }]);
+  const tempArr = array.map((elem) => [
+    elem.word,
+    {
+      wordTranslate: elem.wordTranslate,
+      id: elem.id,
+      audio: elem.audio,
+      image: elem.image,
+    },
+  ]);
 
   temporalSprintWordsData.dictionary = Object.fromEntries(tempArr);
 

@@ -1,6 +1,6 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
 import getWords from '@services/words/getWords';
-import { initTemporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { initTemporalSprintWordsData, temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
 import { wordsDataLocal } from '@store/wordsData/initWordsData';
 import { TWordContent } from '@types';
 import { changeTimer, getRandomInteger } from '@utils';
@@ -30,6 +30,7 @@ const clickStartSprintHandler = (flag: boolean) => {
     if (response.status === EStatusCode.OK) {
       const words: TWordContent[] = await response.json();
       initTemporalSprintWordsData(words);
+      console.log(temporalSprintWordsData.dictionary);
 
       gameLayout.innerHTML = renderSprintGame();
 

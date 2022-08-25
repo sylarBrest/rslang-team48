@@ -10,6 +10,7 @@ const renderGameResult = () => {
   array.forEach((item) => {
     fragment += `
       <tr>
+        <td data-audio="audio"></td>
         <td>${item.word}</td>
         <td>${item.wordTranslate}</td>
         <td>${item.isCorrectAnswer === TRUE ? '✔️' : '❌'}</td>
