@@ -20,10 +20,10 @@ const renderMenu = () => `
               <button class="menu__link menu__link_games">Игры</button>
                 <ul class="menu__dropdown-content">
                   <li class="menu__item" data-view="audiocall">
-                    <a href="/#/audiocall" class="menu__link menu__link_audiocall">Аудиовызов</a>
+                    <a href="/#/games/audiocall" class="menu__link menu__link_audiocall">Аудиовызов</a>
                   </li>
                   <li class="menu__item" data-view="sprint">
-                    <a href="/#/sprint" class="menu__link menu__link_sprint">Спринт</a>
+                    <a href="/#/games/sprint" class="menu__link menu__link_sprint">Спринт</a>
                   </li>
                 </ul>
             </li>

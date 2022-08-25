@@ -1,0 +1,64 @@
+.game__result {
+  height: 90%;
+
+  &-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &-home {
+    display: block;
+    background-image: url('@assets/img/home.png');
+  }
+
+  &-again {
+    background-image: url('@assets/img/again.png');
+  }
+
+  &-button {
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+  }
+
+  &-button:hover {
+    transform: scale(1.1);
+  }
+
+  &-table-wrapper {
+    height: 30vh;
+    margin: 0 5px;
+    overflow-y: scroll;
+  }
+
+  &-table-wrapper::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+table {
+  width: 100%;
+  margin: 15px auto;
+}
+
+tr td:first-child {
+  width: 50px;
+  background: url('@assets/svg/audio.svg') center no-repeat;
+}
+
+tr td:first-child:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+tr:nth-child(3n + 1) {
+  background: #f2fff5;
+}
+
+tr:nth-child(3n + 2) {
+  background: #ffeaea;
+}
+
+tr:nth-child(3n + 3) {
+  background: #eeecff;
+}
