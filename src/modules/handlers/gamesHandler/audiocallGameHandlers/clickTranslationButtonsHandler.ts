@@ -1,4 +1,5 @@
 import {
+  BLANK_SPACE,
   DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4, DIGIT_5, ENTER, INDEX_0, INDEX_1, INDEX_2, INDEX_3, INDEX_4, VISIBLE,
 } from '@modules/constants';
 import changeVisibility from '@modules/helpers/changeVisibility';
@@ -8,6 +9,7 @@ import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData
 export const clickTranslationByKeyboardHandler = (e: KeyboardEvent) => {
   const translateButtons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
   const nextButton = <HTMLButtonElement>document.querySelector('.game__audiocall-next-button');
+  const audio = <HTMLButtonElement>document.querySelector('.game__audiocall-audio');
 
   switch (e.key) {
     case DIGIT_1:
@@ -32,6 +34,10 @@ export const clickTranslationByKeyboardHandler = (e: KeyboardEvent) => {
       break;
     case ENTER:
       nextButton.click();
+
+      break;
+    case BLANK_SPACE:
+      audio.click();
 
       break;
 
