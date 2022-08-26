@@ -1,5 +1,5 @@
 import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
-import getRandomInteger from './getRandomInteger';
+import getRandomInteger from '../utils/getRandomInteger';
 
 const getRandomWordsTranslation = () => {
   const { translationOptions } = temporalSprintWordsData;

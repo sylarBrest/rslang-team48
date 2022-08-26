@@ -1,9 +1,10 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
+import changeTimer from '@modules/helpers/changeTimer';
+import { getRandomInteger } from '@modules/utils';
 import getWords from '@services/words/getWords';
-import { initTemporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { initTemporalSprintWordsData, temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
 import { wordsDataLocal } from '@store/wordsData/initWordsData';
 import { TWordContent } from '@types';
-import { changeTimer, getRandomInteger } from '@utils';
 import renderSprintGame from '@view/pages/Sprint';
 import sprintClickHandler from './sprintButtonClickHandler';
 
@@ -11,6 +12,7 @@ const clickStartSprintHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
+    temporalSprintWordsData.gameAnswers = [];
     const gameLayout = <HTMLElement>document.querySelector('.game__layout');
     const activeLvlBtn = document.querySelectorAll<HTMLButtonElement>('.game__level-button');
 

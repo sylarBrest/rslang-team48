@@ -6,12 +6,11 @@ import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
-  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
-  SPRINT_DESCRIPTION, SPRINT_TITLE,
+  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE, SPRINT_DESCRIPTION, SPRINT_TITLE,
 } from '@constants';
-import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
+import startSprintGameHandler from '../../helpers/initSprintGame';
 import initCardHandlers from '../cardHandlers';
-import clickStartAudiocallHandler from '../gamesHandler/audiocallGameHandlers/clickStartAudiocallHandler';
+import startAudiocallGameHandler from '../../helpers/initAudiocallGame';
 
 const router = new Router({
   mode: 'hash',
@@ -28,7 +27,7 @@ const initRouterHandlers = () => {
 
   router.add('textbook/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
-    clickStartAudiocallHandler(false);
+    startAudiocallGameHandler(false);
   });
 
   router.add('textbook', async () => {
@@ -45,7 +44,7 @@ const initRouterHandlers = () => {
 
   router.add('games/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
-    clickStartAudiocallHandler(true);
+    startAudiocallGameHandler(true);
     activeLinkHandler('audiocall');
   });
 

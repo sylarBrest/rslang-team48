@@ -1,17 +1,23 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@modules/constants';
 import getWords from '@modules/services/words/getWords';
-import { initTemporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import {
+  initTemporalSprintWordsData,
+  temporalSprintWordsData,
+} from '@modules/store/temporalData/temporalSprintWordsData';
 import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
 import { getRandomInteger } from '@modules/utils';
+import playAudio from '@modules/helpers/playAudio';
 import renderAudiocallGame from '@modules/view/pages/Audiocall';
 import clickNextButtonHandler from './clickNextButtonHandler';
 import clickPlayAudioHandler from './clickPlayAudioHandler';
+import clickTranslationButtonsHandler from './clickTranslationButtonsHandler';
 
 const clickStartAudiocallHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
+    temporalSprintWordsData.gameAnswers = [];
     const gameLayout = <HTMLElement>document.querySelector('.game__layout');
     const activeLvlBtn = document.querySelectorAll<HTMLButtonElement>('.game__level-button');
 
@@ -34,8 +40,10 @@ const clickStartAudiocallHandler = (flag: boolean) => {
 
       gameLayout.innerHTML = renderAudiocallGame();
 
+      playAudio();
       clickPlayAudioHandler();
       clickNextButtonHandler();
+      clickTranslationButtonsHandler();
     }
   });
 };
