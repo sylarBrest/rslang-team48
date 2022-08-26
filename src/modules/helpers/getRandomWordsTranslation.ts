@@ -1,15 +1,14 @@
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 import getRandomInteger from '../utils/getRandomInteger';
 
 const getRandomWordsTranslation = () => {
-  const { translationOptions } = temporalSprintWordsData;
+  const { translationOptions } = temporalWordsData;
   const index = getRandomInteger(0, translationOptions.length);
   const {
-    word, wordTranslateOne, wordTranslateTwo, wordTranslateThree,
-    wordTranslateFour, wordTranslateFive,
+    word, wordTranslateOne, wordTranslateTwo, wordTranslateThree, wordTranslateFour, wordTranslateFive,
   } = translationOptions[index];
 
-  temporalSprintWordsData.translationOptions = translationOptions.filter((_, idx) => idx !== index);
+  temporalWordsData.translationOptions = translationOptions.filter((_, idx) => idx !== index);
 
   return {
     word,

@@ -15,7 +15,7 @@ export type TWordContent = {
   textExampleTranslate: string;
 };
 
-export type TTemporalSprintWordsData = {
+export type TTemporalWordsData = {
   dictionary: Record<string, TTemporalDictionary>;
   wordPairs: TSprintWordPairs[];
   translationOptions: TTranslationOptions[];

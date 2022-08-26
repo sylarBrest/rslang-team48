@@ -1,18 +1,18 @@
 import { getWordsDataByKeyboardClick }
-  from '@handlers/gamesHandler/springGameHandlers/sprintButtonClickHandler';
-import sprintPlayAgainHandler from '@handlers/gamesHandler/springGameHandlers/sprintPlayAgainHandler';
+  from '@modules/handlers/gamesHandler/springGameHandlers/clickSprintButtonsHandler';
+import clickSprintAgainHandler from '@modules/handlers/gamesHandler/springGameHandlers/clickSprintAgainHandler';
 import clickAudioResultHandler from '@modules/handlers/gamesHandler/clickAudioResultHandler';
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
 import renderGameResult from '@view/pages/Game/resultPage';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 const showGameResult = () => {
   const gameLayout = <HTMLElement>document.querySelector('.game__layout');
 
   gameLayout.innerHTML = renderGameResult();
-  sprintPlayAgainHandler();
+  clickSprintAgainHandler();
   clickAudioResultHandler();
 
-  temporalSprintWordsData.gameAnswers = [];
+  temporalWordsData.gameAnswers = [];
 
   window.removeEventListener('keydown', getWordsDataByKeyboardClick);
 };

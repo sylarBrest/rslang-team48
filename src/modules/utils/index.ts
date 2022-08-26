@@ -1,3 +1,3 @@
 export { default as getRandomInteger } from './getRandomInteger';
 
-export { default as shuffle } from './shuffle';
+export { default as shuffle } from './shuffleArray';

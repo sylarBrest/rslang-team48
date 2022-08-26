@@ -1,14 +1,14 @@
 /* eslint-disable no-plusplus */
 import { HOST } from '@modules/constants';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
 import getRandomWordsTranslation from '@modules/helpers/getRandomWordsTranslation';
 import playAudio from '@modules/helpers/playAudio';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 const clickNextButtonHandler = () => {
   const nextButton = <HTMLButtonElement>document.querySelector('.game__audiocall-next-button');
 
   nextButton.addEventListener('click', () => {
-    const { dictionary } = temporalSprintWordsData;
+    const { dictionary } = temporalWordsData;
     const progress = <HTMLProgressElement>document.querySelector('progress');
     const img = <HTMLImageElement>document.querySelector('.game__audiocall-img');
     const wordElement = <HTMLElement>document.querySelector('.game__audiocall-word');

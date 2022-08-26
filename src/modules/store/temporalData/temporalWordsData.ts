@@ -1,16 +1,16 @@
 /* eslint-disable no-plusplus */
-import shuffle from '@modules/utils/shuffle';
-import { TTemporalSprintWordsData, TWordContent } from '@types';
+import shuffleArray from '@modules/utils/shuffleArray';
+import { TTemporalWordsData, TWordContent } from '@types';
 import { getRandomInteger } from '@utils';
 
-export const temporalSprintWordsData: TTemporalSprintWordsData = {
+export const temporalWordsData: TTemporalWordsData = {
   dictionary: {},
   wordPairs: [],
   translationOptions: [],
   gameAnswers: [],
 };
 
-export const initTemporalSprintWordsData = (array: TWordContent[]) => {
+export const initTemporalWordsData = (array: TWordContent[]) => {
   const tempArr = array.map((elem) => [
     elem.word,
     {
@@ -21,9 +21,9 @@ export const initTemporalSprintWordsData = (array: TWordContent[]) => {
     },
   ]);
 
-  temporalSprintWordsData.dictionary = Object.fromEntries(tempArr);
+  temporalWordsData.dictionary = Object.fromEntries(tempArr);
 
-  temporalSprintWordsData.wordPairs = array.map((elem, idx, arr) => {
+  temporalWordsData.wordPairs = array.map((elem, idx, arr) => {
     const flag = Math.random() < 0.6;
 
     let index = getRandomInteger(0, arr.length);
@@ -38,7 +38,7 @@ export const initTemporalSprintWordsData = (array: TWordContent[]) => {
     };
   });
 
-  temporalSprintWordsData.translationOptions = array.map((elem, idx, arr) => {
+  temporalWordsData.translationOptions = array.map((elem, idx, arr) => {
     const translationArray = [elem.wordTranslate];
 
     for (let i = 0; i < 4; i++) {
@@ -51,7 +51,7 @@ export const initTemporalSprintWordsData = (array: TWordContent[]) => {
       translationArray.push(arr[index].wordTranslate);
     }
 
-    const mixArray = shuffle(translationArray);
+    const mixArray = shuffleArray(translationArray);
 
     return {
       word: elem.word,

@@ -1,12 +1,12 @@
 import showGameResult from '@modules/helpers/showGameResult';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 const clickTranslationButtonsHandler = () => {
   const translateButtons = <HTMLElement>document.querySelector('.game__audiocall-translate-buttons');
 
   translateButtons.addEventListener('click', (e: Event) => {
     const target = <HTMLElement>e.target;
-    const { dictionary } = temporalSprintWordsData;
+    const { dictionary } = temporalWordsData;
     const img = <HTMLImageElement>document.querySelector('.game__audiocall-img');
     const wordElement = <HTMLElement>document.querySelector('.game__audiocall-word');
     const wordText = String(wordElement.textContent);
@@ -38,7 +38,7 @@ const clickTranslationButtonsHandler = () => {
         isCorrectAnswer: String(answer),
       };
 
-      temporalSprintWordsData.gameAnswers.push(result);
+      temporalWordsData.gameAnswers.push(result);
 
       buttons.forEach((item) => {
         const elem = item;
@@ -54,7 +54,7 @@ const clickTranslationButtonsHandler = () => {
         }
       });
 
-      if (!temporalSprintWordsData.translationOptions?.length) {
+      if (!temporalWordsData.translationOptions?.length) {
         showGameResult();
       }
     }

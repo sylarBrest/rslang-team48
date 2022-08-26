@@ -1,5 +1,5 @@
 import { HOST } from '@modules/constants';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 const clickPlayAudioHandler = () => {
   const playAudioButton = <HTMLElement>document.querySelector('.game__audiocall-audio');
@@ -7,7 +7,7 @@ const clickPlayAudioHandler = () => {
   playAudioButton.addEventListener('click', () => {
     const word = String(playAudioButton.nextElementSibling?.textContent);
 
-    const { audio } = temporalSprintWordsData.dictionary[word];
+    const { audio } = temporalWordsData.dictionary[word];
 
     new Audio(`${HOST}/${audio}`).play();
   });

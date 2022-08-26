@@ -1,11 +1,11 @@
 import { TRUE } from '@modules/constants';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 import './style.scss';
 
 const renderGameResult = () => {
   let fragment = '';
-  const array = temporalSprintWordsData.gameAnswers;
+  const array = temporalWordsData.gameAnswers;
 
   array.forEach((item) => {
     fragment += `

@@ -1,11 +1,11 @@
 import { HOST } from '@modules/constants';
-import { temporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
 import getRandomWordsTranslation from '@modules/helpers/getRandomWordsTranslation';
+import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
 
 import './style.scss';
 
 const renderAudiocallGame = () => {
-  const { dictionary, translationOptions } = temporalSprintWordsData;
+  const { dictionary, translationOptions } = temporalWordsData;
   const {
     word, wordTranslateOne, wordTranslateTwo, wordTranslateThree, wordTranslateFour, wordTranslateFive,
   } = getRandomWordsTranslation();

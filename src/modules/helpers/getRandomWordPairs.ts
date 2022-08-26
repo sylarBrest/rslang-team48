@@ -1,12 +1,12 @@
-import { temporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
+import { temporalWordsData } from '@store/temporalData/temporalWordsData';
 import getRandomInteger from '../utils/getRandomInteger';
 
 const getRandomWordPairs = () => {
-  const { wordPairs } = temporalSprintWordsData;
+  const { wordPairs } = temporalWordsData;
   const index = getRandomInteger(0, wordPairs.length);
   const { word, wordTranslate } = wordPairs[index];
 
-  temporalSprintWordsData.wordPairs = wordPairs.filter((_, idx) => idx !== index);
+  temporalWordsData.wordPairs = wordPairs.filter((_, idx) => idx !== index);
 
   return {
     word,
