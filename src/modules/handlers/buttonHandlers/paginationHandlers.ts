@@ -18,6 +18,11 @@ const initPaginationHandlers = () => {
         break;
       }
 
+      case targetButtonClassList.contains('next'): {
+        wordsDataLocal.page = (+wordsDataLocal.page + 5).toString();
+        break;
+      }
+
       default:
         break;
     }

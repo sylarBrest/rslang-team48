@@ -21,6 +21,7 @@
       "@constants": ["modules/constants"],
       "@handlers": ["modules/handlers"],
       "@handlers/*": ["modules/handlers/*"],
+      "@helpers": ["modules/helpers"],
       "@services/*": ["modules/services/*"],
       "@store": ["modules/store"],
       "@types": ["modules/types"],
