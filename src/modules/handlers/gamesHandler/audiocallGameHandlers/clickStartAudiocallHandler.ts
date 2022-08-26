@@ -1,13 +1,12 @@
-import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
-import getWords from '@services/words/getWords';
-import { initTemporalSprintWordsData } from '@store/temporalData/temporalSprintWordsData';
-import { wordsDataLocal } from '@store/wordsData/initWordsData';
-import { TWordContent } from '@types';
-import { changeTimer, getRandomInteger } from '@utils';
-import renderSprintGame from '@view/pages/Sprint';
-import sprintClickHandler from './sprintButtonClickHandler';
+import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@modules/constants';
+import getWords from '@modules/services/words/getWords';
+import { initTemporalSprintWordsData } from '@modules/store/temporalData/temporalSprintWordsData';
+import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
+import { TWordContent } from '@modules/types';
+import { getRandomInteger } from '@modules/utils';
+import renderAudiocallGame from '@modules/view/pages/Audiocall';
 
-const clickStartSprintHandler = (flag: boolean) => {
+const clickStartAudiocallHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
@@ -31,12 +30,9 @@ const clickStartSprintHandler = (flag: boolean) => {
       const words: TWordContent[] = await response.json();
       initTemporalSprintWordsData(words);
 
-      gameLayout.innerHTML = renderSprintGame();
-
-      changeTimer();
-      sprintClickHandler();
+      gameLayout.innerHTML = renderAudiocallGame();
     }
   });
 };
 
-export default clickStartSprintHandler;
+export default clickStartAudiocallHandler;

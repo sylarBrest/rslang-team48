@@ -11,6 +11,7 @@ import {
 } from '@constants';
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
+import clickStartAudiocallHandler from '../gamesHandler/audiocallGameHandlers/clickStartAudiocallHandler';
 
 const router = new Router({
   mode: 'hash',
@@ -27,6 +28,7 @@ const initRouterHandlers = () => {
 
   router.add('textbook/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
+    clickStartAudiocallHandler(false);
   });
 
   router.add('textbook', async () => {
@@ -43,6 +45,7 @@ const initRouterHandlers = () => {
 
   router.add('games/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
+    clickStartAudiocallHandler(true);
     activeLinkHandler('audiocall');
   });
 
