@@ -1,4 +1,5 @@
 import { ZERO } from '@constants';
+import { colorActiveButton, reDrawPageButtons } from '@helpers';
 import { updateWordsData, wordsDataLocal } from '@store';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
@@ -14,6 +15,8 @@ const initLevelHandlers = () => {
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
     textbookBody.innerHTML = await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
+    reDrawPageButtons();
+    colorActiveButton();
   });
 };
 

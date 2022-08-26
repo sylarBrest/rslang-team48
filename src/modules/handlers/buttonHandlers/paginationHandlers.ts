@@ -1,5 +1,7 @@
 import { ZERO } from '@constants';
+import { colorActiveButton, getMinimalPageNumber, reDrawPageButtons } from '@helpers';
 import { updateWordsData, wordsDataLocal } from '@store';
+import { increaseStringNumberByStep } from '@utils';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
 
@@ -19,7 +21,10 @@ const initPaginationHandlers = () => {
       }
 
       case targetButtonClassList.contains('next'): {
-        wordsDataLocal.page = (+wordsDataLocal.page + 5).toString();
+        const min = getMinimalPageNumber() || wordsDataLocal.page;
+        console.log(min);
+        const newMin = increaseStringNumberByStep(min, 5);
+        wordsDataLocal.page = newMin;
         break;
       }
 
@@ -28,6 +33,8 @@ const initPaginationHandlers = () => {
     }
 
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
+    reDrawPageButtons();
+    colorActiveButton();
     textbookBody.innerHTML = await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
   });

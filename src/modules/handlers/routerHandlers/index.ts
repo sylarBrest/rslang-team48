@@ -9,6 +9,7 @@ import {
   SPRINT_DESCRIPTION, SPRINT_TITLE, ZERO,
 } from '@constants';
 import { initWordsData, updateWordsData } from '@store';
+import { colorActiveButton, reDrawPageButtons } from '@helpers';
 import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
 import initCardHandlers from '../cardHandlers';
 import initButtonHandlers from '../buttonHandlers';
@@ -37,6 +38,8 @@ const initRouterHandlers = () => {
     activeLinkHandler('textbook');
     initCardHandlers();
     initButtonHandlers();
+    reDrawPageButtons();
+    colorActiveButton();
   });
 
   router.add('games/sprint', () => {
