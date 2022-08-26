@@ -5,6 +5,8 @@ import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
 import { TWordContent } from '@modules/types';
 import { getRandomInteger } from '@modules/utils';
 import renderAudiocallGame from '@modules/view/pages/Audiocall';
+import clickNextButtonHandler from './clickNextButtonHandler';
+import clickPlayAudioHandler from './clickPlayAudioHandler';
 
 const clickStartAudiocallHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
@@ -31,6 +33,9 @@ const clickStartAudiocallHandler = (flag: boolean) => {
       initTemporalSprintWordsData(words);
 
       gameLayout.innerHTML = renderAudiocallGame();
+
+      clickPlayAudioHandler();
+      clickNextButtonHandler();
     }
   });
 };
