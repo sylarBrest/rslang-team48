@@ -14,7 +14,7 @@ const renderMenu = () => `
               <a href="/#/" class="menu__link menu__link_home menu__link_active">Главная</a>
             </li>
             <li class="menu__item" data-view="tutorial">
-              <a href="/#/tutorial" class="menu__link menu__link_tutorial">Учебник</a>
+              <a href="/#/textbook" class="menu__link menu__link_tutorial">Учебник</a>
             </li>
             <li class="menu__item menu__dropdown-item" data-view="games">
               <button class="menu__link menu__link_games">Игры</button>
