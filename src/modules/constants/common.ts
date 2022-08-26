@@ -10,6 +10,36 @@ export const AUDIOCALL_TITLE = 'АУДИОВЫЗОВ';
 
 export const AUDIOCALL_DESCRIPTION = 'Тренировака Аудиовызов улучшает твое восприятие речи на слух.';
 
+export const HIDDEN = 'hidden';
+
+export const VISIBLE = 'visible';
+
+export const ARROW_LEFT = 'ArrowLeft';
+
+export const ARROW_RIGHT = 'ArrowRight';
+
+export const ENTER = 'Enter';
+
+export const DIGIT_1 = '1';
+
+export const DIGIT_2 = '2';
+
+export const DIGIT_3 = '3';
+
+export const DIGIT_4 = '4';
+
+export const DIGIT_5 = '5';
+
+export const INDEX_0 = 0;
+
+export const INDEX_1 = 1;
+
+export const INDEX_2 = 2;
+
+export const INDEX_3 = 3;
+
+export const INDEX_4 = 4;
+
 export const FIRST_PAGE = 0;
 
 export const LAST_PAGE = 29;

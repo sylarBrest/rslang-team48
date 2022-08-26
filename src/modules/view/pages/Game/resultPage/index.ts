@@ -21,7 +21,7 @@ const renderGameResult = () => {
   return `
   <div class="game__result">
     <div class="game__result-buttons">
-      <a href="/#/" class="game__result-button game__result-home" title="вернуться на главную станицу"></a>
+      <a href="/#/home" class="game__result-button game__result-home" title="вернуться на главную станицу"></a>
       <button class="game__result-button game__result-again" title="начать игру заного"></button>
     </div>
     <div class="game__result-table-wrapper">    

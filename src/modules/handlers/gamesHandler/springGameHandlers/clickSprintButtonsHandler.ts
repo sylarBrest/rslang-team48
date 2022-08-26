@@ -1,4 +1,6 @@
-import { FALSE, TRUE } from '@constants';
+import {
+  ARROW_LEFT, ARROW_RIGHT, FALSE, TRUE,
+} from '@constants';
 import getRandomWordPairs from '@modules/helpers/getRandomWordPairs';
 import showGameResult from '@modules/helpers/showGameResult';
 import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
@@ -59,11 +61,11 @@ export const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
   const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
   const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
 
-  if (e.key === 'ArrowLeft') {
+  if (e.key === ARROW_LEFT) {
     wrongButton.click();
   }
 
-  if (e.key === 'ArrowRight') {
+  if (e.key === ARROW_RIGHT) {
     rightButton.click();
   }
 };

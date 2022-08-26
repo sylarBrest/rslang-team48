@@ -1,5 +1,6 @@
 /* eslint-disable no-plusplus */
-import { HOST } from '@modules/constants';
+import { HIDDEN, HOST } from '@modules/constants';
+import changeVisibility from '@modules/helpers/changeVisibility';
 import getRandomWordsTranslation from '@modules/helpers/getRandomWordsTranslation';
 import playAudio from '@modules/helpers/playAudio';
 import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
@@ -29,9 +30,7 @@ const clickNextButtonHandler = () => {
         <button class="game__audiocall-option-five game__audiocall-button">${wordTranslateFive}</button>
     `;
 
-    img.style.visibility = 'hidden';
-    wordElement.style.visibility = 'hidden';
-    nextButton.style.visibility = 'hidden';
+    changeVisibility(HIDDEN);
 
     playAudio();
   });

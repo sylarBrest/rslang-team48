@@ -1,5 +1,44 @@
+import {
+  DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4, DIGIT_5, ENTER, INDEX_0, INDEX_1, INDEX_2, INDEX_3, INDEX_4, VISIBLE,
+} from '@modules/constants';
+import changeVisibility from '@modules/helpers/changeVisibility';
 import showGameResult from '@modules/helpers/showGameResult';
 import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+
+export const clickTranslationByKeyboardHandler = (e: KeyboardEvent) => {
+  const translateButtons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
+  const nextButton = <HTMLButtonElement>document.querySelector('.game__audiocall-next-button');
+
+  switch (e.key) {
+    case DIGIT_1:
+      translateButtons[INDEX_0].click();
+
+      break;
+    case DIGIT_2:
+      translateButtons[INDEX_1].click();
+
+      break;
+    case DIGIT_3:
+      translateButtons[INDEX_2].click();
+
+      break;
+    case DIGIT_4:
+      translateButtons[INDEX_3].click();
+
+      break;
+    case DIGIT_5:
+      translateButtons[INDEX_4].click();
+
+      break;
+    case ENTER:
+      nextButton.click();
+
+      break;
+
+    default:
+      break;
+  }
+};
 
 const clickTranslationButtonsHandler = () => {
   const translateButtons = <HTMLElement>document.querySelector('.game__audiocall-translate-buttons');
@@ -7,19 +46,15 @@ const clickTranslationButtonsHandler = () => {
   translateButtons.addEventListener('click', (e: Event) => {
     const target = <HTMLElement>e.target;
     const { dictionary } = temporalWordsData;
-    const img = <HTMLImageElement>document.querySelector('.game__audiocall-img');
     const wordElement = <HTMLElement>document.querySelector('.game__audiocall-word');
     const wordText = String(wordElement.textContent);
     const buttons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
-    const nextButton = <HTMLButtonElement>document.querySelector('.game__audiocall-next-button');
 
     const audioCorrect = new Audio('./src/assets/audio/correct.mp3');
     const audioIncorrect = new Audio('./src/assets/audio/error.mp3');
 
     if (target && target.classList.contains('game__audiocall-button')) {
-      img.style.visibility = 'visible';
-      wordElement.style.visibility = 'visible';
-      nextButton.style.visibility = 'visible';
+      changeVisibility(VISIBLE);
 
       let answer = false;
 
@@ -59,6 +94,8 @@ const clickTranslationButtonsHandler = () => {
       }
     }
   });
+
+  window.addEventListener('keydown', clickTranslationByKeyboardHandler);
 };
 
 export default clickTranslationButtonsHandler;

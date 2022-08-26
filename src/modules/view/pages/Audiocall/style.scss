@@ -68,18 +68,13 @@
     transform: scale(1.1);
   }
 
-  // &-next-wrapper {
-  //   margin: 0 auto;
-  //   visibility: hidden;
-  // }
-
   &-next-button {
     width: min-content;
     margin: 0 auto;
     padding: 10px;
     border: 1px solid #1a1a1a;
     border-radius: 5px;
-    // visibility: hidden;
+    visibility: hidden;
   }
 
   &-next-button:hover {
