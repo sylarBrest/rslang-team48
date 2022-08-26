@@ -14,7 +14,7 @@ import startAudiocallGameHandler from '../../helpers/initAudiocallGame';
 
 const router = new Router({
   mode: 'hash',
-  root: '/',
+  root: '/home',
 });
 
 const initRouterHandlers = () => {
@@ -58,7 +58,7 @@ const initRouterHandlers = () => {
     activeLinkHandler('team');
   });
 
-  router.add('', () => {
+  router.add(/home/, () => {
     main.innerHTML = renderHome();
     activeLinkHandler('home');
   });
