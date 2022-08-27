@@ -6,21 +6,31 @@ import renderTutorial from '@view/pages/Tutorial';
 import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
-  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
-  SPRINT_DESCRIPTION, SPRINT_TITLE,
+  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE, SPRINT_DESCRIPTION, SPRINT_TITLE,
 } from '@constants';
-import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
+import startSprintGameHandler from '../../helpers/initSprintGame';
 import initCardHandlers from '../cardHandlers';
+import startAudiocallGameHandler from '../../helpers/initAudiocallGame';
 
 const router = new Router({
   mode: 'hash',
-  root: '/',
+  root: '/home',
 });
 
 const initRouterHandlers = () => {
   const main = <HTMLElement>document.querySelector('.main');
 
-  router.add(/tutorial/, async () => {
+  router.add('textbook/sprint', () => {
+    main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, false);
+    startSprintGameHandler(false);
+  });
+
+  router.add('textbook/audiocall', () => {
+    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
+    startAudiocallGameHandler(false);
+  });
+
+  router.add('textbook', async () => {
     main.innerHTML = await renderTutorial();
     activeLinkHandler('tutorial');
     initCardHandlers();
@@ -32,18 +42,10 @@ const initRouterHandlers = () => {
     activeLinkHandler('sprint');
   });
 
-  router.add('textbook/sprint', () => {
-    main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, false);
-    startSprintGameHandler(false);
-  });
-
   router.add('games/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
+    startAudiocallGameHandler(true);
     activeLinkHandler('audiocall');
-  });
-
-  router.add('textbook/audiocall', () => {
-    main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
   });
 
   router.add(/statistic/, () => {
@@ -56,7 +58,7 @@ const initRouterHandlers = () => {
     activeLinkHandler('team');
   });
 
-  router.add('', () => {
+  router.add(/home/, () => {
     main.innerHTML = renderHome();
     activeLinkHandler('home');
   });

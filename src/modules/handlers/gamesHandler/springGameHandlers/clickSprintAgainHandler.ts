@@ -1,4 +1,4 @@
-const sprintPlayAgainHandler = () => {
+const clickSprintAgainHandler = () => {
   const playAgain = <HTMLButtonElement>document.querySelector('.game__result-again');
 
   playAgain.addEventListener('click', () => {
@@ -6,4 +6,4 @@ const sprintPlayAgainHandler = () => {
   });
 };
 
-export default sprintPlayAgainHandler;
+export default clickSprintAgainHandler;

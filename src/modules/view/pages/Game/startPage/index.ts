@@ -3,7 +3,7 @@ import './style.scss';
 const renderStartGame = (title: string, description: string, flag: boolean) => `
   <section class="container section">
     <div class="game__layout">
-      <div class="game__sprint game__audiocall">
+      <div class="game__sprint">
         <div class="game__title">${title}</div>
         <div class="game__description">
           ${description}

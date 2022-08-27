@@ -1,14 +1,19 @@
-import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
-import changeTimer from '@modules/helpers/changeTimer';
-import { temporalWordsData, initTemporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@modules/constants';
+import getWords from '@modules/services/words/getWords';
+import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
+import { TWordContent } from '@modules/types';
 import { getRandomInteger } from '@modules/utils';
-import getWords from '@services/words/getWords';
-import { wordsDataLocal } from '@store/wordsData/initWordsData';
-import { TWordContent } from '@types';
-import renderSprintGame from '@view/pages/Sprint';
-import clickSprintButtonsHandler from './clickSprintButtonsHandler';
+import playAudio from '@modules/helpers/playAudio';
+import renderAudiocallGame from '@modules/view/pages/Audiocall';
+import {
+  temporalWordsData,
+  initTemporalWordsData,
+} from '@modules/store/temporalData/temporalWordsData';
+import clickNextButtonHandler from './clickNextButtonHandler';
+import clickPlayAudioHandler from './clickPlayAudioHandler';
+import clickTranslationButtonsHandler from './clickTranslationButtonsHandler';
 
-const clickStartSprintHandler = (flag: boolean) => {
+const clickStartAudiocallHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
@@ -33,12 +38,14 @@ const clickStartSprintHandler = (flag: boolean) => {
       const words: TWordContent[] = await response.json();
       initTemporalWordsData(words);
 
-      gameLayout.innerHTML = renderSprintGame();
+      gameLayout.innerHTML = renderAudiocallGame();
 
-      changeTimer();
-      clickSprintButtonsHandler();
+      playAudio();
+      clickPlayAudioHandler();
+      clickNextButtonHandler();
+      clickTranslationButtonsHandler();
     }
   });
 };
 
-export default clickStartSprintHandler;
+export default clickStartAudiocallHandler;

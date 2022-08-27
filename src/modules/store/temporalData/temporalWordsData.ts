@@ -1,0 +1,65 @@
+/* eslint-disable no-plusplus */
+import shuffleArray from '@modules/utils/shuffleArray';
+import { TTemporalWordsData, TWordContent } from '@types';
+import { getRandomInteger } from '@utils';
+
+export const temporalWordsData: TTemporalWordsData = {
+  dictionary: {},
+  wordPairs: [],
+  translationOptions: [],
+  gameAnswers: [],
+};
+
+export const initTemporalWordsData = (array: TWordContent[]) => {
+  const tempArr = array.map((elem) => [
+    elem.word,
+    {
+      wordTranslate: elem.wordTranslate,
+      id: elem.id,
+      audio: elem.audio,
+      image: elem.image,
+    },
+  ]);
+
+  temporalWordsData.dictionary = Object.fromEntries(tempArr);
+
+  temporalWordsData.wordPairs = array.map((elem, idx, arr) => {
+    const flag = Math.random() < 0.6;
+
+    let index = getRandomInteger(0, arr.length);
+
+    while (index === idx) {
+      index = getRandomInteger(0, arr.length);
+    }
+
+    return {
+      word: elem.word,
+      wordTranslate: flag ? elem.wordTranslate : arr[index].wordTranslate,
+    };
+  });
+
+  temporalWordsData.translationOptions = array.map((elem, idx, arr) => {
+    const translationArray = [elem.wordTranslate];
+
+    for (let i = 0; i < 4; i++) {
+      let index = getRandomInteger(0, arr.length);
+
+      while (index === idx || translationArray.includes(arr[index].wordTranslate)) {
+        index = getRandomInteger(0, arr.length);
+      }
+
+      translationArray.push(arr[index].wordTranslate);
+    }
+
+    const mixArray = shuffleArray(translationArray);
+
+    return {
+      word: elem.word,
+      wordTranslateOne: mixArray[0],
+      wordTranslateTwo: mixArray[1],
+      wordTranslateThree: mixArray[2],
+      wordTranslateFour: mixArray[3],
+      wordTranslateFive: mixArray[4],
+    };
+  });
+};
