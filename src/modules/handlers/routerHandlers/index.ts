@@ -2,15 +2,21 @@ import Router from '@library/Router.js';
 import renderHome from '@view/pages/Home';
 import renderStat from '@view/pages/Stat';
 import renderTeam from '@view/pages/Team';
-import renderTutorial from '@view/pages/Tutorial';
-import activeLinkHandler from '@handlers/headerHandlers/nav/activeLinkHandler';
+import { renderTextbook } from '@view/pages/Textbook';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
-  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE, SPRINT_DESCRIPTION, SPRINT_TITLE,
+  AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
+  SPRINT_DESCRIPTION, SPRINT_TITLE,
+  ZERO,
 } from '@constants';
-import startSprintGameHandler from '../../helpers/initSprintGame';
+import { initWordsData, updateWordsData } from '@store';
+import {
+  colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
+  initSprintGame, initAudiocallGame,
+} from '@helpers';
 import initCardHandlers from '../cardHandlers';
-import startAudiocallGameHandler from '../../helpers/initAudiocallGame';
+import initButtonHandlers from '../buttonHandlers';
+import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
 
 const router = new Router({
   mode: 'hash',
@@ -22,43 +28,53 @@ const initRouterHandlers = () => {
 
   router.add('textbook/sprint', () => {
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, false);
-    startSprintGameHandler(false);
+    initSprintGame(false);
   });
 
   router.add('textbook/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
-    startAudiocallGameHandler(false);
+    initAudiocallGame(false);
   });
 
-  router.add('textbook', async () => {
-    main.innerHTML = await renderTutorial();
-    activeLinkHandler('tutorial');
+  router.add(/textbook/, async () => {
+    initWordsData();
+    main.innerHTML = await renderTextbook();
+    activeLinkHandler('textbook');
     initCardHandlers();
+    initButtonHandlers();
+    reDrawPageButtons();
+    colorActiveButton();
+    updatePaginationButtonsState();
   });
 
   router.add('games/sprint', () => {
+    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, true);
-    startSprintGameHandler(true);
+    initSprintGame(true);
     activeLinkHandler('sprint');
   });
 
   router.add('games/audiocall', () => {
+    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
-    startAudiocallGameHandler(true);
+    initAudiocallGame(true);
     activeLinkHandler('audiocall');
   });
 
   router.add(/statistic/, () => {
+    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStat();
     activeLinkHandler('stat');
   });
 
   router.add(/team/, () => {
+    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderTeam();
     activeLinkHandler('team');
   });
 
   router.add(/home/, () => {
+    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderHome();
     activeLinkHandler('home');
   });

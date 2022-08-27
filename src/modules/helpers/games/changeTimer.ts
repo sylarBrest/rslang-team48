@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import { ANSWER_TIME, SECOND, ZERO } from '@constants';
 import showGameResult from './showGameResult';
 
@@ -14,7 +13,9 @@ const changeTimer = () => {
       clearInterval(timerID);
       showGameResult();
     } else {
+      /* eslint-disable no-plusplus */
       value.innerHTML = String(--counter);
+      /* eslint-enable no-plusplus */
     }
   }, SECOND);
 };

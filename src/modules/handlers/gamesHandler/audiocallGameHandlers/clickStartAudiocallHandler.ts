@@ -1,14 +1,10 @@
-import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@modules/constants';
-import getWords from '@modules/services/words/getWords';
-import { wordsDataLocal } from '@modules/store/wordsData/initWordsData';
-import { TWordContent } from '@modules/types';
-import { getRandomInteger } from '@modules/utils';
-import playAudio from '@modules/helpers/playAudio';
-import renderAudiocallGame from '@modules/view/pages/Audiocall';
-import {
-  temporalWordsData,
-  initTemporalWordsData,
-} from '@modules/store/temporalData/temporalWordsData';
+import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
+import getWords from '@services/words/getWords';
+import { temporalWordsData, initTemporalWordsData, wordsDataLocal } from '@store';
+import { TWordContent } from '@types';
+import { getRandomInteger } from '@utils';
+import { playAudio } from '@helpers';
+import renderAudiocallGame from '@view/pages/Audiocall';
 import clickNextButtonHandler from './clickNextButtonHandler';
 import clickPlayAudioHandler from './clickPlayAudioHandler';
 import clickTranslationButtonsHandler from './clickTranslationButtonsHandler';

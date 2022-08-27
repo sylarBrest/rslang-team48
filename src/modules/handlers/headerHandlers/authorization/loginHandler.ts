@@ -1,5 +1,5 @@
 import signIn from '@services/logins/signIn';
-import updateUserData from '@store/userData/updateUserData';
+import { updateUserData } from '@store';
 import { EStatusCode } from '@constants';
 
 const loginHandler = () => {

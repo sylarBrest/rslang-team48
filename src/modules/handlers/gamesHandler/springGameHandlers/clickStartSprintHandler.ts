@@ -1,9 +1,8 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
-import changeTimer from '@modules/helpers/changeTimer';
-import { temporalWordsData, initTemporalWordsData } from '@modules/store/temporalData/temporalWordsData';
-import { getRandomInteger } from '@modules/utils';
+import { changeTimer } from '@helpers';
+import { temporalWordsData, initTemporalWordsData, wordsDataLocal } from '@store';
+import { getRandomInteger } from '@utils';
 import getWords from '@services/words/getWords';
-import { wordsDataLocal } from '@store/wordsData/initWordsData';
 import { TWordContent } from '@types';
 import renderSprintGame from '@view/pages/Sprint';
 import clickSprintButtonsHandler from './clickSprintButtonsHandler';

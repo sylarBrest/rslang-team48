@@ -1,4 +1,4 @@
-import { userDataLocal } from '@store/userData/initUserData';
+import { userDataLocal } from '@store';
 import { HOST, EHttpMethod, EUrl } from '@constants';
 
 const basicGetMethod = async (url?: string) =>

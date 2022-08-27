@@ -1,6 +1,6 @@
 import clickStartAudiocallHandler
-  from '@modules/handlers/gamesHandler/audiocallGameHandlers/clickStartAudiocallHandler';
-import clickLvlButtonHandler from '@modules/handlers/gamesHandler/clickLvlButtonHandler';
+  from '@handlers/gamesHandler/audiocallGameHandlers/clickStartAudiocallHandler';
+import clickLvlButtonHandler from '@handlers/gamesHandler/clickLvlButtonHandler';
 
 const startAudiocallGame = (flag: boolean) => {
   if (flag) clickLvlButtonHandler();

@@ -1,6 +1,6 @@
 import signIn from '@services/logins/signIn';
 import createUser from '@services/users/createUser';
-import updateUserData from '@store/userData/updateUserData';
+import { updateUserData } from '@store';
 import { EStatusCode } from '@constants';
 
 const regHandler = () => {

@@ -1,7 +1,5 @@
-/* eslint-disable no-plusplus */
-import shuffleArray from '@modules/utils/shuffleArray';
 import { TTemporalWordsData, TWordContent } from '@types';
-import { getRandomInteger } from '@utils';
+import { getRandomInteger, shuffleArray } from '@utils';
 
 export const temporalWordsData: TTemporalWordsData = {
   dictionary: {},
@@ -41,7 +39,7 @@ export const initTemporalWordsData = (array: TWordContent[]) => {
   temporalWordsData.translationOptions = array.map((elem, idx, arr) => {
     const translationArray = [elem.wordTranslate];
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i += 1) {
       let index = getRandomInteger(0, arr.length);
 
       while (index === idx || translationArray.includes(arr[index].wordTranslate)) {

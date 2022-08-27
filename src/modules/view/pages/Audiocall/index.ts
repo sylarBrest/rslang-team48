@@ -1,6 +1,6 @@
-import { HOST } from '@modules/constants';
-import getRandomWordsTranslation from '@modules/helpers/getRandomWordsTranslation';
-import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+import { HOST } from '@constants';
+import { getRandomWordsTranslation } from '@helpers';
+import { temporalWordsData } from '@store';
 
 import './style.scss';
 

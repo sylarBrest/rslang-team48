@@ -1,4 +1,4 @@
-import { wordsDataLocal } from '@store/wordsData/initWordsData';
+import { wordsDataLocal } from '@store';
 import { HOST, EUrl } from '@constants';
 
 const getWords = async (group: string = wordsDataLocal.group, page: string = wordsDataLocal.page) => {

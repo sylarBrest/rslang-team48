@@ -1,9 +1,6 @@
-/* eslint-disable no-plusplus */
-import { HIDDEN, HOST } from '@modules/constants';
-import changeVisibility from '@modules/helpers/changeVisibility';
-import getRandomWordsTranslation from '@modules/helpers/getRandomWordsTranslation';
-import playAudio from '@modules/helpers/playAudio';
-import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+import { HIDDEN, HOST } from '@constants';
+import { changeVisibility, getRandomWordsTranslation, playAudio } from '@helpers';
+import { temporalWordsData } from '@store';
 
 const clickNextButtonHandler = () => {
   const nextButton = <HTMLButtonElement>document.querySelector('.game__audiocall-next-button');
@@ -19,7 +16,7 @@ const clickNextButtonHandler = () => {
       word, wordTranslateOne, wordTranslateTwo, wordTranslateThree, wordTranslateFour, wordTranslateFive,
     } = getRandomWordsTranslation();
 
-    progress.value = ++progress.value;
+    progress.value += 1;
     img.src = `${HOST}/${dictionary[word].image}`;
     wordElement.textContent = word;
     translateButtons.innerHTML = `

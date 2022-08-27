@@ -1,5 +1,5 @@
-import { HOST } from '@modules/constants';
-import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+import { HOST } from '@constants';
+import { temporalWordsData } from '@store';
 
 const clickPlayAudioHandler = () => {
   const playAudioButton = <HTMLElement>document.querySelector('.game__audiocall-audio');

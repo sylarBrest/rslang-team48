@@ -103,14 +103,12 @@ h6 {
     border-radius: 1rem;
     box-shadow: var(--shadow-small);
     transform: translateY(0);
-    // transform: scaleY(0.1);
     visibility: hidden;
     opacity: 0;
     transition: 0.3s ease-in-out;
     
     &_active {
       transform: translateY(4rem);
-      // transform: scaleY(1);
       visibility: visible;
       opacity: 1;
 

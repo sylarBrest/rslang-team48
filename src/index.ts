@@ -1,4 +1,4 @@
-import app from '@modules/app';
+import app from './modules/app';
 
 import './index.scss';
 

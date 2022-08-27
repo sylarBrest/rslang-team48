@@ -1,10 +1,9 @@
 import {
   BLANK_SPACE,
   DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4, DIGIT_5, ENTER, INDEX_0, INDEX_1, INDEX_2, INDEX_3, INDEX_4, VISIBLE,
-} from '@modules/constants';
-import changeVisibility from '@modules/helpers/changeVisibility';
-import showGameResult from '@modules/helpers/showGameResult';
-import { temporalWordsData } from '@modules/store/temporalData/temporalWordsData';
+} from '@constants';
+import { changeVisibility, showGameResult } from '@helpers';
+import { temporalWordsData } from '@store';
 
 export const clickTranslationByKeyboardHandler = (e: KeyboardEvent) => {
   const translateButtons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
