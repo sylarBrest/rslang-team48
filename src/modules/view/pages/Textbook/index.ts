@@ -41,8 +41,8 @@ export const renderTextbook = async () => {
       </div>
       <div class="textbook__footer">
         <div class="textbook__pagination">
-          <button class="btn first" disabled>&laquo;</button>
-          <button class="btn prev" disabled>&lt;</button>
+          <button class="btn first">&laquo;</button>
+          <button class="btn prev">&lt;</button>
           <button class="btn page" data-page="0">1</button>
           <button class="btn page" data-page="1">2</button>
           <button class="btn page" data-page="2">3</button>

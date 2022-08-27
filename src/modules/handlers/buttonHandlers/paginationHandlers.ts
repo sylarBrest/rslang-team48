@@ -25,6 +25,21 @@ const initPaginationHandlers = () => {
         break;
       }
 
+      case targetButtonClassList.contains('last'): {
+        wordsDataLocal.page = '29';
+        break;
+      }
+
+      case targetButtonClassList.contains('prev'): {
+        wordsDataLocal.page = increaseStringNumberByStep(wordsDataLocal.page, -5);
+        break;
+      }
+
+      case targetButtonClassList.contains('first'): {
+        wordsDataLocal.page = ZERO;
+        break;
+      }
+
       default:
         break;
     }
