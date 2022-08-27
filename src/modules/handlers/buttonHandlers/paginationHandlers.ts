@@ -1,5 +1,5 @@
 import { ZERO } from '@constants';
-import { colorActiveButton, getMinimalPageNumber, reDrawPageButtons } from '@helpers';
+import { colorActiveButton, reDrawPageButtons } from '@helpers';
 import { updateWordsData, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
 import { renderTextbookBody } from '@view/pages/Textbook';
@@ -21,10 +21,7 @@ const initPaginationHandlers = () => {
       }
 
       case targetButtonClassList.contains('next'): {
-        const min = getMinimalPageNumber() || wordsDataLocal.page;
-        console.log(min);
-        const newMin = increaseStringNumberByStep(min, 5);
-        wordsDataLocal.page = newMin;
+        wordsDataLocal.page = increaseStringNumberByStep(wordsDataLocal.page, 5);
         break;
       }
 

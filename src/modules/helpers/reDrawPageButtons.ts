@@ -6,9 +6,17 @@ const reDrawPageButtons = () => {
 
   Array.from(pageButtons).forEach((button, index) => {
     const temp = button;
-    const pageNumber = increaseStringNumberByStep(wordsDataLocal.page, index);
-    temp.dataset.page = pageNumber;
-    temp.textContent = increaseStringNumberByStep(pageNumber, 1);
+    if (+wordsDataLocal.page < 2) {
+      temp.dataset.page = `${index}`;
+      temp.textContent = `${index + 1}`;
+    } else if (+wordsDataLocal.page > 27) {
+      temp.dataset.page = `${25 + index}`;
+      temp.textContent = `${25 + index + 1}`;
+    } else {
+      const pageNumber = increaseStringNumberByStep(wordsDataLocal.page, index - 2);
+      temp.dataset.page = pageNumber;
+      temp.textContent = increaseStringNumberByStep(pageNumber, 1);
+    }
   });
 };
 
