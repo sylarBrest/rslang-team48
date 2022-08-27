@@ -6,18 +6,21 @@ import { renderTextbook } from '@view/pages/Textbook';
 import renderStartGame from '@view/pages/Game/startPage';
 import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
-  SPRINT_DESCRIPTION, SPRINT_TITLE, ZERO,
+  SPRINT_DESCRIPTION, SPRINT_TITLE,
+  ZERO,
 } from '@constants';
 import { initWordsData, updateWordsData } from '@store';
-import { colorActiveButton, reDrawPageButtons } from '@helpers';
-import startSprintGameHandler from '../gamesHandler/springGameHandlers/initSprintGameHandler';
+import {
+  colorActiveButton, reDrawPageButtons,
+  initSprintGame, initAudiocallGame,
+} from '@helpers';
 import initCardHandlers from '../cardHandlers';
 import initButtonHandlers from '../buttonHandlers';
 import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
 
 const router = new Router({
   mode: 'hash',
-  root: '/',
+  root: '/home',
 });
 
 const initRouterHandlers = () => {
@@ -25,11 +28,12 @@ const initRouterHandlers = () => {
 
   router.add('textbook/sprint', () => {
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, false);
-    startSprintGameHandler(false);
+    initSprintGame(false);
   });
 
   router.add('textbook/audiocall', () => {
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, false);
+    initAudiocallGame(false);
   });
 
   router.add(/textbook/, async () => {
@@ -45,13 +49,14 @@ const initRouterHandlers = () => {
   router.add('games/sprint', () => {
     updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, true);
-    startSprintGameHandler(true);
+    initSprintGame(true);
     activeLinkHandler('sprint');
   });
 
   router.add('games/audiocall', () => {
     updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
+    initAudiocallGame(true);
     activeLinkHandler('audiocall');
   });
 
@@ -67,7 +72,7 @@ const initRouterHandlers = () => {
     activeLinkHandler('team');
   });
 
-  router.add('', () => {
+  router.add(/home/, () => {
     updateWordsData(ZERO, ZERO);
     main.innerHTML = renderHome();
     activeLinkHandler('home');

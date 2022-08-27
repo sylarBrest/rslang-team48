@@ -1,11 +1,11 @@
 import { TRUE } from '@constants';
-import { temporalSprintWordsData } from '@store';
+import { temporalWordsData } from '@store';
 
 import './style.scss';
 
 const renderGameResult = () => {
   let fragment = '';
-  const array = temporalSprintWordsData.gameAnswers;
+  const array = temporalWordsData.gameAnswers;
 
   array.forEach((item) => {
     fragment += `
@@ -21,7 +21,7 @@ const renderGameResult = () => {
   return `
   <div class="game__result">
     <div class="game__result-buttons">
-      <a href="/#/" class="game__result-button game__result-home" title="вернуться на главную станицу"></a>
+      <a href="/#/home" class="game__result-button game__result-home" title="вернуться на главную станицу"></a>
       <button class="game__result-button game__result-again" title="начать игру заного"></button>
     </div>
     <div class="game__result-table-wrapper">    

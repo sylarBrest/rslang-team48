@@ -1,4 +1,4 @@
-export * from './temporalData/temporalSprintWordsData';
+export * from './temporalData/temporalWordsData';
 
 export * from './userData';
 

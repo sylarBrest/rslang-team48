@@ -1,6 +1,8 @@
-import { FALSE, TRUE } from '@constants';
-import { temporalSprintWordsData } from '@store';
-import { getRandomWordPairs, showGameResult } from '@utils';
+import {
+  ARROW_LEFT, ARROW_RIGHT, FALSE, TRUE,
+} from '@constants';
+import { getRandomWordPairs, showGameResult } from '@helpers';
+import { temporalWordsData } from '@store';
 
 export const getWordsDataByMouseClick = (e: Event) => {
   const wordElem = <HTMLElement>document.querySelector('.game__sprint-word');
@@ -13,19 +15,19 @@ export const getWordsDataByMouseClick = (e: Event) => {
 
   let answer = false;
 
-  if (bool === TRUE && temporalSprintWordsData.dictionary[wordText].wordTranslate === wordTranslateText) {
+  if (bool === TRUE && temporalWordsData.dictionary[wordText].wordTranslate === wordTranslateText) {
     answer = true;
   }
 
-  if (bool === TRUE && temporalSprintWordsData.dictionary[wordText].wordTranslate !== wordTranslateText) {
+  if (bool === TRUE && temporalWordsData.dictionary[wordText].wordTranslate !== wordTranslateText) {
     answer = false;
   }
 
-  if (bool === FALSE && temporalSprintWordsData.dictionary[wordText].wordTranslate === wordTranslateText) {
+  if (bool === FALSE && temporalWordsData.dictionary[wordText].wordTranslate === wordTranslateText) {
     answer = false;
   }
 
-  if (bool === FALSE && temporalSprintWordsData.dictionary[wordText].wordTranslate !== wordTranslateText) {
+  if (bool === FALSE && temporalWordsData.dictionary[wordText].wordTranslate !== wordTranslateText) {
     answer = true;
   }
 
@@ -36,17 +38,17 @@ export const getWordsDataByMouseClick = (e: Event) => {
   }
 
   const result = {
-    id: temporalSprintWordsData.dictionary[wordText].id,
+    id: temporalWordsData.dictionary[wordText].id,
     word: wordText,
     wordTranslate: wordTranslateText,
     isCorrectAnswer: String(answer),
   };
 
-  temporalSprintWordsData.gameAnswers.push(result);
+  temporalWordsData.gameAnswers.push(result);
 
   const pair = getRandomWordPairs();
 
-  if (!temporalSprintWordsData.wordPairs?.length) {
+  if (!temporalWordsData.wordPairs?.length) {
     showGameResult();
   }
 
@@ -58,16 +60,16 @@ export const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
   const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
   const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
 
-  if (e.key === 'ArrowLeft') {
+  if (e.key === ARROW_LEFT) {
     wrongButton.click();
   }
 
-  if (e.key === 'ArrowRight') {
+  if (e.key === ARROW_RIGHT) {
     rightButton.click();
   }
 };
 
-const sprintClickHandler = () => {
+const clickSprintButtonsHandler = () => {
   const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
   const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
 
@@ -76,4 +78,4 @@ const sprintClickHandler = () => {
   window.addEventListener('keydown', getWordsDataByKeyboardClick);
 };
 
-export default sprintClickHandler;
+export default clickSprintButtonsHandler;

@@ -11,7 +11,7 @@ const renderMenu = () => `
       <div class="menu" id="menu">
         <ul class="menu__inner">
             <li class="menu__item" data-view="home">
-              <a href="/#/" class="menu__link menu__link_home menu__link_active">Главная</a>
+              <a href="/#/home" class="menu__link menu__link_home menu__link_active">Главная</a>
             </li>
             <li class="menu__item" data-view="textbook">
               <a href="/#/textbook" class="menu__link menu__link_textbook">Учебник</a>

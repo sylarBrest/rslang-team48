@@ -16,11 +16,12 @@
   }
 
   &__title {
-    font-size: 32px;
+    font-size: 2vw;
   }
 
   &__description {
-    font-size: 18px;
+    padding: 0 5px;
+    font-size: 1vw;
     text-align: center;
   }
 
@@ -29,8 +30,8 @@
   }
 
   &__level-button {
-    width: 35px;
-    height: 35px;
+    width: 3vw;
+    height: 3vw;
     border: 2px solid #c0c0c0;
   }
 

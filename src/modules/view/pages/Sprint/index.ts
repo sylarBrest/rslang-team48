@@ -1,4 +1,4 @@
-import { getRandomWordPairs } from '@utils';
+import { getRandomWordPairs } from '@helpers';
 
 import './style.scss';
 
