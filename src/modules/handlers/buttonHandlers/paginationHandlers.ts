@@ -1,5 +1,7 @@
 import { ZERO } from '@constants';
-import { colorActiveButton, reDrawPageButtons } from '@helpers';
+import {
+  colorActiveButton, reDrawPageButtons, updatePaginationButtonsState, validatePageNumber,
+} from '@helpers';
 import { updateWordsData, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
 import { renderTextbookBody } from '@view/pages/Textbook';
@@ -44,9 +46,11 @@ const initPaginationHandlers = () => {
         break;
     }
 
+    validatePageNumber();
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
     reDrawPageButtons();
     colorActiveButton();
+    updatePaginationButtonsState();
     textbookBody.innerHTML = await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
   });

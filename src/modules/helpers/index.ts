@@ -19,3 +19,7 @@ export { default as playAudio } from './playAudio';
 export { default as reDrawPageButtons } from './reDrawPageButtons';
 
 export { default as showGameResult } from './showGameResult';
+
+export { default as updatePaginationButtonsState } from './updatePaginationButtonsState';
+
+export { default as validatePageNumber } from './validatePageNumber';

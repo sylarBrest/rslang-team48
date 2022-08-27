@@ -32,16 +32,18 @@
       height: 30px;
       border-radius: 50%;
 
-      &.active {
-        background-color: var(--color-blue-300);
-      }
-    
       &:hover {
         background-color: var(--color-blue-100);
       }
 
+      &.active {
+        background-color: var(--color-blue-300);
+        cursor: unset;
+      }
+    
       &:disabled {
         background-color: unset;
+        cursor: unset;
       }
     }    
   }

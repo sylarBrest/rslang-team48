@@ -11,7 +11,7 @@ import {
 } from '@constants';
 import { initWordsData, updateWordsData } from '@store';
 import {
-  colorActiveButton, reDrawPageButtons,
+  colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame,
 } from '@helpers';
 import initCardHandlers from '../cardHandlers';
@@ -44,6 +44,7 @@ const initRouterHandlers = () => {
     initButtonHandlers();
     reDrawPageButtons();
     colorActiveButton();
+    updatePaginationButtonsState();
   });
 
   router.add('games/sprint', () => {
