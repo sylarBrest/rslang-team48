@@ -2,12 +2,12 @@
 
 :root {
   --color-blue-100: hsl(209, 84%, 57%);
-  --color-white-100: hsl(206, 5%, 98%);
+  --color-white-100: hsl(0, 0%, 98%);
   --color-white-200: hsl(206, 5%, 90%);
-  --color-white-300: hsl(206, 5%, 80%);
+  --color-white-300: hsl(210, 6%, 80%);
   --color-white-400: hsl(206, 5%, 65%);
-  --color-white-500: hsl(206, 5%, 50%);
-  --color-white-600: hsl(206, 5%, 35%);
+  --color-white-500: hsl(208, 5%, 50%);
+  --color-white-600: hsl(207, 5%, 35%);
 
   --color-black-100: hsl(213, 20%, 9%);
   --color-black-200: hsl(213, 23%, 8%);
@@ -96,6 +96,10 @@ video {
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+input {
+  all: unset;
 }
 
 // Elements Section

@@ -8,51 +8,108 @@
   height: 100%;
   padding-top: 6rem;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.5);
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
+  background-color: #00000080;
+  
   &__content {
     display: flex;
     flex-direction: column;
-    min-width: 40rem;
+    width: 90%;
+    max-width: 30rem;
     min-height: 20rem;
-    background-color: hsl(206, 5%, 98%);
     border-radius: 1rem;
+    transform: translateY(-2rem);
   }
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.5rem 0.5rem 0 0; 
+  }
+  
+  &__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: var(--color-blue-700);
+    }
+  }
+
+  &__close-btn > .cross {
+    width: 1rem;
+    height: 1rem;
+    background-image: url('@assets/svg/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 0.2rem;
+  }
+    
   &__body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 2rem;
+    padding: 2rem 0;
+    background-color: var(--color-white-100);
+    border-radius: 0 1rem 1rem;
   }
-  
-  &__sign-in,
-  &__sign-up {
-    display: flex;
+
+  &__view {
+    display: none;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
   }
 
-
+  &__view_active {
+    display: flex;
+  }
+  
   &__row {
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
-    width: 70%;
+    align-items: center;
+    width: 90%;
+    padding: 0.5rem;
+    border: 2px solid var(--color-white-300);
+    border-radius: 1rem;
+
+    &::before {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      content: '';
+    }
+    
+    &_email::before {
+      background-image: url('@assets/svg/mail.svg');
+    }
+
+    &_name::before {
+      background-image: url('@assets/svg/user.svg');
+    }
+
+    &_password::before {
+      background-image: url('@assets/svg/password.svg');
+    }
 
   }
 
   &__input {
-    width: 75%;
+    width: 75%;    
   }
 
 }
@@ -61,4 +118,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn_tab {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.7rem;
+  color: var(--color-white-100);
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--color-blue-500);
+  border-radius: 1rem 1rem 0 0;
+  transition: 0.3s;
+
+  &_active {
+    background-color: var(--color-blue-700);
+  }
+
+  &::before {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    content: '';
+  }
+
+  &:hover {
+    background-color: var(--color-blue-600);
+  }
+}
+
+.btn_sign-in::before {  
+  background-image: url('@assets/svg/login-icon.svg');
+}
+
+.btn_sign-up::before {  
+  background-image: url('@assets/svg/new-user.svg');
 }
