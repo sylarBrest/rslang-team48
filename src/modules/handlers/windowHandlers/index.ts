@@ -1,15 +1,17 @@
 import { SCROLL_DISTANCE } from '@constants';
+import setFooterMargin from '@handlers/cardHandlers/setFooterMargin';
 
 const initWindowHandlers = () => {
-  window.addEventListener('scroll', (e: Event) => {
-    const target = <HTMLElement>e.target;
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector<HTMLElement>('.header');
 
     if (window.scrollY >= SCROLL_DISTANCE) {
-      target.classList.add('on-scroll');
+      header?.classList.add('on-scroll');
     } else {
-      target.classList.remove('on-scroll');
+      header?.classList.remove('on-scroll');
     }
   });
+  window.addEventListener('resize', () => setFooterMargin());
 };
 
 export default initWindowHandlers;

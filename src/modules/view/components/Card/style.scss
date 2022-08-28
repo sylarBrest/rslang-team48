@@ -18,6 +18,7 @@ h6 {
   flex-direction: column;
   align-items: center;
   width: 15rem;
+  transition: 0.3s;
 
   &__heading,
   &__subheading {    
@@ -49,6 +50,14 @@ h6 {
     }
   }
 
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 80% 30%;
+    transform: scale(1.01);
+    transition: 0.3s;
+  }
+
   &__audio-btn {    
     background-image: url('@assets/svg/audio.svg');    
   }
@@ -61,23 +70,44 @@ h6 {
     background-image: url('@assets/svg/favorite.svg');
   }
 
-  &__header-buttons {
+  &__down-btn {
+    background-image: url('@assets/svg/card-down.svg');
+    transform: rotate(-90deg);
+  }
+
+  &__buttons {    
+    position: absolute;
+    top: 0.5rem;
+    right: -2rem;
+    z-index: 0;
     display: flex;
+    flex-direction: column;
     gap: 0.5rem;
     justify-content: flex-end;
-    transform: translateX(1rem);
+    padding: 0.5rem 0.3rem 0.5rem 1rem;
+    background-color: var(--color-black-100);
+    border-radius: 0 0.5rem 0.5rem 0;
+    transform: translateX(-2rem);
+    transition: 0.2s;
+
+    &_active {
+      transform: translateX(0);
+    }
   }
+
 
   &__header-row {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0.8rem 1rem 0;
   }
 
   &__header {
-    z-index: 0;
+    z-index: 2;
     width: 100%;
-    padding: 0.5rem 1.5rem;
+    // padding: 0.5rem 0;
     background-color: $card-header-color;
     border: 1px solid $card-border-color;
     border-radius: 1rem;
@@ -86,10 +116,15 @@ h6 {
     
     &:hover,
     &_active {
-      z-index: 2;
+      z-index: 4;
       background-color: $card-header-hover-color;
       box-shadow: var(--shadow-small);
+
+      &__image {
+        border-radius: 1rem;
+      }
     }
+
   }
 
   &__body {
@@ -97,10 +132,11 @@ h6 {
     top: 0;
     z-index: 1;
     max-width: 18rem;
-    padding: 2rem;
+    padding: 1rem 0.8rem 0.8rem;
     font-size: 1rem;
+    line-height: 1.1rem;
     background-color: var(--color-white-200);
-    border-radius: 1rem;
+    border-radius: 0 0 1rem 1rem;
     box-shadow: var(--shadow-small);
     transform: translateY(0);
     visibility: hidden;
@@ -108,19 +144,21 @@ h6 {
     transition: 0.3s ease-in-out;
     
     &_active {
-      transform: translateY(4rem);
+      top: -0.7rem;
+      z-index: 3;
       visibility: visible;
       opacity: 1;
-
-      &:hover {
-        z-index: 1;
-      }
     }
-  }
+  }  
 }
 
 .word {
   &__transcription {
     color: var(--color-white-400);
   }
+}
+
+.translate {
+  color: var(--color-white-500);
+  font-size: 0.8rem;
 }

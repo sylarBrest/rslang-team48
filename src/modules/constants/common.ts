@@ -63,3 +63,5 @@ export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',
 }
+
+export const CARDS_ON_PAGE_COUNT = 20;

@@ -12,8 +12,11 @@ export const renderTextbookBody = async (group: string, page: string) => {
   if (response.status === EStatusCode.OK) {
     const words: TWordContent[] = await response.json();
     content = words
-      .map(Card)
-      .reduce((acc, item) => `${acc}${item}`, '');
+      .map((el, index) => Card({ ...el, index }))
+      .reduce(
+        (acc, item) => `${acc}${item}`,
+        '',
+      );
   }
 
   return content;
