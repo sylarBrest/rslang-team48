@@ -46,7 +46,7 @@ const cardClickHandler = () => {
         if (!card.classList.contains('card_buttons_active')) card.classList.add('card_buttons_active');
 
         const cardWidth = document.querySelector<HTMLElement>('.card')?.offsetWidth || 1;
-        const containerWidth = document.querySelector<HTMLElement>('.textbook')?.offsetWidth || 1;
+        const containerWidth = document.querySelector<HTMLElement>('.textbook__body')?.offsetWidth || 1;
         const cols = Math.floor((containerWidth / (cardWidth + CARDS_COL_GAP)));
         const index = +(card.dataset.index || 0);
         const bottomRows = Math.floor((CARDS_ON_PAGE_COUNT - index) / cols);

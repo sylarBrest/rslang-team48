@@ -4,9 +4,16 @@
   gap: 1rem;
 
   &__header {
+    position: sticky;
+    top: 2.75rem;
+    z-index: 10;
     display: flex;
+    gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    padding: 0.5rem 0;
+    background-color: var(--color-white-100);
+    box-shadow: var(--shadow-medium);
 
     @media only screen and (max-width: 1024px) {
       flex-direction: column;
@@ -26,6 +33,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &__difficulties-bar {
+    display: flex;
+    padding: 0.4rem 0.8rem;
+    color: var(--color-white-100);
+    font-weight: 700;
+    background-color: var(--color-black-300);
+    border-radius: 2.2rem;
   }
 
   &__pagination {
@@ -51,5 +67,58 @@
         cursor: unset;
       }
     }    
+  }
+}
+
+.radio-btn {
+  display: none;
+
+  &:checked + label {
+    transform: scale(1.5);
+  }
+
+  &_A1:hover + label,
+  &_A1:checked + label {
+    color: #9370db;
+    transform: scale(1.3);
+  }
+
+  &_A2:hover + label,
+  &_A2:checked + label {
+    color: #1e90ff;
+  }
+
+  &_B1:hover + label,
+  &_B1:checked + label {
+    color: #9acd32;
+  }
+
+  &_B2:hover + label,
+  &_B2:checked + label {
+    color: #ffd700;
+  }
+
+  &_C1:hover + label,
+  &_C1:checked + label {
+    color: #ff8c00;
+  }
+
+  &_C2:hover + label,
+  &_C2:checked + label {
+    color: #ff69b4;
+  }
+}
+
+.radio-label {
+  display: inline-block;
+  padding: 0 1rem;
+  line-height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  user-select: none;
+
+  &:hover {
+    transform: scale(1.2);
   }
 }
