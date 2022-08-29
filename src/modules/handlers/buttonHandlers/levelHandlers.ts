@@ -10,6 +10,7 @@ const initLevelHandlers = () => {
 
   levelButtons.forEach((el) => el.addEventListener('click', async (event: Event) => {
     const targetButton = <HTMLButtonElement>event.currentTarget;
+    (<HTMLInputElement>targetButton.querySelector('input')).checked = true;
     wordsDataLocal.group = targetButton.dataset.group || ZERO;
     wordsDataLocal.page = ZERO;
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);

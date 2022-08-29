@@ -1,5 +1,4 @@
 import { SCROLL_DISTANCE } from '@constants';
-import setFooterMargin from '@handlers/cardHandlers/setFooterMargin';
 
 const initWindowHandlers = () => {
   window.addEventListener('scroll', () => {
@@ -11,7 +10,6 @@ const initWindowHandlers = () => {
       header?.classList.remove('on-scroll');
     }
   });
-  window.addEventListener('resize', () => setFooterMargin());
 };
 
 export default initWindowHandlers;

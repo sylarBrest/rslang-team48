@@ -4,35 +4,6 @@ const cardClickHandler = () => {
   const cards = [...document.querySelectorAll<HTMLElement>('.card')];
 
   cards.forEach((card) => {
-    const cardButtons = <HTMLElement>card.querySelector('.card__buttons');
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    let cursorOnButtons = false;
-
-    cardButtons.addEventListener('mouseover', () => {
-      cursorOnButtons = true;
-    });
-    cardButtons.addEventListener('mouseleave', () => {
-      cursorOnButtons = false;
-    });
-
-    card.addEventListener('mouseover', (e) => {
-      const target = <HTMLDivElement>e.target;
-      if (!target.classList.contains('card__btn') && !target.classList.contains('card__active')
-      ) {
-        cardButtons.classList.toggle('card__buttons_active', true);
-      }
-    });
-
-    card.addEventListener('mouseleave', (e) => {
-      const target = <HTMLDivElement>e.target;
-      if (!target.classList.contains('card__btn')
-        && !target.classList.contains('card__active')
-        && !cursorOnButtons
-      ) {
-        cardButtons.classList.toggle('card__buttons_active', false);
-      }
-    });
-
     card.addEventListener('click', (e) => {
       const target = <HTMLDivElement>e.target;
 
@@ -53,12 +24,12 @@ const cardClickHandler = () => {
         const textbookFooter = <HTMLElement>document.querySelector('.footer');
 
         const cardsArr = cards
-          .reduce((all, one, i) => {
+          .reduce((acc, el, i) => {
             const ch = Math.floor(i / cols);
             // eslint-disable-next-line no-param-reassign
-            all[ch] = [...all[ch] || [],
-              one.querySelector<HTMLElement>('.card__body.card__body_active')?.offsetHeight || 0];
-            return all;
+            acc[ch] = [...acc[ch] || [],
+              el.querySelector<HTMLElement>('.card__body_active')?.offsetHeight || 0];
+            return acc;
           }, [] as number[][]);
         const resultArr = [];
         for (let x = 0; x < cols; x += 1) {
@@ -66,18 +37,6 @@ const cardClickHandler = () => {
         }
 
         const footerOffset = Math.max(...resultArr);
-        new Array(bottomRows)
-          .fill(null)
-          .forEach((el, i) => {
-            const dataIndex = index + ((i + 1) * cols);
-            const element = <HTMLElement>document.querySelector(`[data-index="${dataIndex}"]`);
-            const match = (element?.style.transform.match(/\d+/gm) || [0])[0];
-            if (element && cardBody.classList.contains('card__body_active')) {
-              element.style.transform = `translateY(${+match + cardBody.offsetHeight}px)`;
-            } else if (element) {
-              element.style.transform = `translateY(${+match - cardBody.offsetHeight}px)`;
-            }
-          });
 
         if (cardBody.classList.contains('card__body_active')) {
           cardBody.style.transform = `translateY(calc(${(cardHeader.offsetHeight)}px))`;
@@ -86,6 +45,19 @@ const cardClickHandler = () => {
           cardBody.style.transform = 'translateY(0)';
           textbookFooter.style.transform = `translateY(${footerOffset}px)`;
         }
+
+        new Array(bottomRows)
+          .fill(null)
+          .forEach((el, i) => {
+            const dataIndex = index + ((i + 1) * cols);
+            const element = <HTMLElement>document.querySelector(`[data-index="${dataIndex}"]`);
+            const curVal = (element?.style.transform.match(/\d+/gm) || [0])[0];
+            if (element && cardBody.classList.contains('card__body_active')) {
+              element.style.transform = `translateY(${+curVal + cardBody.offsetHeight}px)`;
+            } else if (element) {
+              element.style.transform = `translateY(${+curVal - cardBody.offsetHeight}px)`;
+            }
+          });
       }
     });
   });

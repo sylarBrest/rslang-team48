@@ -1,9 +1,9 @@
 import cardClickHandler from './cardClickHandler';
-// import setFooterMargin from './setFooterMargin';
+import cardHoverHandler from './cardHoverHandler';
 
 const initCardHandlers = () => {
   cardClickHandler();
-  // setFooterMargin();
+  cardHoverHandler();
 };
 
 export default initCardHandlers;
