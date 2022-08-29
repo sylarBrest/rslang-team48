@@ -65,8 +65,8 @@ export const renderTextbook = async () => {
         </div>
         
         <div class="textbook__games-bar">
-          <a href="/#/textbook/audiocall" class="btn btn-neutral">Аудиовызов</a>
-          <a href="/#/textbook/sprint" class="btn btn-neutral">Спринт</a>
+          <a href="/#/textbook/audiocall" class="btn_game btn_game_audiocall">Аудиовызов</a>
+          <a href="/#/textbook/sprint" class="btn_game btn_game_sprint">Спринт</a>
         </div>        
       </div>
       <div class="textbook__body section container">
