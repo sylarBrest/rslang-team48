@@ -1,4 +1,4 @@
-import { CARDS_ON_PAGE_COUNT } from '@constants';
+import { CARDS_ON_PAGE_COUNT, CARDS_COL_GAP } from '@constants';
 
 const cardClickHandler = () => {
   const cards = [...document.querySelectorAll<HTMLElement>('.card')];
@@ -47,10 +47,25 @@ const cardClickHandler = () => {
 
         const cardWidth = document.querySelector<HTMLElement>('.card')?.offsetWidth || 1;
         const containerWidth = document.querySelector<HTMLElement>('.textbook')?.offsetWidth || 1;
-        const cols = Math.floor((containerWidth / (cardWidth + 16)));
+        const cols = Math.floor((containerWidth / (cardWidth + CARDS_COL_GAP)));
         const index = +(card.dataset.index || 0);
         const bottomRows = Math.floor((CARDS_ON_PAGE_COUNT - index) / cols);
-        // const textbookBody = <HTMLElement>document.querySelector('.textbook__body');
+        const textbookFooter = <HTMLElement>document.querySelector('.footer');
+
+        const cardsArr = cards
+          .reduce((all, one, i) => {
+            const ch = Math.floor(i / cols);
+            // eslint-disable-next-line no-param-reassign
+            all[ch] = [...all[ch] || [],
+              one.querySelector<HTMLElement>('.card__body.card__body_active')?.offsetHeight || 0];
+            return all;
+          }, [] as number[][]);
+        const resultArr = [];
+        for (let x = 0; x < cols; x += 1) {
+          resultArr.push(cardsArr.reduce((acc, el) => acc + el[x], 0));
+        }
+
+        const footerOffset = Math.max(...resultArr);
         new Array(bottomRows)
           .fill(null)
           .forEach((el, i) => {
@@ -66,8 +81,10 @@ const cardClickHandler = () => {
 
         if (cardBody.classList.contains('card__body_active')) {
           cardBody.style.transform = `translateY(calc(${(cardHeader.offsetHeight)}px))`;
+          textbookFooter.style.transform = `translateY(${footerOffset}px)`;
         } else {
           cardBody.style.transform = 'translateY(0)';
+          textbookFooter.style.transform = `translateY(${footerOffset}px)`;
         }
       }
     });

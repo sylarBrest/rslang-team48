@@ -26,23 +26,6 @@ export const renderTextbook = async () => {
   const template = `
     <section class="textbook section container">
       <div class="textbook__header">
-        <div class="textbook__difficulties-bar">
-          <button class="btn btn-darken difficulty-btn" data-group="0">A1</button>
-          <button class="btn btn-darken difficulty-btn" data-group="1">A2</button>
-          <button class="btn btn-darken difficulty-btn" data-group="2">B1</button>
-          <button class="btn btn-darken difficulty-btn" data-group="3">B2</button>
-          <button class="btn btn-darken difficulty-btn" data-group="4">C1</button>
-          <button class="btn btn-darken difficulty-btn" data-group="5">C2</button>
-        </div>
-        <div class="textbook__games-bar">
-          <a href="/#/textbook/audiocall" class="btn btn-neutral">Аудиовызов</a>
-          <a href="/#/textbook/sprint" class="btn btn-neutral">Спринт</a>
-        </div>
-      </div>
-      <div class="textbook__body">
-        ${await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)}
-      </div>
-      <div class="textbook__footer">
         <div class="textbook__pagination">
           <button class="btn first">&laquo;</button>
           <button class="btn prev">&lt;</button>
@@ -54,6 +37,24 @@ export const renderTextbook = async () => {
           <button class="btn next">&gt;</button>
           <button class="btn last">&raquo;</button>
         </div>
+        <div class="textbook__difficulties-bar">
+          <button class="btn btn-darken difficulty-btn" data-group="0">A1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="1">A2</button>
+          <button class="btn btn-darken difficulty-btn" data-group="2">B1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="3">B2</button>
+          <button class="btn btn-darken difficulty-btn" data-group="4">C1</button>
+          <button class="btn btn-darken difficulty-btn" data-group="5">C2</button>
+        </div>
+        <div class="textbook__games-bar">
+          <a href="/#/textbook/audiocall" class="btn btn-neutral">Аудиовызов</a>
+          <a href="/#/textbook/sprint" class="btn btn-neutral">Спринт</a>
+        </div>        
+      </div>
+      <div class="textbook__body">
+        ${await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)}
+      </div>
+      <div class="textbook__footer">
+        
       </div>
     </section>    
   `;

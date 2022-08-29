@@ -101,7 +101,7 @@ h6 {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0.8rem 1rem 0;
+    padding: 0.8rem 1rem;
   }
 
   &__header {
@@ -132,7 +132,7 @@ h6 {
     top: 0;
     z-index: 1;
     max-width: 18rem;
-    padding: 1rem 0.8rem 0.8rem;
+    padding: 1.2rem 0.8rem 0.8rem;
     font-size: 1rem;
     line-height: 1.1rem;
     background-color: var(--color-white-200);
