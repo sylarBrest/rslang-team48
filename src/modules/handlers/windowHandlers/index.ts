@@ -1,15 +1,9 @@
-import { SCROLL_DISTANCE } from '@constants';
+import menuRepaintingHandler from './menuRepaintingHandler';
+import textbookHeaderHandler from './textbookHeaderHandler';
 
 const initWindowHandlers = () => {
-  window.addEventListener('scroll', (e: Event) => {
-    const target = <HTMLElement>e.target;
-
-    if (window.scrollY >= SCROLL_DISTANCE) {
-      target.classList.add('on-scroll');
-    } else {
-      target.classList.remove('on-scroll');
-    }
-  });
+  textbookHeaderHandler();
+  menuRepaintingHandler();
 };
 
 export default initWindowHandlers;
