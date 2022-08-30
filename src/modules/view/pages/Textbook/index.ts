@@ -28,27 +28,27 @@ export const renderTextbook = async () => {
       <div class="textbook__header">
         <ul class="textbook__difficulties-bar">
           <li class="radio-container" data-group="0">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_A1" id="A1" value="A1" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_A1" id="A1" value="0" />
             <label for="A1" class="radio-label">A1</label>
           </li>
           <li class="radio-container" data-group="1">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_A2" id="A2" value="A2" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_A2" id="A2" value="1" />
             <label for="A2" class="radio-label">A2</label>
           </li>
           <li class="radio-container" data-group="2">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_B1" id="B1" value="B1" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_B1" id="B1" value="2" />
             <label for="B1" class="radio-label">B1</label>
           </li>
           <li class="radio-container" data-group="3">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_B2" id="B2" value="B2" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_B2" id="B2" value="3" />
             <label for="B2" class="radio-label">B2</label>
           </li>          
           <li class="radio-container" data-group="4">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_C1" id="C1" value="C1" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_C1" id="C1" value="4" />
             <label for="C1" class="radio-label">C1</label>
           </li>
           <li class="radio-container" data-group="5">
-            <input type="radio" name="difficulty" class="radio-btn radio-btn_C2" id="C2" value="C2" />
+            <input type="radio" name="difficulty" class="radio-btn radio-btn_C2" id="C2" value="5" />
             <label for="C2" class="radio-label">C2</label>
           </li>
         </ul>
