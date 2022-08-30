@@ -27,6 +27,34 @@
 
   &__level-buttons {
     margin-top: 5vh;
+    
+    [data-group='0'] {
+      background: #9370db;
+    }
+    
+    [data-group='1'] {
+      background: #1e90ff;
+    }
+    
+    [data-group='2'] {
+      background: #9acd32;
+    }
+    
+    [data-group='3'] {
+      background: #ffd700;
+    }
+    
+    [data-group='4'] {
+      background: #ff8c00;
+    }
+    
+    [data-group='5'] {
+      background: #ff69b4;
+    }
+    
+    .active-level-btn {
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
+    }
   }
 
   &__level-button {
@@ -50,30 +78,3 @@
   }
 }
 
-[data-group='0'] {
-  background: #9370db;
-}
-
-[data-group='1'] {
-  background: #1e90ff;
-}
-
-[data-group='2'] {
-  background: #9acd32;
-}
-
-[data-group='3'] {
-  background: #ffd700;
-}
-
-[data-group='4'] {
-  background: #ff8c00;
-}
-
-[data-group='5'] {
-  background: #ff69b4;
-}
-
-.active-level-btn {
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.75);
-}
