@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import {
   ARROW_LEFT, ARROW_RIGHT, FALSE, TRUE,
 } from '@constants';
@@ -46,11 +47,11 @@ export const getWordsDataByMouseClick = (e: Event) => {
 
   temporalWordsData.gameAnswers.push(result);
 
-  const pair = getRandomWordPairs();
-
   if (!temporalWordsData.wordPairs?.length) {
-    showGameResult();
+    return showGameResult();
   }
+
+  const pair = getRandomWordPairs();
 
   wordElem.innerHTML = pair.word;
   wordTranslateElem.innerHTML = pair.wordTranslate;

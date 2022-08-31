@@ -26,7 +26,7 @@ export const initTemporalWordsData = (array: TWordContent[]) => {
 
     let index = getRandomInteger(0, arr.length);
 
-    while (index === idx) {
+    while (index === idx && !flag) {
       index = getRandomInteger(0, arr.length);
     }
 
