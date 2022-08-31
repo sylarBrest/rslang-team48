@@ -18,7 +18,7 @@ const loginHandler = () => {
         token, refreshToken, userId, name,
       } = loginData;
 
-      updateUserData(name, token, refreshToken, userId);
+      updateUserData(name, userId, token, refreshToken);
 
       alert(`${name} успешно вошел в систему`);
     }

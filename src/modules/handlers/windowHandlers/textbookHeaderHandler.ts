@@ -5,7 +5,6 @@ const textbookHeaderHandler = () => {
   window.addEventListener('scroll', () => {
     const currentScrollPos = window.pageYOffset;
     const header = <HTMLElement>document.querySelector('.textbook__header');
-    console.log(header.offsetHeight);
     if (prevScrollpos > currentScrollPos) {
       header.style.top = NAVBAR_HEIGHT;
     } else {

@@ -15,6 +15,8 @@ export const AUDIOCALL_DESCRIPTION = `
 Space для воспроизведения слова и клавишу Enter для переключения на следующий вопрос.
 `;
 
+export const SPRINT = 'sprint';
+
 export const HIDDEN = 'hidden';
 
 export const VISIBLE = 'visible';
@@ -64,6 +66,12 @@ export const WORDS_PER_PAGE = '20';
 export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',
+}
+
+export enum EDifficulty {
+  UNSET = 'unset',
+  KNOWN = 'known',
+  HARD = 'hard',
 }
 
 export const CARDS_ON_PAGE_COUNT = 20;

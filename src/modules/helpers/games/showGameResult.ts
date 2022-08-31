@@ -6,8 +6,7 @@ import renderGameResult from '@view/pages/Game/resultPage';
 import { temporalWordsData } from '@store';
 import { clickTranslationByKeyboardHandler }
   from '@handlers/gamesHandler/audiocallGameHandlers/clickTranslationButtonsHandler';
-import { TRUE } from '@constants';
-import getMaxStreak from './getMaxStreak';
+import changeWordsOnServer from './changeWordsOnServer';
 
 const showGameResult = () => {
   const gameLayout = <HTMLElement>document.querySelector('.game__layout');
@@ -16,7 +15,7 @@ const showGameResult = () => {
   clickSprintAgainHandler();
   clickAudioResultHandler();
 
-  const streak = getMaxStreak(temporalWordsData.gameAnswers, TRUE);
+  changeWordsOnServer();
 
   temporalWordsData.gameAnswers = [];
 

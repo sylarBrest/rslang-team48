@@ -77,3 +77,15 @@ export type TOptionalStat = {
   appeared: number;
   correctly: number;
 };
+
+export type TUserWord = {
+  id: string;
+  difficulty: TDifficulty;
+  optional: TOptionalWord;
+  wordId: string;
+};
+
+export type TUserStat = {
+  learnedWords: number;
+  optional: TOptionalStat;
+};
