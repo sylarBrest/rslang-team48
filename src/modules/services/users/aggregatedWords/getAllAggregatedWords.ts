@@ -1,7 +1,14 @@
-import { HOST, EUrl, EHttpMethod } from '@constants';
-import { userDataLocal } from '@store';
+import {
+  HOST, EUrl, EHttpMethod, WORDS_PER_PAGE,
+} from '@constants';
+import { userDataLocal, wordsDataLocal } from '@store';
 
-const getAllAggregatedWords = async (group: string, page: string, wordsPerPage: string, filter: string) => {
+const getAllAggregatedWords = async (
+  filter: string,
+  group: string = wordsDataLocal.group,
+  page: string = wordsDataLocal.page,
+  wordsPerPage: string = WORDS_PER_PAGE,
+) => {
   const searchParams = new URLSearchParams({
     group,
     page,

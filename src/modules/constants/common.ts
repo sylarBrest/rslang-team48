@@ -59,6 +59,8 @@ export const ANSWER_TIME = 30;
 
 export const SECOND = 1000;
 
+export const WORDS_PER_PAGE = '20';
+
 export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',
