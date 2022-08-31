@@ -20,6 +20,7 @@ const changeWordsOnServer = async () => {
       let { difficulty, optional }: TUserWord = userWord;
 
       optional.appeared++;
+      optional.updateAt = getDateNow();
 
       if (difficulty === EDifficulty.UNSET && optional.attempts === 2 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
