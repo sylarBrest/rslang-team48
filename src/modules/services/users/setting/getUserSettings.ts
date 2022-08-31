@@ -1,6 +1,6 @@
 import { EUrl } from '@constants';
 import basicGetMethod from '@services/basicMethods/basicGetMethod';
 
-const getUserStatistic = async () => basicGetMethod(EUrl.SETTINGS);
+const getUserSettings = async () => basicGetMethod(EUrl.SETTINGS);
 
-export default getUserStatistic;
+export default getUserSettings;

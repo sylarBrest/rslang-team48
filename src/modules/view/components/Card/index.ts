@@ -6,13 +6,13 @@ const Card = ({
   image,
   word,
   transcription,
-  // audio,
+  audio,
   wordTranslate,
   textMeaning,
-  // audioMeaning,
+  audioMeaning,
   textMeaningTranslate,
   textExample,
-  // audioExample,
+  audioExample,
   textExampleTranslate,
   index,
 }: TWordContent & { index: number }) => {
@@ -21,7 +21,11 @@ const Card = ({
     <div class="card__header">
       <img src="${HOST}/${image}" alt="${word}" class="card__image"/>
       <div class="card__header-row">
-        <h4 class="card__heading">${word}<button class="card__audio-btn card__btn" /></h4>
+        <h4 class="card__heading">${word}<button 
+        data-audio-files="${HOST}/${audio},${HOST}/${audioMeaning},${HOST}/${audioExample}"
+        class="card__audio-btn card__btn" />
+        <audio></audio>
+        </h4>
         <h5 class="card__subheading">${wordTranslate}</h5>
         <h5 class="card__subheading word__transcription">${transcription}</h5>
       </div>
