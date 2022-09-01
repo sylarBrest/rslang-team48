@@ -2,7 +2,7 @@ import { HOST, EUrl, EHttpMethod } from '@constants';
 import { userDataLocal } from '@store';
 
 const updateUserSettings = async (wordsPerDay: number, optional: Record<string, string>) =>
-  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}`, {
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.SETTINGS}`, {
     method: EHttpMethod.PUT,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
