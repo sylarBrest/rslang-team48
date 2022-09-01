@@ -16,7 +16,7 @@ const showGameResult = async () => {
   clickSprintAgainHandler();
   clickAudioResultHandler();
 
-  await changeWordsOnServer();
+  changeWordsOnServer();
   await updateGameStats();
 
   temporalWordsData.gameAnswers = [];

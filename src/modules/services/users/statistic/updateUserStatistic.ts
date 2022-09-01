@@ -3,7 +3,7 @@ import { userDataLocal } from '@store';
 import { TOptionalStat } from '@types';
 
 const updateUserStatistic = async (learnedWords: number, optional: TOptionalStat) =>
-  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}`, {
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.STATISTICS}`, {
     method: EHttpMethod.PUT,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
