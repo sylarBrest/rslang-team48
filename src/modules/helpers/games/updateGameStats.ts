@@ -59,8 +59,8 @@ const updateGameStats = async () => {
       appeared: answers.length,
       correctly: rightAnswer,
     };
-    console.log('end');
-    console.log(await updateUserStatistic(0, optional));
+
+    await updateUserStatistic(0, optional);
   }
 };
 
