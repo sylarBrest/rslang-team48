@@ -7,15 +7,17 @@ import { temporalWordsData } from '@store';
 import { clickTranslationByKeyboardHandler }
   from '@handlers/gamesHandler/audiocallGameHandlers/clickTranslationButtonsHandler';
 import changeWordsOnServer from './changeWordsOnServer';
+import updateGameStats from './updateGameStats';
 
-const showGameResult = () => {
+const showGameResult = async () => {
   const gameLayout = <HTMLElement>document.querySelector('.game__layout');
 
   gameLayout.innerHTML = renderGameResult();
   clickSprintAgainHandler();
   clickAudioResultHandler();
 
-  changeWordsOnServer();
+  await changeWordsOnServer();
+  await updateGameStats();
 
   temporalWordsData.gameAnswers = [];
 
