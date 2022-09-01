@@ -26,41 +26,27 @@ const changeWordsOnServer = async () => {
         difficulty = EDifficulty.KNOWN;
         optional.correctly++;
         optional.attempts = 0;
-      }
-
-      if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === TRUE) {
+      } else if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.UNSET;
-        optional.correctly = 0;
-        optional.attempts = 0;
-      }
-
-      if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === FALSE) {
+        optional.correctly++;
+        optional.attempts++;
+      } else if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === FALSE) {
         difficulty = EDifficulty.UNSET;
         optional.attempts = 0;
-      }
-
-      if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === TRUE) {
+      } else if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
         optional.correctly++;
-      }
-
-      if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === FALSE) {
+      } else if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === FALSE) {
         difficulty = EDifficulty.UNSET;
-      }
-
-      if (difficulty === EDifficulty.HARD && optional.attempts === 4 && item.isCorrectAnswer === TRUE) {
+      } else if (difficulty === EDifficulty.HARD && optional.attempts === 4 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
-        optional.correctly = 0;
+        optional.correctly++;
         optional.attempts = 0;
-      }
-
-      if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === TRUE) {
+      } else if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.HARD;
         optional.correctly++;
         optional.attempts++;
-      }
-
-      if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === FALSE) {
+      } else if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === FALSE) {
         difficulty = EDifficulty.HARD;
         optional.attempts++;
       }
@@ -77,6 +63,7 @@ const changeWordsOnServer = async () => {
       promises.push(createUserWord(item.id, EDifficulty.UNSET, optional));
     }
   });
+
   Promise.all(promises);
 };
 
