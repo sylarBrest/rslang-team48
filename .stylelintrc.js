@@ -6,5 +6,6 @@ module.exports = {
     "value-no-vendor-prefix": null,
     "max-nesting-depth": null,
     "selector-class-pattern": null,
+    "selector-max-id": null,
   }
 };

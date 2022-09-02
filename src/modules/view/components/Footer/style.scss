@@ -1,5 +1,5 @@
 .footer {  
-  background-color: var(--color-blue-600);
+  background-color: var(--color-black-300);
   transition: 0.3s ease-in-out;
 }
 
@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: var(--navbar-height);
 
   .github {
     display: flex;
@@ -34,10 +34,11 @@
     }
   }
 
-  .copyright {
+  .copyright {    
     display: flex;
     gap: 5px;
-    font-size: 25px;
+    color: var(--color-white-100);
+    font-size: 1.2rem;
   }
 
   .rss-logo {
@@ -53,6 +54,6 @@
   @media only screen and (max-width: 470px) {
     flex-direction: column;
     justify-content: center;
-    height: 120px;
+    height: auto;
   }
 }

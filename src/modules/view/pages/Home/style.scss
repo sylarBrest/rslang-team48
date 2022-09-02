@@ -1,0 +1,208 @@
+:root {
+  --subheading-size: 2rem;
+  --heading-container-height: 10rem;
+  --num-subheadings: 8;
+  --subheading-margin: 4vw;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: var(--navbar-height);
+  color: var(--color-black-100);
+  background-color: #f3f0f1;
+  background-image: url('@assets/img/female-student.webp');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 100%;
+  transition: 0.5s ease-in-out;
+
+  &__row {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+  &__heading-container {
+    display: flex;
+    align-items: flex-start;
+    transition: 0.5s ease-in-out;
+  }
+
+  &__heading {
+    padding-top: 6rem;
+    font-weight: 900;
+    font-size: 4rem;
+    transition: 0.3s;
+  }
+
+  &__subheadings-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subheading {
+    padding-top: 10rem;
+    color: var(--color-black-400);
+    font-weight: 700;
+    font-size: var(--subheading-size);
+    text-align: right;
+    opacity: 0;
+    transition: 0.3s;
+
+    &_last {
+      font-size: calc(var(--subheading-size) * 0.5);
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    background-position: center;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: 512px) {
+    background-position: -10% center;
+  }  
+}
+
+.reviews {
+  position: sticky;
+  top: 3rem;
+  margin: 600vh auto;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+
+  &__heading {
+    font-weight: 700;
+  }
+
+  &__row {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
+    justify-content: space-around;
+    padding-top: 1rem;
+  }
+
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 16rem;
+  padding: 1rem;
+  background-color: var(--color-white-100);
+  border: 1px solid var(--color-black-400);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-medium);
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+
+  &__text {
+    flex-grow: 1;
+  }
+
+  &__username {
+    align-self: flex-end;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  &__rating-bar {
+    align-self: flex-end;
+  }
+
+  &__userpic {
+    align-self: center;
+    width: 6rem;
+    height: 6rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &_drogo {
+      background-image: url('@assets/img/drogo.webp');
+    }
+
+    &_cicero {
+      background-image: url('@assets/img/cicero.webp');
+    }
+
+    &_student {
+      background-image: url('@assets/img/anonymous.webp');
+    }
+  }
+
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+.scroll-area {
+  height: 600vh;
+}
+
+.disappear {
+  opacity: 0;
+  animation: disappear-animation 1s ease-in-out;
+}
+
+.reveal {
+  opacity: 1;
+  animation: disappear-animation 1s ease-in-out reverse;
+}
+
+.splash-image {
+  min-width: 25vw;
+  min-height: 100vh;  
+}
+
+@keyframes disappear-animation {
+  0% {
+    opacity: 1;
+  }
+
+  90% {   
+    opacity: 0;
+  }
+
+  100% {
+    display: none;    
+  }
+}
+
+.card-reveal {
+  animation: card-reveal-animation 1.5s ease-in-out forwards;
+}
+
+@keyframes card-reveal-animation {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

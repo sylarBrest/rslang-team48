@@ -80,6 +80,7 @@ body > * {
 
 .main {
   flex-grow: 1;
+  margin-bottom: var(--navbar-height);
 }
 
 a,
@@ -126,7 +127,7 @@ input {
 
 .section {
   margin: 0 auto;
-  padding: 4rem 1.25rem 1rem;
+  padding: calc(var(--navbar-height) + 1rem) 1.25rem 1rem;  
 }
 
 // Typography
