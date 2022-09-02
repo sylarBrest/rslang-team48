@@ -3,7 +3,7 @@ import { getWordsDataByKeyboardClick } from '@handlers/gamesHandler/springGameHa
 import clickSprintAgainHandler from '@handlers/gamesHandler/springGameHandlers/clickSprintAgainHandler';
 import clickAudioResultHandler from '@handlers/gamesHandler/clickAudioResultHandler';
 import renderGameResult from '@view/pages/Game/resultPage';
-import { temporalWordsData } from '@store';
+import { temporalWordsData, userDataLocal } from '@store';
 import { clickTranslationByKeyboardHandler }
   from '@handlers/gamesHandler/audiocallGameHandlers/clickTranslationButtonsHandler';
 import changeWordsOnServer from './changeWordsOnServer';
@@ -16,8 +16,10 @@ const showGameResult = async () => {
   clickSprintAgainHandler();
   clickAudioResultHandler();
 
-  changeWordsOnServer();
-  await updateGameStats();
+  if (userDataLocal) {
+    changeWordsOnServer();
+    await updateGameStats();
+  }
 
   temporalWordsData.gameAnswers = [];
 
