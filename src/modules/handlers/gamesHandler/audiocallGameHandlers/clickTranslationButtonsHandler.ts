@@ -2,7 +2,7 @@ import {
   BLANK_SPACE,
   DIGIT_1, DIGIT_2, DIGIT_3, DIGIT_4, DIGIT_5, ENTER, INDEX_0, INDEX_1, INDEX_2, INDEX_3, INDEX_4, VISIBLE,
 } from '@constants';
-import { changeVisibility, showGameResult } from '@helpers';
+import { changeVisibility } from '@helpers';
 import { temporalWordsData } from '@store';
 
 export const clickTranslationByKeyboardHandler = (e: KeyboardEvent) => {
@@ -54,11 +54,13 @@ const clickTranslationButtonsHandler = () => {
     const wordElement = <HTMLElement>document.querySelector('.game__audiocall-word');
     const wordText = String(wordElement.textContent);
     const buttons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
+    const progress = <HTMLProgressElement>document.querySelector('progress');
 
     const audioCorrect = new Audio('./src/assets/audio/correct.mp3');
     const audioIncorrect = new Audio('./src/assets/audio/error.mp3');
 
     if (target && target.classList.contains('game__audiocall-button')) {
+      progress.value += 1;
       changeVisibility(VISIBLE);
 
       let answer = false;
@@ -93,11 +95,6 @@ const clickTranslationButtonsHandler = () => {
           elem.style.backgroundColor = '#32CD32';
         }
       });
-
-      if (!temporalWordsData.translationOptions?.length) {
-        showGameResult();
-        window.removeEventListener('keydown', clickTranslationByKeyboardHandler);
-      }
     }
   });
 
