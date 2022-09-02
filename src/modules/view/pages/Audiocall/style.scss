@@ -1,7 +1,8 @@
 .game__audiocall {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  height: 40vh;
 
   progress {
     display: block;
@@ -45,20 +46,20 @@
 
   &-word {
     width: 7vw;
-    font-size: 24px;
+    font-size: 2vw;
     visibility: hidden;
   }
 
   &-translate-buttons {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 7vh;
-    margin-bottom: 5vh;
+    margin-top: 1vh;
   }
 
   &-button {
     width: min-content;
     padding: 5px;
+    font-size: 1vw;
     border: 1px solid #1a1a1a;
     border-radius: 5px;
   }
@@ -71,7 +72,8 @@
   &-next-button {
     width: min-content;
     margin: 0 auto;
-    padding: 10px;
+    padding: 5px;
+    font-size: 1vw;
     border: 1px solid #1a1a1a;
     border-radius: 5px;
     visibility: hidden;
