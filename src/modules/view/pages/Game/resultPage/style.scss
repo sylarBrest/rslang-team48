@@ -39,10 +39,15 @@
 table {
   width: 100%;
   margin: 15px auto;
+  font-size: 1vw;
+}
+
+tr td {
+  padding: 5px;
 }
 
 tr td:first-child {
-  width: 50px;
+  width: 3vw;
   background: url('@assets/svg/audio.svg') center no-repeat;
 }
 
