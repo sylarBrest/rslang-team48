@@ -8,7 +8,6 @@ import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
   SPRINT_DESCRIPTION, SPRINT_TITLE,
 } from '@constants';
-import { initWordsData } from '@store';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame,
@@ -36,7 +35,7 @@ const initRouterHandlers = () => {
   });
 
   router.add(/textbook/, async () => {
-    initWordsData();
+    // initWordsData();
     main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
