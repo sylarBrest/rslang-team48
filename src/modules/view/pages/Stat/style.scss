@@ -1,0 +1,62 @@
+.stat {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      margin: 2vh auto;
+    }
+  }
+
+  &__today,
+  &__overall {
+    display: flex;
+    gap: 5vw;
+  }
+
+  &__words-learned,
+  &__right-answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 7vw;
+    height: 7vw;
+    font-size: 1vw;
+    border: 2px solid #1a1a1a;
+    border-radius: 10%;
+  }
+
+  &__games {
+    display: flex;
+    gap: 10vw;
+    margin: 2vh auto;
+  }
+
+  &__sprint,
+  &__audiocall {
+    width: 20vw;
+    height: 10vw;
+    padding-left: 1vw;
+    font-size: 1vw;
+    border: 2px solid #1a1a1a;
+    border-radius: 1vh;
+  }
+
+  &__sprint-title,
+  &__audiocall-title {
+    text-align: center;
+  }
+
+  &__sprint-learned,
+  &__audiocall-learned,
+  &__sprint-right-answer,
+  &__audiocall-right-answer,
+  &__sprint-right-answer,
+  &__sprint-streak,
+  &__audiocall-streak {
+    margin-top: 1vh;
+  }
+}

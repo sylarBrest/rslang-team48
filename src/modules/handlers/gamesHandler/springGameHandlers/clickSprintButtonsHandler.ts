@@ -1,8 +1,22 @@
+/* eslint-disable consistent-return */
 import {
   ARROW_LEFT, ARROW_RIGHT, FALSE, TRUE,
 } from '@constants';
 import { getRandomWordPairs, showGameResult } from '@helpers';
 import { temporalWordsData } from '@store';
+
+export const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
+  const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
+  const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
+
+  if (e.key === ARROW_LEFT) {
+    wrongButton.click();
+  }
+
+  if (e.key === ARROW_RIGHT) {
+    rightButton.click();
+  }
+};
 
 export const getWordsDataByMouseClick = (e: Event) => {
   const wordElem = <HTMLElement>document.querySelector('.game__sprint-word');
@@ -46,27 +60,15 @@ export const getWordsDataByMouseClick = (e: Event) => {
 
   temporalWordsData.gameAnswers.push(result);
 
-  const pair = getRandomWordPairs();
-
   if (!temporalWordsData.wordPairs?.length) {
-    showGameResult();
+    window.removeEventListener('keydown', getWordsDataByKeyboardClick);
+    return showGameResult();
   }
+
+  const pair = getRandomWordPairs();
 
   wordElem.innerHTML = pair.word;
   wordTranslateElem.innerHTML = pair.wordTranslate;
-};
-
-export const getWordsDataByKeyboardClick = (e: KeyboardEvent) => {
-  const rightButton = <HTMLButtonElement>document.querySelector('.sprint__play-true');
-  const wrongButton = <HTMLButtonElement>document.querySelector('.sprint__play-false');
-
-  if (e.key === ARROW_LEFT) {
-    wrongButton.click();
-  }
-
-  if (e.key === ARROW_RIGHT) {
-    rightButton.click();
-  }
 };
 
 const clickSprintButtonsHandler = () => {

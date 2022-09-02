@@ -7,9 +7,7 @@ import renderStartGame from '@view/pages/Game/startPage';
 import {
   AUDIOCALL_DESCRIPTION, AUDIOCALL_TITLE,
   SPRINT_DESCRIPTION, SPRINT_TITLE,
-  ZERO,
 } from '@constants';
-import { initWordsData, updateWordsData } from '@store';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame,
@@ -37,7 +35,7 @@ const initRouterHandlers = () => {
   });
 
   router.add(/textbook/, async () => {
-    initWordsData();
+    // initWordsData();
     main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
@@ -48,33 +46,28 @@ const initRouterHandlers = () => {
   });
 
   router.add('games/sprint', () => {
-    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(SPRINT_TITLE, SPRINT_DESCRIPTION, true);
     initSprintGame(true);
     activeLinkHandler('sprint');
   });
 
   router.add('games/audiocall', () => {
-    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderStartGame(AUDIOCALL_TITLE, AUDIOCALL_DESCRIPTION, true);
     initAudiocallGame(true);
     activeLinkHandler('audiocall');
   });
 
-  router.add(/statistic/, () => {
-    updateWordsData(ZERO, ZERO);
-    main.innerHTML = renderStat();
+  router.add(/statistic/, async () => {
+    main.innerHTML = await renderStat();
     activeLinkHandler('stat');
   });
 
   router.add(/team/, () => {
-    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderTeam();
     activeLinkHandler('team');
   });
 
   router.add(/home/, () => {
-    updateWordsData(ZERO, ZERO);
     main.innerHTML = renderHome();
     activeLinkHandler('home');
   });

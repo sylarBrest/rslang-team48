@@ -1,8 +1,9 @@
 import { HOST, EUrl, EHttpMethod } from '@constants';
 import { userDataLocal } from '@store';
+import { TOptionalStat } from '@types';
 
-const updateUserStatistic = async (learnedWords: number, optional: Record<string, string>) =>
-  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}`, {
+const updateUserStatistic = async (learnedWords: number, optional: TOptionalStat) =>
+  fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.STATISTICS}`, {
     method: EHttpMethod.PUT,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
