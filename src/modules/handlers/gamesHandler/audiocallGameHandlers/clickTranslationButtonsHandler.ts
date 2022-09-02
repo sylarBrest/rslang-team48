@@ -96,6 +96,7 @@ const clickTranslationButtonsHandler = () => {
 
       if (!temporalWordsData.translationOptions?.length) {
         showGameResult();
+        window.removeEventListener('keydown', clickTranslationByKeyboardHandler);
       }
     }
   });

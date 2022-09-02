@@ -1,3 +1,4 @@
+import { userDataLocal } from '@store';
 import './style.scss';
 
 const renderMenu = () => `
@@ -28,9 +29,9 @@ const renderMenu = () => `
                 </ul>
             </li>
             
-            <li class="menu__item" data-view="stat">
+            ${userDataLocal ? `<li class="menu__item" data-view="stat">
               <a href="/#/statistic" class="menu__link menu__link_stat">Статистика</a>
-            </li>
+            </li>` : ''}
             <li class="menu__item" data-view="team">
               <a href="/#/team" class="menu__link menu__link_team">О команде</a>
             </li>

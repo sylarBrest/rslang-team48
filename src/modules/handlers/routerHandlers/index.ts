@@ -58,8 +58,8 @@ const initRouterHandlers = () => {
     activeLinkHandler('audiocall');
   });
 
-  router.add(/statistic/, () => {
-    main.innerHTML = renderStat();
+  router.add(/statistic/, async () => {
+    main.innerHTML = await renderStat();
     activeLinkHandler('stat');
   });
 
