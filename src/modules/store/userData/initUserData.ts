@@ -1,5 +1,5 @@
-import { getUserData } from './getUserData';
+import getUserData from './getUserData';
 
-export const userDataLocal = getUserData();
+const userDataLocal = getUserData();
 
-export const initUserData = () => {};
+export default userDataLocal;
