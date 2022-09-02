@@ -34,7 +34,7 @@ const updateGameStats = async () => {
     } else if (!isSprint && optional.date === dateToday) {
       optional.audiocall.right += rightAnswer;
       optional.audiocall.wrong += wrongAnswer;
-      optional.audiocall.streak = Math.max(optional.sprint.streak, streak);
+      optional.audiocall.streak = Math.max(optional.audiocall.streak, streak);
     } else if (!isSprint && optional.date !== dateToday) {
       optional.date = dateToday;
       optional.audiocall.right = rightAnswer;
