@@ -15,6 +15,9 @@ export const AUDIOCALL_DESCRIPTION = `
 Space для воспроизведения слова и клавишу Enter для переключения на следующий вопрос.
 `;
 
+export const DEFAULT_FILTER = `{"$or":[{"userWord.difficulty":"unset"},
+{ "userWord.difficulty": "known" }, { "userWord.difficulty": "hard" }, { "userWord": null }]}`;
+
 export const SPRINT = 'sprint';
 
 export const HIDDEN = 'hidden';
