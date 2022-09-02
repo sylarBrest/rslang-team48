@@ -1,5 +1,5 @@
 import { getWordsData } from './getWordsData';
 
-export const wordsDataLocal = getWordsData();
+const wordsDataLocal = getWordsData();
 
-export const initWordsData = () => {};
+export default wordsDataLocal;
