@@ -13,7 +13,7 @@
   &__today,
   &__overall {
     display: flex;
-    gap: 2vw;
+    gap: 5vw;
   }
 
   &__words-learned,
@@ -22,9 +22,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 10vw;
-    height: 10vw;
-    font-size: 1.5vw;
+    width: 7vw;
+    height: 7vw;
+    font-size: 1vw;
     border: 2px solid #1a1a1a;
     border-radius: 10%;
   }
@@ -37,9 +37,10 @@
 
   &__sprint,
   &__audiocall {
-    width: 30vw;
-    height: 15vw;
+    width: 20vw;
+    height: 10vw;
     padding-left: 1vw;
+    font-size: 1vw;
     border: 2px solid #1a1a1a;
     border-radius: 1vh;
   }
