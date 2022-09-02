@@ -16,7 +16,7 @@ const getAllAggregatedWords = async (
     filter,
   });
 
-  return fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}/${EUrl.AGGREGATED}?${searchParams}`, {
+  return fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.AGGREGATED}?${searchParams}`, {
     method: EHttpMethod.GET,
     headers: {
       Authorization: `Bearer ${userDataLocal.token}`,
