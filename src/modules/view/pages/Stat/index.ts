@@ -34,6 +34,13 @@ const renderStat = async () => {
   ).length;
   const knownWordsOverall = knownWordsResults.count;
 
+  const newWordsSprint = newWordsResults.results.filter(
+    (word) => word.userWord?.optional.gameNew === 'sprint',
+  ).length;
+  const newWordsAudiocall = newWordsResults.results.filter(
+    (word) => word.userWord?.optional.gameNew === 'audiocall',
+  ).length;
+
   const optional = await getOptionalFromStatistic();
   const sprintAnswers = optional.sprint.right + optional.sprint.wrong;
   const audiocallAnswers = optional.audiocall.right + optional.audiocall.wrong;
@@ -78,14 +85,14 @@ const renderStat = async () => {
       <div class="stat__games">
         <div class="stat__sprint">
           <div class="stat__sprint-title">Спринт</div>
-          <div class="stat__sprint-learned">Изучено слов: ${sprintAnswers}</div>
+          <div class="stat__sprint-learned">Новых слов: ${newWordsSprint}</div>
           <div class="stat__sprint-right-answer">Правильных ответов: ${sprintcorrectAnswersPercent}%</div>
           <div class="stat__sprint-streak">Серия
           правильных ответов: ${optional.sprint.streak}</div>
         </div>
         <div class="stat__audiocall">
           <div class="stat__audiocall-title">Аудиовызов</div>
-          <div class="stat__audiocall-learned">Изучено слов: ${audiocallAnswers}</div>
+          <div class="stat__audiocall-learned">Новых слов: ${newWordsAudiocall}</div>
           <div class="stat__audiocall-right-answer">Правильных ответов: ${audiocallcorrectAnswersPercent}%</div>
           <div class="stat__audiocall-streak">Серия
           правильных ответов: ${optional.audiocall.streak}</div>

@@ -52,7 +52,7 @@ const updateWordsOnServer = async () => {
         isNew: true,
         dateNew: getDateNow(),
         dateKnown: 'null',
-        gameNew: 'sprint',
+        gameNew: temporalWordsData.game,
         appeared: 1,
         correct: item.isCorrectAnswer === TRUE ? 1 : 0,
         series: item.isCorrectAnswer === TRUE ? 1 : 0,

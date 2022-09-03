@@ -11,6 +11,7 @@ const clickStartSprintHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
   playButton.addEventListener('click', async () => {
+    temporalWordsData.game = 'sprint';
     temporalWordsData.gameAnswers = [];
     const gameLayout = <HTMLElement>document.querySelector('.game__layout');
     const activeLvlBtn = document.querySelectorAll<HTMLButtonElement>('.game__level-button');

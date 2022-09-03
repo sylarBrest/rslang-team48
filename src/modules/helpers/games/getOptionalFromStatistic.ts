@@ -6,8 +6,11 @@ import getDateNow from './getDateNow';
 const getOptionalFromStatistic = async () => {
   const response = await getUserStatistic();
 
+  const data = await response.json();
+  console.log(data);
+
   if (response.status === EStatusCode.OK) {
-    const { optional } = await response.json();
+    const { optional } = data;
 
     return optional;
   }

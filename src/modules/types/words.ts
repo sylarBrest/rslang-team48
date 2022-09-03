@@ -20,6 +20,7 @@ export type TTemporalWordsData = {
   wordPairs: TSprintWordPairs[];
   translationOptions: TTranslationOptions[];
   gameAnswers: TSprintGameAnswers[];
+  game: string,
 };
 
 export type TTemporalDictionary = {
