@@ -45,6 +45,7 @@ const renderStat = async () => {
     <div class="stat__wrapper">
       <h2>Статистика по словам</h2>
       <div class="stat__today">
+        <div class="title">Сегодня</div>
         <div class="stat__words-new">${newWordsToday}
           <br>
           <span>новых</span>
@@ -54,6 +55,21 @@ const renderStat = async () => {
           <span>изучено</span>
         </div>
         <div class="stat__right-answer">${correctAnswersTodayPercent}%
+          <br>
+          <span>правильных</span>
+        </div>
+      </div>
+      <div class="stat__overall">
+        <div class="title">За всё время</div>
+        <div class="stat__words-new">${newWordsOverall}
+          <br>
+          <span>новых</span>
+        </div>
+        <div class="stat__words-learned">${knownWordsOverall}
+          <br>
+          <span>изучено</span>
+        </div>
+        <div class="stat__right-answer">${correctAnswersOverallPercent}%
           <br>
           <span>правильных</span>
         </div>
@@ -73,21 +89,6 @@ const renderStat = async () => {
           <div class="stat__audiocall-right-answer">Правильных ответов: ${audiocallcorrectAnswersPercent}%</div>
           <div class="stat__audiocall-streak">Серия
           правильных ответов: ${optional.audiocall.streak}</div>
-        </div>
-      </div>
-      <h2>Статистика за все время</h2>
-      <div class="stat__overall">
-        <div class="stat__words-new">${newWordsOverall}
-          <br>
-          <span>новых</span>
-        </div>
-        <div class="stat__words-learned">${knownWordsOverall}
-          <br>
-          <span>изучено</span>
-        </div>
-        <div class="stat__right-answer">${correctAnswersOverallPercent}%
-          <br>
-          <span>правильных</span>
         </div>
       </div>
     </div>
