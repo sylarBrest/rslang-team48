@@ -1,13 +1,13 @@
-type IDifficulty = 'unset' | 'known' | 'hard';
+export type TDifficulty = 'unset' | 'known' | 'hard';
 
-export type IUserWord = {
+export type TUserWord = {
   id: string;
-  difficulty: IDifficulty;
-  optional: IOptionalWord;
+  difficulty: TDifficulty;
+  optional: TOptionalWord;
   wordId: string;
 };
 
-export type IOptionalWord = {
+export type TOptionalWord = {
   isNew: boolean;
   dateNew: string;
   dateKnown: string;

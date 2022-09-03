@@ -1,16 +1,16 @@
-import { TDifficulty, TWordContent } from './words';
-import { IOptionalWord } from './optional';
+import { TWordContent } from './words';
+import { TDifficulty, TOptionalWord } from './optional';
 
-export type UserWord = {
+export type TUserAggregatedWord = {
   difficulty: TDifficulty;
-  optional: IOptionalWord;
+  optional: TOptionalWord;
 };
 
-type CombinedWord = TWordContent & {
-  userWord?: UserWord;
+type TCombinedWord = TWordContent & {
+  userWord?: TUserAggregatedWord;
 };
 
-export type AggregatedWord = {
-  paginatedResults: CombinedWord[];
+export type TAggregatedWord = {
+  paginatedResults: TCombinedWord[];
   totalCount: [{ count: number }],
 };

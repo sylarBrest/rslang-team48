@@ -1,8 +1,8 @@
 import { HOST, EUrl, EHttpMethod } from '@constants';
 import { userDataLocal } from '@store';
-import { TDifficulty, IOptionalWord } from '@types';
+import { TDifficulty, TOptionalWord } from '@types';
 
-const updateUserWord = async (wordId: string, difficulty: TDifficulty, optional: IOptionalWord) =>
+const updateUserWord = async (wordId: string, difficulty: TDifficulty, optional: TOptionalWord) =>
   fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.WORDS}/${wordId}`, {
     method: EHttpMethod.PUT,
     headers: {

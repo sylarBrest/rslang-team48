@@ -3,13 +3,13 @@ import createUserWord from '@services/users/words/createUserWord';
 import getAllUserWords from '@services/users/words/getAllUserWords';
 import updateUserWord from '@services/users/words/updateUserWord';
 import { temporalWordsData } from '@store';
-import { IUserWord } from '@types';
+import { TUserWord } from '@types';
 import getDateNow from './getDateNow';
 
 const updateWordsOnServer = async () => {
   const answers = temporalWordsData.gameAnswers;
   const allUserWordsResp = await getAllUserWords();
-  const allUserWordsResult: IUserWord[] = await allUserWordsResp.json();
+  const allUserWordsResult: TUserWord[] = await allUserWordsResp.json();
   const promises: Promise<Response>[] = [];
 
   answers.forEach((item) => {

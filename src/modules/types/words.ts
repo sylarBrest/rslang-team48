@@ -55,15 +55,6 @@ export type TPageParameters = {
   page: string;
 };
 
-export type TDifficulty = 'unset' | 'known' | 'hard';
-
-export type TOptionalWord = {
-  updateAt: string;
-  appeared: number;
-  correctly: number;
-  attempts: number;
-};
-
 export type TGameStat = {
   right: number;
   wrong: number;
@@ -76,13 +67,6 @@ export type TOptionalStat = {
   sprint: TGameStat;
   appeared: number;
   correctly: number;
-};
-
-export type TUserWord = {
-  id: string;
-  difficulty: TDifficulty;
-  optional: TOptionalWord;
-  wordId: string;
 };
 
 export type TUserStat = {
