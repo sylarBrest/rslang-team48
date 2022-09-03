@@ -64,6 +64,7 @@ html {
 
 body {
   height: 100%;
+  overflow-x: hidden;
   color: var(--color-black-100);
   font-weight: 400;
   font-size: clamp(1rem, 2vw, 1.125rem);
@@ -80,6 +81,8 @@ body > * {
 
 .main {
   flex-grow: 1;
+  margin-bottom: var(--navbar-height);
+  
 }
 
 a,
@@ -110,12 +113,6 @@ input {
   max-width: 70rem;
   margin: 0 auto;
   padding: 0 1.25rem;
-  @media only screen and (max-width: 1024px) {
-    max-width: 40rem;
-  }
-  @media only screen and (max-width: 512px) {
-    max-width: 22rem;
-  }
 }
 
 .centered {
@@ -126,7 +123,7 @@ input {
 
 .section {
   margin: 0 auto;
-  padding: 4rem 1.25rem 1rem;
+  padding: calc(var(--navbar-height) + 1rem) 1.25rem 1rem;  
 }
 
 // Typography

@@ -172,3 +172,15 @@
     background-image: url('@assets/svg/run-icon.svg');
   }
 }
+
+.textbook-container {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  @media only screen and (max-width: 1024px) {
+    max-width: 40rem;
+  }
+  @media only screen and (max-width: 512px) {
+    max-width: 22rem;
+  }
+}

@@ -12,6 +12,7 @@ import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame,
 } from '@helpers';
+import initWindowHandlers from '@handlers/windowHandlers';
 import initCardHandlers from '../cardHandlers';
 import initButtonHandlers from '../buttonHandlers';
 import activeLinkHandler from '../headerHandlers/nav/activeLinkHandler';
@@ -43,6 +44,7 @@ const initRouterHandlers = () => {
     reDrawPageButtons();
     colorActiveButton();
     updatePaginationButtonsState();
+    initWindowHandlers();
   });
 
   router.add('games/sprint', () => {
@@ -70,6 +72,7 @@ const initRouterHandlers = () => {
   router.add(/home/, () => {
     main.innerHTML = renderHome();
     activeLinkHandler('home');
+    initWindowHandlers();
   });
 };
 
