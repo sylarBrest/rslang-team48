@@ -60,10 +60,10 @@ const mainPageScrollHandler = () => {
       cursor = Math.floor(window.pageYOffset / (window.innerHeight / 2));
       if (currentScrollPos > 0 && cursor < subheadings.length) {
         heading.style.paddingTop = '2rem';
-        heading.style.fontSize = '3rem';
+        heading.style.fontSize = 'var(--subheading-size * 1.5)';
       } else if (cursor < subheadings.length) {
         heading.style.paddingTop = '6rem';
-        heading.style.fontSize = '4rem';
+        heading.style.fontSize = 'var(--subheading-size * 2)';
       }
 
       if (subheadings[cursor] && (prevScrollpos < currentScrollPos)) {

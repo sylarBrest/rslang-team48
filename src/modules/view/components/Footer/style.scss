@@ -13,6 +13,10 @@
     display: flex;
     gap: 10px;
 
+    @media only screen and (max-width: 470px) {
+      padding-top: 1rem;
+    }
+
     .link {
       width: 30px;
       height: 30px;
@@ -48,7 +52,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
-    transition: 1s;
+    transition: 1s;    
   }
 
   @media only screen and (max-width: 470px) {

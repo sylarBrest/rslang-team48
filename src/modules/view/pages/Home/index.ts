@@ -68,7 +68,6 @@ const renderHome = () => `
         </div
       </div>
       </div>
-      <div class="faq__col"></div>
     </section class=faq">
 
     <section class="reviews">

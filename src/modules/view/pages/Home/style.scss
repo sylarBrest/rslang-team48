@@ -3,6 +3,9 @@
   --heading-container-height: 10rem;
   --num-subheadings: 8;
   --subheading-margin: 4vw;
+  @media only screen and (max-width: 480px) {
+    --subheading-size: calc(2rem * 0.8);
+  }
 }
 
 .bg {  
@@ -19,7 +22,18 @@
 
   &_active {
     opacity: 1;
+    @media only screen and (max-width: 1024px) {
+      background-position: 0 bottom;
+      opacity: 0.5;
+    }
+    @media only screen and (max-width: 768px) {
+      background-position: -30vw bottom;
+    }
+    @media only screen and (max-width: 512px) {
+      background-position: -80vw bottom;
+    }
   }
+  
 }
 
 .hero-section {
@@ -56,13 +70,21 @@
     display: flex;
     align-items: flex-start;
     transition: 0.5s ease-in-out;
+    @media only screen and (max-width: 480px) {
+      justify-content: center;
+      width: 100%;
+    }
   }
 
   &__heading {    
     padding-top: 6rem;
     font-weight: 900;
     font-size: 4rem;
+    text-align: center;
     transition: 0.3s;
+    @media only screen and (max-width: 480px) {
+      font-size: var(--subheading-size);
+    }
   }
 
   &__subheadings-container {
@@ -78,6 +100,10 @@
     text-align: right;
     opacity: 0;
     transition: 0.3s;
+    
+    @media only screen and (max-width: 480px) {
+      text-align: center;
+    }
 
     &_active {
       padding-top: 0;
@@ -88,25 +114,17 @@
       font-size: calc(var(--subheading-size) * 0.5);
     }
   }
-
-  @media only screen and (max-width: 640px) {
-    background-position: center;
-    background-size: cover;
-  }
-
-  @media only screen and (max-width: 512px) {
-    background-position: -10% center;
-  }  
+  
 }
 
 .faq {
   position: relative;
   display: flex;
   gap: 1rem;
-  max-width: 70rem;
+  max-width: 50rem;
   margin: 0 auto;
-  margin-top: 500vh;
-  padding: 50vh 1rem 0;
+  margin-top: 400vh;
+  padding: 50vh 1.25rem 0;
   transform: translateX(-30vw);
   transition: 0.5s ease-in-out;
 
@@ -140,9 +158,14 @@
     opacity: 0;
     transition: 0.5s ease-in-out;
 
+    @media only screen and (max-width: 400px) {
+      opacity: 1;
+    }
+
     &_active {
       opacity: 1;
     }
+    
   }
 
   &__col {
@@ -168,8 +191,9 @@
 .reviews {
   position: relative;
   top: 3rem;
+  max-width: 70rem;
   margin: 0 auto;
-  padding-bottom: 33vh;
+  padding: 0 1.25rem 33vh;
   opacity: 1;
   transition: 0.3s ease-in-out;
 
@@ -183,10 +207,16 @@
 
   &__row {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: stretch;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 1rem;
+    overflow-x: hidden;
+    
+    @media only screen and (max-width: 1024px) {
+      justify-content: center;
+    }
   }
 
 }
@@ -262,7 +292,11 @@
 
 .splash-image {
   min-width: 25vw;
-  min-height: 100vh;  
+  min-height: 100vh;
+
+  @media only screen and (max-width: 768px) {
+    min-width: 0;
+  }
 }
 
 @keyframes disappear-animation {
