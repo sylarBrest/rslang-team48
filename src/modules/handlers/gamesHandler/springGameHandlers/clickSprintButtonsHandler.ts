@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import {
   ARROW_LEFT, ARROW_RIGHT, FALSE, TRUE,
 } from '@constants';
@@ -69,6 +68,8 @@ export const getWordsDataByMouseClick = (e: Event) => {
 
   wordElem.innerHTML = pair.word;
   wordTranslateElem.innerHTML = pair.wordTranslate;
+
+  return 0;
 };
 
 const clickSprintButtonsHandler = () => {
