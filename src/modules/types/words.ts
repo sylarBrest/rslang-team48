@@ -55,22 +55,3 @@ export type TPageParameters = {
   group: string;
   page: string;
 };
-
-export type TGameStat = {
-  right: number;
-  wrong: number;
-  streak: number;
-};
-
-export type TOptionalStat = {
-  date: string;
-  audiocall: TGameStat;
-  sprint: TGameStat;
-  appeared: number;
-  correctly: number;
-};
-
-export type TUserStat = {
-  learnedWords: number;
-  optional: TOptionalStat;
-};

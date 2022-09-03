@@ -9,7 +9,7 @@ const getKnownWords = async () => {
   const data: TAggregatedWord[] = await response.json();
 
   const results = data[0].paginatedResults;
-  const { count } = data[0].totalCount[0];
+  const { count } = data[0].totalCount[0] || { count: 0 };
 
   return { results, count };
 };

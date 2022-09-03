@@ -2,6 +2,8 @@ export { default as changeTimer } from './changeTimer';
 
 export { default as changeVisibility } from './changeVisibility';
 
+export { default as getMaxStreak } from './getMaxStreak';
+
 export { default as getRandomWordPairs } from './getRandomWordPairs';
 
 export { default as getRandomWordsTranslation } from './getRandomWordsTranslation';
@@ -9,6 +11,8 @@ export { default as getRandomWordsTranslation } from './getRandomWordsTranslatio
 export { default as initAudiocallGame } from './initAudiocallGame';
 
 export { default as initSprintGame } from './initSprintGame';
+
+export { default as isSprintGame } from './isSprintGame';
 
 export { default as playAudio } from './playAudio';
 

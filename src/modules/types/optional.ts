@@ -23,3 +23,23 @@ export type IGameStatistics = {
   series: number;
   date: string;
 };
+
+export type TGameStat = {
+  date: string;
+  attempts: number;
+  correct: number;
+  streak: number;
+};
+
+export type TOptionalStat = {
+  date: string;
+  audiocall: TGameStat;
+  sprint: TGameStat;
+  appeared: number;
+  correct: number;
+};
+
+export type TUserStat = {
+  learnedWords: number;
+  optional: TOptionalStat;
+};
