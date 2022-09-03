@@ -1,17 +1,23 @@
 /* eslint-disable no-mixed-operators */
 import getDateNow from 'modules/helpers/games/getDateNow';
 import getOptionalFromStatistic from 'modules/helpers/games/getOptionalFromStatistic';
-import { getNewWords } from '@helpers';
+import { getKnownWords, getNewWords } from '@helpers';
 
 import './style.scss';
 
 const renderStat = async () => {
   const newWordsResults = await getNewWords();
+  const knownWordsResults = await getKnownWords();
 
   const newWordsToday = newWordsResults.results.filter(
     (word) => word.userWord?.optional.dateNew === getDateNow(),
   ).length;
   const newWordsOverall = newWordsResults.count;
+
+  const knownWordsToday = knownWordsResults.results.filter(
+    (word) => word.userWord?.optional.dateKnown === getDateNow(),
+  ).length;
+  const knownWordsOverall = knownWordsResults.count;
 
   const optional = await getOptionalFromStatistic();
   console.log(optional);
@@ -32,7 +38,7 @@ const renderStat = async () => {
           <br>
           <span>новых</span>
         </div>
-        <div class="stat__words-learned">${sprintAnswers + audiocallAnswers}
+        <div class="stat__words-learned">${knownWordsToday}
           <br>
           <span>изучено</span>
         </div>
@@ -64,7 +70,7 @@ const renderStat = async () => {
           <br>
           <span>новых</span>
         </div>
-        <div class="stat__words-learned">${newWordsOverall}
+        <div class="stat__words-learned">${knownWordsOverall}
           <br>
           <span>изучено</span>
         </div>
