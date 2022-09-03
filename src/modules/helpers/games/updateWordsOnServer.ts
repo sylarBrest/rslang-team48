@@ -3,7 +3,7 @@ import createUserWord from '@services/users/words/createUserWord';
 import getAllUserWords from '@services/users/words/getAllUserWords';
 import updateUserWord from '@services/users/words/updateUserWord';
 import { temporalWordsData } from '@store';
-import { IUserWord, IGameType } from '@types';
+import { IUserWord } from '@types';
 import getDateNow from './getDateNow';
 
 const updateWordsOnServer = async () => {
@@ -51,8 +51,8 @@ const updateWordsOnServer = async () => {
       const optional = {
         isNew: true,
         dateNew: getDateNow(),
-        dateKnown: '',
-        gameNew: 'sprint' as IGameType,
+        dateKnown: 'null',
+        gameNew: 'sprint',
         appeared: 1,
         correct: item.isCorrectAnswer === TRUE ? 1 : 0,
         series: item.isCorrectAnswer === TRUE ? 1 : 0,

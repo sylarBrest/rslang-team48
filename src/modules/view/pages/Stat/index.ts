@@ -1,13 +1,23 @@
 /* eslint-disable no-mixed-operators */
+import getDateNow from 'modules/helpers/games/getDateNow';
 import getOptionalFromStatistic from 'modules/helpers/games/getOptionalFromStatistic';
+import { getNewWords } from '@helpers';
 
 import './style.scss';
 
 const renderStat = async () => {
+  const newWordsResults = await getNewWords();
+
+  const newWordsToday = newWordsResults.results.filter(
+    (word) => word.userWord?.optional.dateNew === getDateNow(),
+  ).length;
+  const newWordsOverall = newWordsResults.count;
+
   const optional = await getOptionalFromStatistic();
+  console.log(optional);
   const sprintAnswers = optional.sprint.right + optional.sprint.wrong;
   const audiocallAnswers = optional.audiocall.right + optional.audiocall.wrong;
-  const rightAnswersToday = optional.sprint.right + optional.audiocall.right;
+  const rightAnswersToday = newWordsOverall;
   const rightAnswersTodayPercent = Math.round((rightAnswersToday * 100) / (sprintAnswers + audiocallAnswers)) || 0;
   const sprintRightAnswersPercent = Math.round((optional.sprint.right * 100) / sprintAnswers) || 0;
   const audiocallRightAnswersPercent = Math.round((optional.audiocall.right * 100) / audiocallAnswers) || 0;
@@ -16,8 +26,12 @@ const renderStat = async () => {
   return `
   <section class="container section">
     <div class="stat__wrapper">
-      <h2>Статистика за сегодня</h2>
+      <h2>Статистика по словам</h2>
       <div class="stat__today">
+        <div class="stat__words-new">${newWordsToday}
+          <br>
+          <span>новых</span>
+        </div>
         <div class="stat__words-learned">${sprintAnswers + audiocallAnswers}
           <br>
           <span>изучено</span>
@@ -46,7 +60,11 @@ const renderStat = async () => {
       </div>
       <h2>Статистика за все время</h2>
       <div class="stat__overall">
-        <div class="stat__words-learned">${optional.appeared}
+        <div class="stat__words-new">${newWordsOverall}
+          <br>
+          <span>новых</span>
+        </div>
+        <div class="stat__words-learned">${newWordsOverall}
           <br>
           <span>изучено</span>
         </div>

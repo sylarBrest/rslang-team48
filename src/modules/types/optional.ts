@@ -1,5 +1,3 @@
-export type IGameType = 'sprint' | 'audiocall';
-
 type IDifficulty = 'unset' | 'known' | 'hard';
 
 export type IUserWord = {
@@ -13,14 +11,14 @@ export type IOptionalWord = {
   isNew: boolean;
   dateNew: string;
   dateKnown: string;
-  gameNew: IGameType;
+  gameNew: string;
   appeared: number;
   correct: number;
   series: number;
 };
 
 export type IGameStatistics = {
-  game: IGameType;
+  game: string;
   percent: number;
   series: number;
   date: string;
