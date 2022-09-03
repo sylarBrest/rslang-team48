@@ -1,3 +1,5 @@
+export * from './optional';
+
 export type TWordContent = {
   id: string;
   group: number;
