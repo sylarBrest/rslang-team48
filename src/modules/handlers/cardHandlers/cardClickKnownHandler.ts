@@ -21,13 +21,13 @@ const cardClickKnownHandler = () => {
         filter: DEFAULT_FILTER,
       };
 
+      target.classList.toggle('card__done-btn-green');
+
       const response = await getAllAggregatedWords(queries);
 
       const result: TAggregatedWord[] = await response.json();
 
       const words = [...(<TAggregatedWord[]>result)[0].paginatedResults];
-
-      console.log(words);
 
       // eslint-disable-next-line no-underscore-dangle
       const userWord = words.find((elem) => elem._id === wordId)?.userWord;
@@ -65,8 +65,6 @@ const cardClickKnownHandler = () => {
 
         await createUserWord(wordId, EDifficulty.KNOWN, optional);
       }
-
-      target.classList.toggle('card__done-btn-green');
     });
   });
 };

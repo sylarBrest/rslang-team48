@@ -1,10 +1,16 @@
-import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
+import {
+  FIRST_PAGE, LAST_PAGE, EStatusCode, WORDS_PER_PAGE, WITHOUT_KNOWN_FILTER,
+} from '@constants';
 import { changeTimer } from '@helpers';
-import { temporalWordsData, initTemporalWordsData, wordsDataLocal } from '@store';
+import {
+  temporalWordsData, initTemporalWordsData, wordsDataLocal, userDataLocal,
+} from '@store';
 import { getRandomInteger } from '@utils';
 import getWords from '@services/words/getWords';
 import renderSprintGame from '@view/pages/Sprint';
 import { TWordContent } from 'modules/types/words';
+import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
+import { TAggregatedWord } from 'modules/types/aggregated';
 import clickSprintButtonsHandler from './clickSprintButtonsHandler';
 
 const clickStartSprintHandler = (flag: boolean) => {
@@ -27,12 +33,23 @@ const clickStartSprintHandler = (flag: boolean) => {
     const randomPage = String(getRandomInteger(FIRST_PAGE, LAST_PAGE));
     const group = flag ? selectedGroup : wordsDataLocal.group;
     const page = flag ? randomPage : wordsDataLocal.page;
-    const response = await getWords(group, page);
+    const response = userDataLocal
+      ? await getAllAggregatedWords({
+        group,
+        page,
+        wordsPerPage: WORDS_PER_PAGE,
+        filter: WITHOUT_KNOWN_FILTER,
+      })
+      : await getWords(group, page);
 
     if (response.status === EStatusCode.OK) {
-      const words: TWordContent[] = await response.json();
+      const words: TAggregatedWord[] | TWordContent[] = await response.json();
 
-      initTemporalWordsData(words);
+      if (userDataLocal) {
+        initTemporalWordsData([...(<TAggregatedWord[]>words)[0].paginatedResults]);
+      } else {
+        initTemporalWordsData(<TWordContent[]>words);
+      }
 
       gameLayout.innerHTML = renderSprintGame();
 

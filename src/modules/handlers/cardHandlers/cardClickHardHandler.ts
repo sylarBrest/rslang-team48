@@ -20,6 +20,8 @@ const cardClickHardHandler = () => {
         filter: DEFAULT_FILTER,
       };
 
+      target.classList.toggle('card__complex-btn-yellow');
+
       const response = await getAllAggregatedWords(queries);
 
       const result: TAggregatedWord[] = await response.json();
@@ -28,8 +30,6 @@ const cardClickHardHandler = () => {
 
       // eslint-disable-next-line no-underscore-dangle
       const userWord = words.find((elem) => elem._id === wordId)?.userWord;
-
-      console.log(wordId);
 
       if (userWord) {
         // eslint-disable-next-line prefer-const
@@ -59,8 +59,6 @@ const cardClickHardHandler = () => {
 
         await createUserWord(wordId, EDifficulty.HARD, optional);
       }
-
-      target.classList.toggle('card__complex-btn-yellow');
     });
   });
 };
