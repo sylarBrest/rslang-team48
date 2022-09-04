@@ -21,7 +21,7 @@ const renderModal = () => `
           id="reg-email"
           pattern="^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$"
           required
-          placeholder="Email"
+          placeholder="E-mail"
         />              
       </div>
       <div class="modal__row modal__row_name">
@@ -29,7 +29,7 @@ const renderModal = () => `
           class="modal__input"
           type="name" 
           id="reg-name" 
-          pattern="/^[a-z0-9_-]{3,16}$/" 
+          pattern="^[a-zA-Z]{3,15}$" 
           required 
           placeholder="Имя" />
       </div>
@@ -38,7 +38,8 @@ const renderModal = () => `
           class="modal__input"
           type="password"
           id="reg-password"
-          pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+          pattern="^\\S{8,}$"
+          title="Пароль должен содержать минимум 8 символов"
           required
           placeholder="Пароль"
         />
@@ -53,7 +54,7 @@ const renderModal = () => `
           id="log-email"
           pattern="^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$"
           required
-          placeholder="Email"
+          placeholder="E-mail"
         />
       </div>            
       <div class="modal__row modal__row_password">
@@ -61,7 +62,8 @@ const renderModal = () => `
           class="modal__input"
           type="password"
           id="log-password"
-          pattern="^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$"
+          pattern="^\\S{8,}$"
+          title="Пароль должен содержать минимум 8 символов"
           required
           placeholder="Пароль"
         />
