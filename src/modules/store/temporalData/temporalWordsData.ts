@@ -1,5 +1,6 @@
-import { TTemporalWordsData, TWordContent } from '@types';
+
 import { getRandomInteger, shuffleArray } from '@utils';
+import { TTemporalWordsData, TWordContent } from 'modules/types/words';
 
 export const temporalWordsData: TTemporalWordsData = {
   dictionary: {},
@@ -14,7 +15,8 @@ export const initTemporalWordsData = (array: TWordContent[]) => {
     elem.word,
     {
       wordTranslate: elem.wordTranslate,
-      id: elem.id,
+      // eslint-disable-next-line no-underscore-dangle
+      id: elem.id || elem._id,
       audio: elem.audio,
       image: elem.image,
     },

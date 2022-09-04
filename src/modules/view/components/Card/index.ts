@@ -4,6 +4,7 @@ import { TWordContent } from 'modules/types/words';
 import './style.scss';
 
 const Card = ({
+  _id,
   image,
   word,
   transcription,
@@ -36,8 +37,10 @@ const Card = ({
     ${
   userDataLocal
     ? `<div class="card__buttons">
-      <button class="card__btn card__done-btn" />
-      <button class="card__btn card__complex-btn" />
+      <button data-word-id="${_id}" class="card__btn card__done-btn
+      ${userWord?.difficulty === 'hard' ? 'card__done-btn-green' : ''}"></button>
+      <button data-word-id="${_id}" class="card__btn card__complex-btn
+      ${userWord?.difficulty === 'known' ? 'card__complex-btn-yellow' : ''}"></button>
     </div>`
     : ''
 }
@@ -57,7 +60,7 @@ const Card = ({
       ${
   userDataLocal
     ? `<div class="card__row card__sprint">
-        Игры: ${userWord ? result : '0/0'}
+        Отгадано в играх: ${userWord ? result : '0/0'}
       </div>`
     : ''
 }
