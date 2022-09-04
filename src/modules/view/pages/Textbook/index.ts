@@ -1,28 +1,43 @@
-import { EStatusCode } from '@constants';
+import { DEFAULT_FILTER, EStatusCode, WORDS_PER_PAGE } from '@constants';
+import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
 import getWords from '@services/words/getWords';
-import { wordsDataLocal } from '@store';
-import { TWordContent } from '@types';
+import { userDataLocal, wordsDataLocal } from '@store';
 import Card from '@view/components/Card';
+import { TAggregatedWord, TQueriesAggregated } from 'modules/types/aggregated';
+import { TWordContent } from 'modules/types/words';
 
 import './style.scss';
 
-export const renderTextbookBody = async (group: string, page: string) => {
-  const response = await getWords(group, page);
+export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2?: string) => {
+  const response = userDataLocal
+    ? await getAllAggregatedWords(<TQueriesAggregated>arg1)
+    : await getWords(String(arg1), arg2);
   let content = '';
   if (response.status === EStatusCode.OK) {
-    const words: TWordContent[] = await response.json();
-    content = words
-      .map((el, index) => Card({ ...el, index }))
-      .reduce(
-        (acc, item) => `${acc}${item}`,
-        '',
-      );
+    const words: TAggregatedWord[] | TWordContent[] = await response.json();
+
+    if (userDataLocal) {
+      content = [...(<TAggregatedWord[]>words)[0].paginatedResults]
+        .map((el, index) => Card({ ...el, index }))
+        .reduce((acc, item) => `${acc}${item}`, '');
+    } else {
+      content = (<TWordContent[]>words)
+        .map((el, index) => Card({ ...el, index }))
+        .reduce((acc, item) => `${acc}${item}`, '');
+    }
   }
 
   return content;
 };
 
 export const renderTextbook = async () => {
+  const queries = {
+    group: wordsDataLocal.group,
+    page: wordsDataLocal.page,
+    wordsPerPage: WORDS_PER_PAGE,
+    filter: DEFAULT_FILTER,
+  };
+
   const template = `
     <section class="textbook">
       <div class="textbook__header">
@@ -70,7 +85,11 @@ export const renderTextbook = async () => {
         </div>        
       </div>
       <div class="textbook__body section textbook-container">
-        ${await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)}
+        ${
+  userDataLocal
+    ? await renderTextbookBody(queries)
+    : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)
+}
       </div>
       <div class="textbook__footer">
         

@@ -1,5 +1,7 @@
 export const SCROLL_DISTANCE = 85;
 
+export const ALL_WORDS_ON_SERVER = '3600';
+
 export const ZERO = '0';
 
 export const SPRINT_TITLE = 'СПРИНТ';
