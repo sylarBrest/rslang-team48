@@ -7,7 +7,7 @@ const textbookHeaderHandler = () => {
     const header = <HTMLElement>document.querySelector('.textbook__header');
     if (header && (prevScrollpos > currentScrollPos)) {
       header.style.top = NAVBAR_HEIGHT;
-    } else {
+    } else if (header) {
       header.style.top = `-${header.offsetHeight}px`;
     }
 
