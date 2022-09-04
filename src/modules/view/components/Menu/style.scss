@@ -176,7 +176,7 @@
   }
 
   &__user-name {
-    width: 100px;
+    max-width: 100px;
     margin-left: auto;
     overflow: hidden;
     color: var(--color-white-100);
@@ -249,6 +249,10 @@
 
     &__dropdown-content {
       flex-direction: row;
+    }
+
+    &__user-name {
+      margin-left: 0;
     }
 
     &__login-btn {
