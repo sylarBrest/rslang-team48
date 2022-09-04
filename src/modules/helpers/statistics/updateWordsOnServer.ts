@@ -35,6 +35,7 @@ const updateWordsOnServer = async () => {
         difficulty = EDifficulty.KNOWN;
         optional.correct += 1;
       } else if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === FALSE) {
+        optional.dateKnown = '';
         difficulty = EDifficulty.UNSET;
       } else if (difficulty === EDifficulty.HARD && optional.series === 4 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
