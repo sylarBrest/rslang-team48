@@ -16,6 +16,7 @@ const regHandler = () => {
     if (response.status === EStatusCode.OK) {
       const loginResponse = await signIn(email, password);
       const loginData = await loginResponse.json();
+      console.log(loginData);
 
       const {
         token, refreshToken, userId, name,
