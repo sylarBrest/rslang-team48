@@ -1,8 +1,8 @@
-import { ZERO } from '@constants';
+import { DEFAULT_FILTER, WORDS_PER_PAGE, ZERO } from '@constants';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState, validatePageNumber,
 } from '@helpers';
-import { updateWordsData, wordsDataLocal } from '@store';
+import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
@@ -51,7 +51,15 @@ const initPaginationHandlers = () => {
     reDrawPageButtons();
     colorActiveButton();
     updatePaginationButtonsState();
-    textbookBody.innerHTML = await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
+    const queries = {
+      group: wordsDataLocal.group,
+      page: wordsDataLocal.page,
+      wordsPerPage: WORDS_PER_PAGE,
+      filter: DEFAULT_FILTER,
+    };
+    textbookBody.innerHTML = userDataLocal
+      ? await renderTextbookBody(queries)
+      : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
   });
 };

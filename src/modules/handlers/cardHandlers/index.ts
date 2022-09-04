@@ -1,10 +1,15 @@
+import { userDataLocal } from '@store';
 import cardClickAudioHandler from './cardClickAudioHandler';
 import cardClickHandler from './cardClickHandler';
 import cardHoverHandler from './cardHoverHandler';
 
 const initCardHandlers = () => {
   cardClickHandler();
-  cardHoverHandler();
+
+  if (userDataLocal) {
+    cardHoverHandler();
+  }
+
   cardClickAudioHandler();
 };
 

@@ -15,8 +15,10 @@ const Card = ({
   textExample,
   audioExample,
   textExampleTranslate,
+  userWord,
   index,
 }: TWordContent & { index: number }) => {
+  const result = `${userWord?.optional.correct}/${userWord?.optional.appeared}`;
   const template = `
   <div class="card" data-index="${index}">
     <div class="card__header">
@@ -31,10 +33,14 @@ const Card = ({
         <h5 class="card__subheading word__transcription">${transcription}</h5>
       </div>
     </div>
-    ${userDataLocal ? `<div class="card__buttons">
+    ${
+  userDataLocal
+    ? `<div class="card__buttons">
       <button class="card__btn card__done-btn" />
       <button class="card__btn card__complex-btn" />
-    </div>` : ''}
+    </div>`
+    : ''
+}
     <div class="card__body">
       <div class="card__row">
         ${textMeaning}
@@ -48,12 +54,13 @@ const Card = ({
       <div class="card__row translate">
         ${textExampleTranslate}
       </div>
-      ${userDataLocal ? `<div class="card__row card__sprint">
-        Спринт: 0/0
-      </div>
-      <div class="card__row card__audiocall">
-        Аудиовызов: 0/0
-      </div>` : ''}
+      ${
+  userDataLocal
+    ? `<div class="card__row card__sprint">
+        Игры: ${userWord ? result : '0/0'}
+      </div>`
+    : ''
+}
     </div>
     <div class="card__footer">
 
