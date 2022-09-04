@@ -1,10 +1,15 @@
+import { ALL_WORDS_ON_SERVER, ZERO } from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from '@types';
+import { TAggregatedWord } from 'modules/types/aggregated';
 
 const getKnownWords = async () => {
-  const response = await getAllAggregatedWords(
-    '{"userWord.difficulty":"known"}',
-  );
+  const queries = {
+    group: ZERO,
+    page: ZERO,
+    wordsPerPage: ALL_WORDS_ON_SERVER,
+    filter: '{"userWord.difficulty":"known"}',
+  };
+  const response = await getAllAggregatedWords(queries);
 
   const data: TAggregatedWord[] = await response.json();
 

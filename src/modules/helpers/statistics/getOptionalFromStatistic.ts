@@ -1,8 +1,8 @@
 /* eslint-disable consistent-return */
 import { EStatusCode } from '@constants';
 import getUserStatistic from '@services/users/statistic/getUserStatistic';
-import { TOptionalStat, TUserStat } from '@types';
 import { getDateNow } from '@utils';
+import { TOptionalStat, TUserStat } from 'modules/types/optional';
 
 const getOptionalFromStatistic = async (): Promise<TOptionalStat | void> => {
   const response = await getUserStatistic();

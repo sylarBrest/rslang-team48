@@ -2,13 +2,14 @@ import { EStatusCode, TRUE } from '@constants';
 import getUserStatistic from '@services/users/statistic/getUserStatistic';
 import updateUserStatistic from '@services/users/statistic/updateUserStatistic';
 import { temporalWordsData } from '@store';
-import { TGameStat, TOptionalStat, TUserStat } from '@types';
 import { getDateNow } from '@utils';
+import { TUserStat, TGameStat, TOptionalStat } from 'modules/types/optional';
+import { TSprintGameAnswers } from 'modules/types/words';
 import { getMaxStreak, isSprintGame } from '../games';
 import getKnownWords from './getKnownWords';
 
 const updateGameStats = async () => {
-  const answers = temporalWordsData.gameAnswers;
+  const answers: TSprintGameAnswers[] = temporalWordsData.gameAnswers;
   const streak = getMaxStreak(answers, TRUE);
   const isSprint = isSprintGame();
   const dateToday = getDateNow();

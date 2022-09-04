@@ -3,11 +3,12 @@ import createUserWord from '@services/users/words/createUserWord';
 import getAllUserWords from '@services/users/words/getAllUserWords';
 import updateUserWord from '@services/users/words/updateUserWord';
 import { temporalWordsData } from '@store';
-import { TUserWord } from '@types';
 import { getDateNow } from '@utils';
+import { TUserWord } from 'modules/types/optional';
+import { TSprintGameAnswers } from 'modules/types/words';
 
 const updateWordsOnServer = async () => {
-  const answers = temporalWordsData.gameAnswers;
+  const answers: TSprintGameAnswers[] = temporalWordsData.gameAnswers;
   const allUserWordsResp = await getAllUserWords();
   const allUserWordsResult: TUserWord[] = await allUserWordsResp.json();
   const dateToday = getDateNow();

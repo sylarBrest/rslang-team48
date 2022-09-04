@@ -14,3 +14,10 @@ export type TAggregatedWord = {
   paginatedResults: TCombinedWord[];
   totalCount: [{ count: number }],
 };
+
+export type TQueriesAggregated = {
+  group: string;
+  page: string;
+  wordsPerPage: string;
+  filter: string;
+};

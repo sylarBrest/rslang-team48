@@ -1,3 +1,5 @@
+import { TUserWord } from './optional';
+
 export type TWordContent = {
   id: string;
   group: number;
@@ -13,6 +15,7 @@ export type TWordContent = {
   wordTranslate: string;
   textMeaningTranslate: string;
   textExampleTranslate: string;
+  userWord?: TUserWord;
 };
 
 export type TTemporalWordsData = {
