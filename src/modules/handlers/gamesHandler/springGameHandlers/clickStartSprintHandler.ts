@@ -1,7 +1,7 @@
 import {
-  FIRST_PAGE, LAST_PAGE, EStatusCode, WORDS_PER_PAGE, WITHOUT_KNOWN_FILTER,
+  FIRST_PAGE, LAST_PAGE, EStatusCode, WORDS_PER_PAGE, WITHOUT_KNOWN_FILTER, MIN_WORDS_FOR_GAME,
 } from '@constants';
-import { changeTimer } from '@helpers';
+import { changeTimer, showGameResult } from '@helpers';
 import {
   temporalWordsData, initTemporalWordsData, wordsDataLocal, userDataLocal,
 } from '@store';
@@ -16,6 +16,7 @@ import clickSprintButtonsHandler from './clickSprintButtonsHandler';
 const clickStartSprintHandler = (flag: boolean) => {
   const playButton = <HTMLButtonElement>document.querySelector('.game__play-button');
 
+  // eslint-disable-next-line consistent-return
   playButton.addEventListener('click', async () => {
     temporalWordsData.game = 'sprint';
     temporalWordsData.gameAnswers = [];
@@ -46,7 +47,18 @@ const clickStartSprintHandler = (flag: boolean) => {
       const words: TAggregatedWord[] | TWordContent[] = await response.json();
 
       if (userDataLocal) {
-        initTemporalWordsData([...(<TAggregatedWord[]>words)[0].paginatedResults]);
+        const aggregatedWords = [...(<TAggregatedWord[]>words)[0].paginatedResults];
+        if (aggregatedWords.length < MIN_WORDS_FOR_GAME) {
+          showGameResult();
+
+          const tooFewWords = <HTMLElement>document.querySelector('.game__result-table-wrapper');
+          tooFewWords.innerHTML = `
+            <div class="too-few-words">Недостаточно слов для игры</div>
+          `;
+          return '';
+        }
+
+        initTemporalWordsData(aggregatedWords);
       } else {
         initTemporalWordsData(<TWordContent[]>words);
       }

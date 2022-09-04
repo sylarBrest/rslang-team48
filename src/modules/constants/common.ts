@@ -71,6 +71,8 @@ export const SECOND = 1000;
 
 export const WORDS_PER_PAGE = '20';
 
+export const MIN_WORDS_FOR_GAME = 5;
+
 export enum ELocalStorage {
   USER = 'userData',
   WORDS = 'wordsData',

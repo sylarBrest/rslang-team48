@@ -13,6 +13,7 @@ export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2
     ? await getAllAggregatedWords(<TQueriesAggregated>arg1)
     : await getWords(String(arg1), arg2);
   let content = '';
+
   if (response.status === EStatusCode.OK) {
     const words: TAggregatedWord[] | TWordContent[] = await response.json();
 
