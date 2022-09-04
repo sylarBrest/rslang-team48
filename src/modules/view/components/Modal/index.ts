@@ -1,6 +1,9 @@
+import {
+  EWrongText, EMAIL_REGEXP, PASSWORD_REGEXP, USERNAME_REGEXP,
+} from '@constants';
 import './style.scss';
 
-const renderModal = () => `  
+const renderModal = () => `
 <div class="modal">
 <div class="modal__content">
   <div class="modal__header">
@@ -13,23 +16,24 @@ const renderModal = () => `
     </button>
   </div>
   <div class="modal__body">
-    <div class="modal__view">            
+    <div class="modal__view">
       <div class="modal__row modal__row_email">
         <input
           class="modal__input"
           type="email"
           id="reg-email"
-          pattern="^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$"
+          pattern="${EMAIL_REGEXP.source}"
           required
           placeholder="E-mail"
-        />              
+        />
       </div>
       <div class="modal__row modal__row_name">
-        <input 
+        <input
           class="modal__input"
-          type="name" 
-          id="reg-name" 
-          pattern="^[a-zA-Z]{3,15}$" 
+          type="name"
+          id="reg-name"
+          pattern="${USERNAME_REGEXP.source}"
+          title="${EWrongText.username}"
           required 
           placeholder="Имя" />
       </div>
@@ -38,8 +42,8 @@ const renderModal = () => `
           class="modal__input"
           type="password"
           id="reg-password"
-          pattern="^\\S{8,}$"
-          title="Пароль должен содержать минимум 8 символов"
+          pattern="${PASSWORD_REGEXP.source}"
+          title="${EWrongText.password}"
           required
           placeholder="Пароль"
         />
@@ -52,7 +56,7 @@ const renderModal = () => `
           class="modal__input"
           type="email"
           id="log-email"
-          pattern="^([^ ]+@[^ ]+\\.[a-z]{2,6}|)$"
+          pattern="${EMAIL_REGEXP.source}"
           required
           placeholder="E-mail"
         />
@@ -62,8 +66,8 @@ const renderModal = () => `
           class="modal__input"
           type="password"
           id="log-password"
-          pattern="^\\S{8,}$"
-          title="Пароль должен содержать минимум 8 символов"
+          pattern="${PASSWORD_REGEXP.source}"
+          title="${EWrongText.password}"
           required
           placeholder="Пароль"
         />

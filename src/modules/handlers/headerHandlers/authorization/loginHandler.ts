@@ -1,6 +1,9 @@
 import signIn from '@services/logins/signIn';
 import { updateUserData } from '@store';
-import { EStatusCode } from '@constants';
+import {
+  EStatusCode, EWrongText,
+  MIN_PASSWORD_LENGTH, EMAIL_REGEXP, PASSWORD_REGEXP,
+} from '@constants';
 import { TLoginData } from '@types';
 
 const userLogin = async () => {
@@ -9,12 +12,20 @@ const userLogin = async () => {
   const email = (<HTMLInputElement>document.getElementById('log-email')).value;
   const password = (<HTMLInputElement>document.getElementById('log-password')).value;
 
-  if (password.length < 8) {
-    const wrongText = '<p class="wrong">Длина пароля минимум 8 символов</p>';
+  if (password.length < MIN_PASSWORD_LENGTH && !PASSWORD_REGEXP.test(password)) {
+    const wrongText = `<p class="wrong">${EWrongText.password}</p>`;
+
     if (!wrongFiller) {
       document.querySelector('.btn-login')?.insertAdjacentHTML('beforebegin', wrongText);
     } else {
-      wrongFiller.textContent = 'Длина пароля минимум 8 символов';
+      wrongFiller.textContent = EWrongText.password;
+    }
+  } else if (!EMAIL_REGEXP.test(email)) {
+    const wrongText = `<p class="wrong">${EWrongText.email}</p>`;
+    if (!wrongFiller) {
+      document.querySelector('.btn-login')?.insertAdjacentHTML('beforebegin', wrongText);
+    } else {
+      wrongFiller.textContent = EWrongText.email;
     }
   } else {
     const loginResponse = await signIn(email, password);
@@ -32,11 +43,11 @@ const userLogin = async () => {
     }
 
     if (loginResponse.status === EStatusCode.FORBIDDEN || loginResponse.status === EStatusCode.NOT_FOUND) {
-      const wrongText = '<p class="wrong">Неправильный логин и/или пароль</p>';
+      const wrongText = `<p class="wrong">${EWrongText.common}</p>`;
       if (!wrongFiller) {
         document.querySelector('.btn-login')?.insertAdjacentHTML('beforebegin', wrongText);
       } else {
-        wrongFiller.textContent = 'Неправильный логин и/или пароль';
+        wrongFiller.textContent = EWrongText.common;
       }
     }
   }
