@@ -6,6 +6,7 @@ export const temporalWordsData: TTemporalWordsData = {
   wordPairs: [],
   translationOptions: [],
   gameAnswers: [],
+  game: '',
 };
 
 export const initTemporalWordsData = (array: TWordContent[]) => {

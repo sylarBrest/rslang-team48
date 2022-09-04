@@ -1,63 +1,62 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-plusplus */
 import { EDifficulty, FALSE, TRUE } from '@constants';
 import createUserWord from '@services/users/words/createUserWord';
 import getAllUserWords from '@services/users/words/getAllUserWords';
 import updateUserWord from '@services/users/words/updateUserWord';
 import { temporalWordsData } from '@store';
 import { TUserWord } from '@types';
-import getDateNow from './getDateNow';
+import { getDateNow } from '@utils';
 
-const changeWordsOnServer = async () => {
+const updateWordsOnServer = async () => {
   const answers = temporalWordsData.gameAnswers;
   const allUserWordsResp = await getAllUserWords();
   const allUserWordsResult: TUserWord[] = await allUserWordsResp.json();
+  const dateToday = getDateNow();
   const promises: Promise<Response>[] = [];
 
   answers.forEach((item) => {
     const userWord = allUserWordsResult.find((elem) => elem.wordId === item.id);
     if (userWord) {
-      let { difficulty, optional }: TUserWord = userWord;
+      let { difficulty } = userWord;
+      const { optional } = userWord;
 
-      optional.appeared++;
-      optional.updateAt = getDateNow();
+      optional.appeared += 1;
 
-      if (difficulty === EDifficulty.UNSET && optional.attempts === 2 && item.isCorrectAnswer === TRUE) {
+      if (difficulty === EDifficulty.UNSET && optional.series === 2 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
-        optional.correctly++;
-        optional.attempts = 0;
+        optional.dateKnown = dateToday;
+        optional.correct += 1;
+        optional.series = 0;
       } else if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === TRUE) {
-        difficulty = EDifficulty.UNSET;
-        optional.correctly++;
-        optional.attempts++;
+        optional.correct += 1;
+        optional.series += 1;
       } else if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === FALSE) {
-        difficulty = EDifficulty.UNSET;
-        optional.attempts = 0;
+        optional.series = 0;
       } else if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
-        optional.correctly++;
+        optional.correct += 1;
       } else if (difficulty === EDifficulty.KNOWN && item.isCorrectAnswer === FALSE) {
         difficulty = EDifficulty.UNSET;
-      } else if (difficulty === EDifficulty.HARD && optional.attempts === 4 && item.isCorrectAnswer === TRUE) {
+      } else if (difficulty === EDifficulty.HARD && optional.series === 4 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
-        optional.correctly++;
-        optional.attempts = 0;
+        optional.correct += 1;
+        optional.series = 0;
       } else if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === TRUE) {
-        difficulty = EDifficulty.HARD;
-        optional.correctly++;
-        optional.attempts++;
+        optional.correct += 1;
+        optional.series += 1;
       } else if (difficulty === EDifficulty.HARD && item.isCorrectAnswer === FALSE) {
-        difficulty = EDifficulty.HARD;
-        optional.attempts++;
+        optional.series = 0;
       }
 
       promises.push(updateUserWord(item.id, difficulty, optional));
     } else {
       const optional = {
-        updateAt: getDateNow(),
+        isNew: true,
+        dateNew: dateToday,
+        dateKnown: 'null',
+        gameNew: temporalWordsData.game,
         appeared: 1,
-        correctly: item.isCorrectAnswer === TRUE ? 1 : 0,
-        attempts: item.isCorrectAnswer === TRUE ? 1 : 0,
+        correct: item.isCorrectAnswer === TRUE ? 1 : 0,
+        series: item.isCorrectAnswer === TRUE ? 1 : 0,
       };
 
       promises.push(createUserWord(item.id, EDifficulty.UNSET, optional));
@@ -67,4 +66,4 @@ const changeWordsOnServer = async () => {
   Promise.all(promises);
 };
 
-export default changeWordsOnServer;
+export default updateWordsOnServer;

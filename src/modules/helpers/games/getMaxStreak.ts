@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 import { TSprintGameAnswers } from '@types';
 
 const getMaxStreak = (arr: TSprintGameAnswers[], elem: string): number => {
@@ -7,8 +6,11 @@ const getMaxStreak = (arr: TSprintGameAnswers[], elem: string): number => {
 
   arr.forEach((item) => {
     if (item.isCorrectAnswer === elem) {
-      temp++;
-    } else temp = 0;
+      temp += 1;
+    } else {
+      temp = 0;
+    }
+
     streak = temp > streak ? temp : streak;
   });
 

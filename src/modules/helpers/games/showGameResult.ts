@@ -6,8 +6,7 @@ import renderGameResult from '@view/pages/Game/resultPage';
 import { temporalWordsData, userDataLocal } from '@store';
 import { clickTranslationByKeyboardHandler }
   from '@handlers/gamesHandler/audiocallGameHandlers/clickTranslationButtonsHandler';
-import changeWordsOnServer from './changeWordsOnServer';
-import updateGameStats from './updateGameStats';
+import { updateWordsOnServer, updateGameStats } from '../statistics';
 
 const showGameResult = async () => {
   const gameLayout = <HTMLElement>document.querySelector('.game__layout');
@@ -17,7 +16,7 @@ const showGameResult = async () => {
   clickAudioResultHandler();
 
   if (userDataLocal) {
-    changeWordsOnServer();
+    updateWordsOnServer();
     await updateGameStats();
   }
 
