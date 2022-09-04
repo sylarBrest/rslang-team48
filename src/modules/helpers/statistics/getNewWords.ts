@@ -1,8 +1,10 @@
+import { ALL_WORDS_ON_SERVER } from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from '@types';
+import { TAggregatedWord } from 'modules/types/aggregated';
 
 const getNewWords = async () => {
   const response = await getAllAggregatedWords(
+    ALL_WORDS_ON_SERVER,
     '{"userWord.optional.isNew":true}',
   );
 

@@ -1,8 +1,8 @@
 import { EStatusCode } from '@constants';
 import getWords from '@services/words/getWords';
 import { wordsDataLocal } from '@store';
-import { TWordContent } from '@types';
 import Card from '@view/components/Card';
+import { TWordContent } from 'modules/types/words';
 
 import './style.scss';
 

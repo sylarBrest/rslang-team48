@@ -3,8 +3,8 @@ import { changeTimer } from '@helpers';
 import { temporalWordsData, initTemporalWordsData, wordsDataLocal } from '@store';
 import { getRandomInteger } from '@utils';
 import getWords from '@services/words/getWords';
-import { TWordContent } from '@types';
 import renderSprintGame from '@view/pages/Sprint';
+import { TWordContent } from 'modules/types/words';
 import clickSprintButtonsHandler from './clickSprintButtonsHandler';
 
 const clickStartSprintHandler = (flag: boolean) => {

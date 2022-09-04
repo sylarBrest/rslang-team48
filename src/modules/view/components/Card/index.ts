@@ -1,5 +1,6 @@
 import { HOST } from '@constants';
-import { TWordContent } from '@types';
+import { userDataLocal } from '@store';
+import { TWordContent } from 'modules/types/words';
 import './style.scss';
 
 const Card = ({
@@ -30,10 +31,10 @@ const Card = ({
         <h5 class="card__subheading word__transcription">${transcription}</h5>
       </div>
     </div>
-    <div class="card__buttons">
+    ${userDataLocal ? `<div class="card__buttons">
       <button class="card__btn card__done-btn" />
       <button class="card__btn card__complex-btn" />
-    </div>
+    </div>` : ''}
     <div class="card__body">
       <div class="card__row">
         ${textMeaning}
@@ -47,6 +48,12 @@ const Card = ({
       <div class="card__row translate">
         ${textExampleTranslate}
       </div>
+      ${userDataLocal ? `<div class="card__row card__sprint">
+        Спринт: 0/0
+      </div>
+      <div class="card__row card__audiocall">
+        Аудиовызов: 0/0
+      </div>` : ''}
     </div>
     <div class="card__footer">
 

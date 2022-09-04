@@ -3,11 +3,9 @@ import {
 } from '@constants';
 import { userDataLocal } from '@store';
 
-const getAllAggregatedWords = async (
-  filter = DEFAULT_FILTER,
-) => {
+const getAllAggregatedWords = async (wordsPerPage: string, filter = DEFAULT_FILTER) => {
   const searchParams = new URLSearchParams({
-    wordsPerPage: '3600',
+    wordsPerPage,
     filter,
   });
 

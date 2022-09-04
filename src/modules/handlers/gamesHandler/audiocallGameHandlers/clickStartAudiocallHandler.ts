@@ -1,10 +1,10 @@
 import { FIRST_PAGE, LAST_PAGE, EStatusCode } from '@constants';
 import getWords from '@services/words/getWords';
 import { temporalWordsData, initTemporalWordsData, wordsDataLocal } from '@store';
-import { TWordContent } from '@types';
 import { getRandomInteger } from '@utils';
 import { playAudio } from '@helpers';
 import renderAudiocallGame from '@view/pages/Audiocall';
+import { TWordContent } from 'modules/types/words';
 import clickNextButtonHandler from './clickNextButtonHandler';
 import clickPlayAudioHandler from './clickPlayAudioHandler';
 import clickTranslationButtonsHandler from './clickTranslationButtonsHandler';

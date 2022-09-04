@@ -1,8 +1,9 @@
 import { temporalWordsData } from '@store';
 import { getRandomInteger } from '@utils';
+import { TTemporalWordsData } from 'modules/types/words';
 
 const getRandomWordPairs = () => {
-  const { wordPairs } = temporalWordsData;
+  const { wordPairs } = <TTemporalWordsData>temporalWordsData;
   const index = getRandomInteger(0, wordPairs.length);
   const { word, wordTranslate } = wordPairs[index];
 
