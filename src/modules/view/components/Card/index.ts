@@ -38,9 +38,9 @@ const Card = ({
   userDataLocal
     ? `<div class="card__buttons">
       <button data-word-id="${_id}" class="card__btn card__done-btn
-      ${userWord?.difficulty === 'hard' ? 'card__done-btn-green' : ''}"></button>
+      ${userWord?.difficulty === 'known' ? 'card__done-btn-green' : ''}"></button>
       <button data-word-id="${_id}" class="card__btn card__complex-btn
-      ${userWord?.difficulty === 'known' ? 'card__complex-btn-yellow' : ''}"></button>
+      ${userWord?.difficulty === 'hard' ? 'card__complex-btn-yellow' : ''}"></button>
     </div>`
     : ''
 }

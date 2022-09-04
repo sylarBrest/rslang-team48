@@ -1,10 +1,9 @@
-import { DEFAULT_FILTER, EDifficulty, WORDS_PER_PAGE } from '@constants';
-import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
+import { EDifficulty } from '@constants';
+import getAggregatedWord from '@services/users/aggregatedWords/getAggregatedWord';
 import createUserWord from '@services/users/words/createUserWord';
 import updateUserWord from '@services/users/words/updateUserWord';
-import { wordsDataLocal } from '@store';
+import { TDifficulty, TWordContent } from '@types';
 import { getDateNow } from '@utils';
-import { TAggregatedWord } from 'modules/types/aggregated';
 
 const cardClickKnownHandler = () => {
   const knownIcons = document.querySelectorAll<HTMLElement>('.card__done-btn');
@@ -13,58 +12,47 @@ const cardClickKnownHandler = () => {
     item.addEventListener('click', async (e: Event) => {
       const target = <HTMLElement>e.target;
       const wordId = String(target.getAttribute('data-word-id'));
-      const isWordKnown = target.classList.contains('card__done-btn-green');
-      const queries = {
-        group: wordsDataLocal.group,
-        page: wordsDataLocal.page,
-        wordsPerPage: WORDS_PER_PAGE,
-        filter: DEFAULT_FILTER,
-      };
 
       target.classList.toggle('card__done-btn-green');
 
-      const response = await getAllAggregatedWords(queries);
+      const response = await getAggregatedWord(wordId);
 
-      const result: TAggregatedWord[] = await response.json();
+      const aggregatedWord: TWordContent[] = await response.json();
 
-      const words = [...(<TAggregatedWord[]>result)[0].paginatedResults];
+      if (aggregatedWord[0].userWord) {
+        const { difficulty, optional } = aggregatedWord[0].userWord;
 
-      // eslint-disable-next-line no-underscore-dangle
-      const userWord = words.find((elem) => elem._id === wordId)?.userWord;
+        let newDifficulty: TDifficulty = 'hard';
 
-      if (userWord) {
-        // eslint-disable-next-line prefer-const
-        let { difficulty, optional } = userWord;
-
-        if (target.nextElementSibling?.classList.contains('card__complex-btn-yellow')) {
+        if (difficulty === EDifficulty.HARD) {
           target.nextElementSibling?.classList.toggle('card__complex-btn-yellow');
 
-          difficulty = EDifficulty.KNOWN;
+          newDifficulty = EDifficulty.KNOWN;
           optional.dateKnown = getDateNow();
           optional.series = 0;
-        } else if (isWordKnown) {
-          difficulty = EDifficulty.UNSET;
-          optional.dateKnown = '';
-        } else if (!isWordKnown) {
-          difficulty = EDifficulty.KNOWN;
+        } else if (difficulty === EDifficulty.KNOWN) {
+          newDifficulty = EDifficulty.UNSET;
+          optional.dateKnown = 'null';
+        } else {
+          newDifficulty = EDifficulty.KNOWN;
           optional.dateKnown = getDateNow();
           optional.series = 0;
         }
 
-        await updateUserWord(wordId, difficulty, optional);
-      } else {
-        const optional = {
-          isNew: false,
-          dateNew: '',
-          dateKnown: '',
-          gameNew: '',
-          appeared: 0,
-          correct: 0,
-          series: 0,
-        };
-
-        await createUserWord(wordId, EDifficulty.KNOWN, optional);
+        return updateUserWord(wordId, newDifficulty, optional);
       }
+
+      const optional = {
+        isNew: false,
+        dateNew: 'null',
+        dateKnown: getDateNow(),
+        gameNew: 'null',
+        appeared: 0,
+        correct: 0,
+        series: 0,
+      };
+
+      return createUserWord(wordId, EDifficulty.KNOWN, optional);
     });
   });
 };
