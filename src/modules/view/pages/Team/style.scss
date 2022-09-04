@@ -1,7 +1,7 @@
 .team {
   &__body {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 }
@@ -9,7 +9,20 @@
 .team-card {
   display: flex;
   flex-direction: column;
-  max-width: 33vw;
+  flex-grow: 1;
+  gap: 0.5rem;
+  align-items: flex-start;
+  max-width: 21rem;
+  padding: 0.5rem;
+
+  a {
+    padding: 0.1rem;
+    transition: 0.2s ease-in-out;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
   &__heading {
     display: inline-block;
@@ -17,16 +30,60 @@
     font-weight: 600;
     font-size: 1.2rem;
   }
-
-  &__subheading {
+    
+  &__badge {
     display: inline-block;
     padding: 0.2rem 0.5rem;
     color: var(--color-white-100);
-    background-color: var(--color-black-500);    
+    font-size: 0.8rem;
+    background-color: var(--color-black-500);
+    border-radius: 1rem;
   }
 
   &__info {
     padding-left: 0.2rem;
   }
 
+  &__image {
+    width: 20rem;
+    height: 20rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 1rem;
+
+    @media screen and (max-width: 512px) {
+      width: 17rem;
+      height: 17rem;
+    }
+
+    &_aliaksandr {
+      background-image: url('@assets/img/aliaksandr.webp');
+    }
+
+    &_ivan {
+      background-image: url('@assets/img/ivan.webp');
+    }
+
+    &_igor {
+      background-image: url('@assets/img/igor.webp');
+    }    
+  }
+}
+
+.contact {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  &_gh {
+    background-image: url('@assets/svg/github.svg');
+  }
+
+  &_tg {
+    background-image: url('@assets/svg/telegram.svg');
+  }
 }
