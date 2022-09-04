@@ -10,13 +10,17 @@ const renderStat = async () => {
   const dateToday = getDateNow();
   const userStats = <TOptionalStat>(await getOptionalFromStatistic());
 
+  const isToday = userStats.date === dateToday;
+  const isSprintToday = userStats.sprint.date === dateToday;
+  const isAudiocallToday = userStats.audiocall.date === dateToday;
+
   const newWordsToday = newWordsResults.results
     .filter((word) => word.userWord?.optional.dateNew === dateToday);
   const newWordsTodayCount = newWordsToday.length;
   const newWordsOverallCount = newWordsResults.count;
 
-  const attemptsToday = userStats.appeared;
-  const correctAnswersToday = userStats.correct;
+  const attemptsToday = isToday ? userStats.appeared : 0;
+  const correctAnswersToday = isToday ? userStats.correct : 0;
 
   const correctAnswersTodayPercent = Math.round((correctAnswersToday / attemptsToday) * 100) || 0;
 
@@ -39,12 +43,14 @@ const renderStat = async () => {
     .filter((word) => word.userWord?.optional.gameNew === 'audiocall')
     .length;
 
-  const sprintAttempts = userStats.sprint.date === dateToday ? userStats.sprint.attempts : 0;
-  const sprintStreak = userStats.sprint.date === dateToday ? userStats.sprint.streak : 0;
-  const audiocallAttempts = userStats.audiocall.date === dateToday ? userStats.audiocall.attempts : 0;
-  const audiocallStreak = userStats.audiocall.date === dateToday ? userStats.audiocall.streak : 0;
-  const sprintcorrectAnswersPercent = Math.round((userStats.sprint.correct * 100) / sprintAttempts) || 0;
-  const audiocallcorrectAnswersPercent = Math.round((userStats.audiocall.correct * 100) / audiocallAttempts) || 0;
+  const sprintCorrectAnswersToday = isSprintToday ? userStats.sprint.correct : 0;
+  const sprintAttempts = isSprintToday ? userStats.sprint.attempts : 0;
+  const sprintStreak = isSprintToday ? userStats.sprint.streak : 0;
+  const audiocallCorrectAnswersToday = isAudiocallToday ? userStats.audiocall.correct : 0;
+  const audiocallAttempts = isAudiocallToday ? userStats.audiocall.attempts : 0;
+  const audiocallStreak = isAudiocallToday ? userStats.audiocall.streak : 0;
+  const sprintcorrectAnswersPercent = Math.round((sprintCorrectAnswersToday / sprintAttempts) * 100) || 0;
+  const audiocallcorrectAnswersPercent = Math.round((audiocallCorrectAnswersToday / audiocallAttempts) * 100) || 0;
 
   return `
   <section class="container section">
