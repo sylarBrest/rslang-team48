@@ -1,7 +1,10 @@
-import { clearUserData, userDataLocal } from '@store';
+import { ZERO } from '@constants';
+import { clearUserData, updateWordsData, userDataLocal } from '@store';
 
 const userLogout = () => {
   clearUserData();
+  updateWordsData(ZERO, ZERO);
+  window.location.replace('/#/home');
   window.location.reload();
 };
 
