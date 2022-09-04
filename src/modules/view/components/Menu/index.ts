@@ -37,7 +37,7 @@ const renderMenu = () => `
             </li>
         </ul>
       </div>
-      <button class="menu__login-btn">Войти</button>
+      <button class="menu__login-btn">${userDataLocal ? 'Выйти' : 'Войти'}</button>
   </nav>
 `;
 
