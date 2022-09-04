@@ -14,16 +14,17 @@ const getOptionalFromStatistic = async (): Promise<TOptionalStat | void> => {
   }
 
   if (response.status === EStatusCode.NOT_FOUND) {
+    const dateToday = getDateNow();
     const optional = {
-      date: getDateNow(),
+      date: dateToday,
       audiocall: {
-        date: getDateNow(),
+        date: dateToday,
         correct: 0,
         attempts: 0,
         streak: 0,
       },
       sprint: {
-        date: getDateNow(),
+        date: dateToday,
         correct: 0,
         attempts: 0,
         streak: 0,

@@ -10,6 +10,7 @@ const updateWordsOnServer = async () => {
   const answers = temporalWordsData.gameAnswers;
   const allUserWordsResp = await getAllUserWords();
   const allUserWordsResult: TUserWord[] = await allUserWordsResp.json();
+  const dateToday = getDateNow();
   const promises: Promise<Response>[] = [];
 
   answers.forEach((item) => {
@@ -22,7 +23,7 @@ const updateWordsOnServer = async () => {
 
       if (difficulty === EDifficulty.UNSET && optional.series === 2 && item.isCorrectAnswer === TRUE) {
         difficulty = EDifficulty.KNOWN;
-        optional.dateKnown = getDateNow();
+        optional.dateKnown = dateToday;
         optional.correct += 1;
         optional.series = 0;
       } else if (difficulty === EDifficulty.UNSET && item.isCorrectAnswer === TRUE) {
@@ -50,7 +51,7 @@ const updateWordsOnServer = async () => {
     } else {
       const optional = {
         isNew: true,
-        dateNew: getDateNow(),
+        dateNew: dateToday,
         dateKnown: 'null',
         gameNew: temporalWordsData.game,
         appeared: 1,
