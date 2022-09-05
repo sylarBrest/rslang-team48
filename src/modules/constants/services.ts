@@ -1,6 +1,4 @@
-export const PORT = 3000;
-
-export const HOST = `http://localhost:${PORT}`;
+export const HOST = 'https://rs-lang-learn-words.herokuapp.com';
 
 export enum EStatusCode {
   OK = 200,
