@@ -7,7 +7,6 @@ import './style.scss';
 const renderStat = async () => {
   const newWordsResults = await getNewWords();
   const knownWordsResults = await getKnownWords();
-  console.log(newWordsResults);
 
   const dateToday = getDateNow();
   const userStats = <TOptionalStat>(await getOptionalFromStatistic());

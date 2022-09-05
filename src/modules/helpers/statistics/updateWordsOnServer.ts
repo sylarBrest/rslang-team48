@@ -4,8 +4,7 @@ import getAllUserWords from '@services/users/words/getAllUserWords';
 import updateUserWord from '@services/users/words/updateUserWord';
 import { temporalWordsData } from '@store';
 import { getDateNow } from '@utils';
-import { TUserWord } from 'modules/types/optional';
-import { TSprintGameAnswers } from 'modules/types/words';
+import { TUserWord, TSprintGameAnswers } from '@types';
 
 const updateWordsOnServer = async () => {
   const answers: TSprintGameAnswers[] = temporalWordsData.gameAnswers;

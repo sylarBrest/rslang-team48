@@ -1,4 +1,4 @@
-import { TSprintGameAnswers } from 'modules/types/words';
+import { TSprintGameAnswers } from '@types';
 
 const getMaxStreak = (arr: TSprintGameAnswers[], elem: string): number => {
   let streak = 0;

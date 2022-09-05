@@ -1,6 +1,6 @@
 import { HOST } from '@constants';
 import { userDataLocal } from '@store';
-import { TWordContent } from 'modules/types/words';
+import { TWordContent } from '@types';
 import './style.scss';
 
 const Card = ({

@@ -8,9 +8,8 @@ import {
 import { getRandomInteger } from '@utils';
 import getWords from '@services/words/getWords';
 import renderSprintGame from '@view/pages/Sprint';
-import { TWordContent } from 'modules/types/words';
+import { TWordContent, TAggregatedWord } from '@types';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from 'modules/types/aggregated';
 import clickSprintButtonsHandler from './clickSprintButtonsHandler';
 
 const clickStartSprintHandler = (flag: boolean) => {

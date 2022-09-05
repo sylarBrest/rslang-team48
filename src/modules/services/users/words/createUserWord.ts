@@ -1,6 +1,6 @@
 import { HOST, EUrl, EHttpMethod } from '@constants';
 import { userDataLocal } from '@store';
-import { TDifficulty, TOptionalWord } from 'modules/types/optional';
+import { TDifficulty, TOptionalWord } from '@types';
 
 const createUserWord = async (wordId: string, difficulty: TDifficulty, optional: TOptionalWord) =>
   fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.WORDS}/${wordId}`, {

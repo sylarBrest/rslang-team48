@@ -13,7 +13,6 @@ const getNewWords = async () => {
 
   const data: TAggregatedWord[] = await response.json();
 
-  console.log(data);
   const results = data[0].paginatedResults;
   const { count } = data[0].totalCount[0] || { count: 0 };
 

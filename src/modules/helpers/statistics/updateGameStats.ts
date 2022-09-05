@@ -3,8 +3,9 @@ import getUserStatistic from '@services/users/statistic/getUserStatistic';
 import updateUserStatistic from '@services/users/statistic/updateUserStatistic';
 import { temporalWordsData, wordsDataLocal } from '@store';
 import { getDateNow } from '@utils';
-import { TUserStat, TGameStat, TOptionalStat } from 'modules/types/optional';
-import { TSprintGameAnswers } from 'modules/types/words';
+import {
+  TUserStat, TGameStat, TOptionalStat, TSprintGameAnswers,
+} from '@types';
 import { getMaxStreak, isSprintGame } from '../games';
 import getKnownWords from './getKnownWords';
 

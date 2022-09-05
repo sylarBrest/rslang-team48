@@ -2,7 +2,7 @@ import {
   HOST, EUrl, EHttpMethod,
 } from '@constants';
 import { userDataLocal } from '@store';
-import { TQueriesAggregated } from 'modules/types/aggregated';
+import { TQueriesAggregated } from '@types';
 
 const getAllAggregatedWords = async (queries: TQueriesAggregated, isStat = false) => {
   const searchParams = isStat

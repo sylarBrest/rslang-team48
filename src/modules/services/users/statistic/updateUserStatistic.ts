@@ -1,6 +1,6 @@
 import { HOST, EUrl, EHttpMethod } from '@constants';
 import { userDataLocal } from '@store';
-import { TOptionalStat } from 'modules/types/optional';
+import { TOptionalStat } from '@types';
 
 const updateUserStatistic = async (learnedWords: number, optional: TOptionalStat) =>
   fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.STATISTICS}`, {
