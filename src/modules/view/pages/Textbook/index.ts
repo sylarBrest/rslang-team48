@@ -1,4 +1,6 @@
-import { DEFAULT_FILTER, EStatusCode, WORDS_PER_PAGE } from '@constants';
+import {
+  DEFAULT_FILTER, EStatusCode, WORDS_PER_PAGE, ALL_WORDS_ON_SERVER,
+} from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
 import getWords from '@services/words/getWords';
 import { userDataLocal, wordsDataLocal } from '@store';
@@ -31,12 +33,19 @@ export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2
 };
 
 export const renderTextbook = async () => {
-  const queries = {
-    group: wordsDataLocal.group,
-    page: wordsDataLocal.page,
-    wordsPerPage: WORDS_PER_PAGE,
-    filter: DEFAULT_FILTER,
-  };
+  const queries = +wordsDataLocal.group > 5
+    ? {
+      group: wordsDataLocal.group,
+      page: wordsDataLocal.page,
+      wordsPerPage: ALL_WORDS_ON_SERVER,
+      filter: '{"userWord.difficulty":"hard"}',
+    }
+    : {
+      group: wordsDataLocal.group,
+      page: wordsDataLocal.page,
+      wordsPerPage: WORDS_PER_PAGE,
+      filter: DEFAULT_FILTER,
+    };
 
   const template = `
     <section class="textbook">
@@ -90,7 +99,7 @@ export const renderTextbook = async () => {
       <div class="textbook__body section textbook-container">
         ${
   userDataLocal
-    ? await renderTextbookBody(queries)
+    ? await renderTextbookBody(queries, '', +wordsDataLocal.group > 5)
     : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)
 }
       </div>
