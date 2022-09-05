@@ -12,6 +12,7 @@ import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame, updateGameButtons,
 } from '@helpers';
+import { wordsDataLocal } from '@store';
 import initWindowHandlers from '@handlers/windowHandlers';
 import initCardHandlers from '../cardHandlers';
 import initButtonHandlers from '../buttonHandlers';
@@ -42,7 +43,10 @@ const initRouterHandlers = () => {
     initButtonHandlers();
     reDrawPageButtons();
     colorActiveButton();
-    updateGameButtons();
+    if (+wordsDataLocal.group !== 6) {
+      updateGameButtons();
+    }
+
     updatePaginationButtonsState();
     initWindowHandlers();
   });

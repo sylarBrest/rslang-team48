@@ -44,7 +44,10 @@ const initLevelHandlers = () => {
         : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
       initCardHandlers();
       reDrawPageButtons();
-      updateGameButtons();
+      if (+wordsDataLocal.group !== 6) {
+        updateGameButtons();
+      }
+
       colorActiveButton();
     }));
 };

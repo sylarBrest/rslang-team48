@@ -66,7 +66,9 @@ const initPaginationHandlers = () => {
       ? await renderTextbookBody(queries)
       : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
-    updateGameButtons();
+    if (+wordsDataLocal.group !== 6) {
+      updateGameButtons();
+    }
   });
 };
 
