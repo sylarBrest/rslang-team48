@@ -6,11 +6,11 @@
   width: 100%;
   height: auto;
   margin: 0 auto;
-  background-color: var(--color-black-500);
+  background-color: var(--color-white-500);
   transition: all 0.35s ease;
 
   &.on-scroll {
-    background: var(--color-black-300);
+    background: var(--color-primary-300);
     box-shadow: var(--shadow-medium);
   }
 }
@@ -47,7 +47,7 @@
   width: 100%;
   height: auto;
   padding: 4rem 0 3rem;
-  background-color: var(--color-blue-600);
+  background-color: var(--color-primary-600);
   box-shadow: var(--shadow-medium);
   visibility: hidden;
   opacity: 0;
@@ -148,7 +148,7 @@
     }
 
     &_active {
-      background-color: var(--color-blue-300);
+      background-color: var(--color-secondary-500);
     }
   }
 
@@ -161,7 +161,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 0.25rem;
-    background-color: var(--color-blue-500);
+    background-color: var(--color-primary-100);
     border-radius: 0.5rem;
     visibility: hidden;
     opacity: 0;
@@ -205,7 +205,7 @@
     user-select: none;
 
     &:hover {
-      background-color: var(--color-black-100);
+      background-color: var(--color-primary-100);
     }
 
     &::before {

@@ -43,13 +43,14 @@ const mainPageScrollHandler = () => {
     scrollTrigger('.hero-section__heading', 'hero-section__heading_active');
     scrollTrigger('.hero-section', 'hero-section_active', { rootMargin: '200px' });
     scrollTrigger('.faq', 'faq_active', { rootMargin: '-100px' });
-    scrollTrigger('.faq__block', 'faq__block_active', { rootMargin: '-200px' });
+    scrollTrigger('.faq__block', 'faq__block_active');
     scrollTrigger('.reviews', 'reviews_active');
 
     const heroSection = <HTMLElement>document.querySelector('.hero-section');
     const subheadings = [...document.querySelectorAll<HTMLElement>('.hero-section__subheading')];
     const heading = <HTMLElement>document.querySelector('.hero-section__heading');
     const bg = <HTMLElement>document.querySelector('.bg');
+    const scrollDown = <HTMLElement>document.querySelector('.scroll-down');
 
     const reviewsSection = <HTMLElement>document.querySelector('.reviews');
     const faqSection = <HTMLElement>document.querySelector('.faq');
@@ -77,9 +78,11 @@ const mainPageScrollHandler = () => {
       if (faqSection.classList.contains('faq_active')) {
         heroSection.style.opacity = '0';
         bg.classList.toggle('bg_active', false);
+        scrollDown.classList.toggle('scroll-down_active', false);
       } else if (!faqSection.classList.contains('faq_active') && !reviewsSection.classList.contains('reviews_active')) {
         heroSection.style.opacity = '1';
         bg.classList.toggle('bg_active', true);
+        scrollDown.classList.toggle('scroll-down_active', true);
       }
 
       prevScrollpos = currentScrollPos;
