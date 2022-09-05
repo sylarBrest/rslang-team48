@@ -61,6 +61,7 @@ const renderTeam = () => `
         </h3>        
         <div class="team-card__image team-card__image_igor"></div>
         <div class="team-card__badges">
+          <div class="team-card__badge">Дизайн</div>
           <div class="team-card__badge">Главная</div>
           <div class="team-card__badge">Учебник</div>
           <div class="team-card__badge">Окно авторизации</div>
