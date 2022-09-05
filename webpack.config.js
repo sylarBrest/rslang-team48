@@ -42,7 +42,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff)$/,
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|webp|woff)$/,
         type: isProduction ? 'asset' : 'asset/resource',
       },
       {
