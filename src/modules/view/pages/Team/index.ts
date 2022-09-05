@@ -3,7 +3,7 @@ import './style.scss';
 const renderTeam = () => `
   <section class="container section">
     <div class="team__header">
-      <h2>О команде</h2>
+      <h2>Наша команда</h2>
     </div>
     <div class="team__body">      
       <div class="team-card">        
