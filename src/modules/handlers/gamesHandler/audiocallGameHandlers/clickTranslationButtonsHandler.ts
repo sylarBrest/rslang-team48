@@ -56,8 +56,8 @@ const clickTranslationButtonsHandler = () => {
     const buttons = document.querySelectorAll<HTMLButtonElement>('.game__audiocall-button');
     const progress = <HTMLProgressElement>document.querySelector('progress');
 
-    const audioCorrect = new Audio('./src/assets/audio/correct.mp3');
-    const audioIncorrect = new Audio('./src/assets/audio/error.mp3');
+    const audioCorrect = new Audio('./assets/audio/correct.mp3');
+    const audioIncorrect = new Audio('./assets/audio/error.mp3');
 
     if (target && target.classList.contains('game__audiocall-button')) {
       progress.value += 1;
