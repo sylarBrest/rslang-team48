@@ -37,7 +37,7 @@
     transition: 0.3s;
 
     &:hover {
-      background-color: var(--color-blue-700);
+      background-color: var(--color-secondary-700);
     }
   }
 
@@ -137,12 +137,12 @@
   font-weight: 500;
   font-size: 1rem;
   font-family: inherit;
-  background-color: var(--color-blue-500);
+  background-color: var(--color-secondary-500);
   border-radius: 1rem 1rem 0 0;
   transition: 0.3s;
 
   &_active {
-    background-color: var(--color-blue-700);
+    background-color: var(--color-secondary-700);
   }
 
   &::before {
@@ -156,7 +156,7 @@
   }
 
   &:hover {
-    background-color: var(--color-blue-600);
+    background-color: var(--color-secondary-600);
   }
 }
 

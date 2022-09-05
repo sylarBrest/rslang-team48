@@ -23,7 +23,10 @@ const renderHome = () => `
         </div>
         <div class="hero-section__col splash-image">
         </div>
-      </div>      
+      </div>
+      <div class="scroll-down scroll-down_active ">
+        <div class="scroll-down__image"></div>
+      </div>     
     </section>
     <section class="faq">
       <div class="faq__col">
@@ -61,7 +64,7 @@ const renderHome = () => `
         <div class="faq__block">
           <h3 class="faq__question">Я могу отслеживать прогресс?</h3>
           <p class="faq__answer">
-            Каждое слово в учебнике может быть отмечено как изученное и/или сложное. 
+            Каждое слово в учебнике может быть отмечено как изученное или сложное. 
             Но для этого нужно авторизоваться. А
             еще свой прогресс можно оценить в разделе <a href="/#/statistic">статистика</a>.
           </p>
@@ -97,7 +100,7 @@ const renderHome = () => `
           <p class="review-card__text">
             Я не узнал ни одного нового ругательства, поэтому только 4
           </p>
-          <p class="review-card__username"/>Студент Один</p>
+          <p class="review-card__username"/>Student 1</p>
           <div class="review-card__rating-bar">⭐⭐⭐⭐</div>
         </div>
         </div>
