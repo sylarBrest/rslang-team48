@@ -49,6 +49,10 @@ h6 {
     &:active {
       transform: scale(0.9);
     }
+
+    &[hidden] {
+      display: none;
+    }
   }
 
   &__image {
@@ -241,6 +245,13 @@ h6 {
   border-bottom: solid 0.3rem var(--color-C2-transparent);
   box-shadow: 0 1px 3px 0 var(--color-C2-transparent),
     0 1px 2px 0 var(--color-C2-transparent);
+}
+
+.H-border {
+  border: solid 0.05rem var(--color-H-transparent);
+  border-bottom: solid 0.3rem var(--color-H-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-H-transparent),
+    0 1px 2px 0 var(--color-H-transparent);
 }
 
 @keyframes move-down {

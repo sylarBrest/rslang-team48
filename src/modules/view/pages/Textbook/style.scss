@@ -129,7 +129,7 @@
 
   &_H:hover + label,
   &_H:checked + label {
-    color: #8f6a1c;
+    color: var(--color-H);
   }
 }  
 

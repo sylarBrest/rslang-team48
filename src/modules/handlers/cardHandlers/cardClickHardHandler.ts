@@ -2,6 +2,7 @@ import { EDifficulty } from '@constants';
 import getAggregatedWord from '@services/users/aggregatedWords/getAggregatedWord';
 import createUserWord from '@services/users/words/createUserWord';
 import updateUserWord from '@services/users/words/updateUserWord';
+import { wordsDataLocal } from '@store';
 import { TWordContent } from '@types';
 
 const cardClickHardHandler = () => {
@@ -39,6 +40,10 @@ const cardClickHardHandler = () => {
         }
 
         card.setAttribute('data-difficulty', newDifficulty);
+        if (+wordsDataLocal.group === 6) {
+          card.style.display = 'none';
+        }
+
         return updateUserWord(wordId, newDifficulty, optional);
       }
 
