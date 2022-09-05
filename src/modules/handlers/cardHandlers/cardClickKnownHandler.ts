@@ -1,4 +1,5 @@
 import { EDifficulty } from '@constants';
+import { updateGameButtons } from '@helpers';
 import getAggregatedWord from '@services/users/aggregatedWords/getAggregatedWord';
 import createUserWord from '@services/users/words/createUserWord';
 import updateUserWord from '@services/users/words/updateUserWord';
@@ -41,6 +42,7 @@ const cardClickKnownHandler = () => {
         }
 
         card.setAttribute('data-difficulty', newDifficulty);
+        updateGameButtons();
         return updateUserWord(wordId, newDifficulty, optional);
       }
 
@@ -55,6 +57,7 @@ const cardClickKnownHandler = () => {
       };
 
       card.setAttribute('data-difficulty', EDifficulty.KNOWN);
+      updateGameButtons();
       return createUserWord(wordId, EDifficulty.KNOWN, optional);
     });
   });

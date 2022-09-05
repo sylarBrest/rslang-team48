@@ -86,6 +86,6 @@ export enum EDifficulty {
 
 export const CARDS_ON_PAGE_COUNT = 20;
 
-export const CARDS_COL_GAP = 16;
+export const CARDS_COL_GAP = 32;
 
 export const NAVBAR_HEIGHT = '3.2rem';

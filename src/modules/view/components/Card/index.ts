@@ -40,6 +40,9 @@ const Card = ({
     case '5':
       level = 'C2';
       break;
+    case '6':
+      level = 'H';
+      break;
     default:
       level = 'A1';
   }
@@ -68,9 +71,11 @@ const Card = ({
       card__buttons${userWord?.difficulty && userWord?.difficulty !== EDifficulty.UNSET ? ' card__buttons_active' : ''}
       ">
       <button data-word-id="${_id}" class="card__btn card__done-btn
-      ${userWord?.difficulty === 'known' ? 'card__done-btn-green' : ''}"></button>
+      ${userWord?.difficulty === 'known' ? 'card__done-btn-green' : ''}"
+      ${+wordsDataLocal.group === 6 ? 'hidden' : ''}></button>
       <button data-word-id="${_id}" class="card__btn card__complex-btn
-      ${userWord?.difficulty === 'hard' ? 'card__complex-btn-yellow' : ''}"></button>
+      ${userWord?.difficulty === EDifficulty.HARD ? 'card__complex-btn-yellow' : ''}"
+      ${userWord?.difficulty === EDifficulty.HARD && +wordsDataLocal.group !== 6 ? 'disabled' : ''}></button>
     </div>`
     : ''
 }

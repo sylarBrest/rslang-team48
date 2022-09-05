@@ -1,7 +1,9 @@
 import { EDifficulty } from '@constants';
+import { updateGameButtons } from '@helpers';
 import getAggregatedWord from '@services/users/aggregatedWords/getAggregatedWord';
 import createUserWord from '@services/users/words/createUserWord';
 import updateUserWord from '@services/users/words/updateUserWord';
+import { wordsDataLocal } from '@store';
 import { TWordContent } from '@types';
 
 const cardClickHardHandler = () => {
@@ -39,6 +41,12 @@ const cardClickHardHandler = () => {
         }
 
         card.setAttribute('data-difficulty', newDifficulty);
+        if (+wordsDataLocal.group === 6) {
+          card.style.display = 'none';
+        } else {
+          updateGameButtons();
+        }
+
         return updateUserWord(wordId, newDifficulty, optional);
       }
 
@@ -52,7 +60,11 @@ const cardClickHardHandler = () => {
         series: 0,
       };
 
-      card.setAttribute('data-difficulty', EDifficulty.KNOWN);
+      card.setAttribute('data-difficulty', EDifficulty.HARD);
+      if (+wordsDataLocal.group !== 6) {
+        updateGameButtons();
+      }
+
       return createUserWord(wordId, EDifficulty.HARD, optional);
     });
   });

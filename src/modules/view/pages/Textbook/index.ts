@@ -1,4 +1,6 @@
-import { DEFAULT_FILTER, EStatusCode, WORDS_PER_PAGE } from '@constants';
+import {
+  DEFAULT_FILTER, EStatusCode, WORDS_PER_PAGE, ALL_WORDS_ON_SERVER,
+} from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
 import getWords from '@services/words/getWords';
 import { userDataLocal, wordsDataLocal } from '@store';
@@ -7,9 +9,9 @@ import { TWordContent, TAggregatedWord, TQueriesAggregated } from '@types';
 
 import './style.scss';
 
-export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2?: string) => {
+export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2?: string, isAll = false) => {
   const response = userDataLocal
-    ? await getAllAggregatedWords(<TQueriesAggregated>arg1)
+    ? await getAllAggregatedWords(<TQueriesAggregated>arg1, isAll)
     : await getWords(String(arg1), arg2);
   let content = '';
 
@@ -31,12 +33,20 @@ export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2
 };
 
 export const renderTextbook = async () => {
-  const queries = {
-    group: wordsDataLocal.group,
-    page: wordsDataLocal.page,
-    wordsPerPage: WORDS_PER_PAGE,
-    filter: DEFAULT_FILTER,
-  };
+  const isHardWordsGroup = +wordsDataLocal.group === 6;
+  const queries = isHardWordsGroup
+    ? {
+      group: wordsDataLocal.group,
+      page: wordsDataLocal.page,
+      wordsPerPage: ALL_WORDS_ON_SERVER,
+      filter: '{"userWord.difficulty":"hard"}',
+    }
+    : {
+      group: wordsDataLocal.group,
+      page: wordsDataLocal.page,
+      wordsPerPage: WORDS_PER_PAGE,
+      filter: DEFAULT_FILTER,
+    };
 
   const template = `
     <section class="textbook">
@@ -66,6 +76,10 @@ export const renderTextbook = async () => {
             <input type="radio" name="difficulty" class="radio-btn radio-btn_C2" id="C2" value="5" />
             <label for="C2" class="radio-label">C2</label>
           </li>
+          ${userDataLocal ? `<li class="radio-container" data-group="6">
+          <input type="radio" name="difficulty" class="radio-btn radio-btn_H" id="H" value="6" />
+          <label for="H" class="radio-label">H</label>
+          </li>` : ''}
         </ul>
         <div class="textbook__pagination">
           <button class="btn first">&laquo;</button>
@@ -78,7 +92,6 @@ export const renderTextbook = async () => {
           <button class="btn next">&gt;</button>
           <button class="btn last">&raquo;</button>
         </div>
-        
         <div class="textbook__games-bar">
           <a href="/#/textbook/audiocall" class="btn_game btn_game_audiocall">Аудиовызов</a>
           <a href="/#/textbook/sprint" class="btn_game btn_game_sprint">Спринт</a>
@@ -87,7 +100,7 @@ export const renderTextbook = async () => {
       <div class="textbook__body section textbook-container">
         ${
   userDataLocal
-    ? await renderTextbookBody(queries)
+    ? await renderTextbookBody(queries, '', isHardWordsGroup)
     : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)
 }
       </div>

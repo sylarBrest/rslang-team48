@@ -39,6 +39,8 @@
   --color-C1-transparent: hsla(33, 100%, 50%, 0.12);
   --color-C2: hsl(330, 100%, 71%);
   --color-C2-transparent: hsla(330, 100%, 71%, 0.12);
+  --color-H: hsl(41, 73%, 37%);
+  --color-H-transparent: hsla(41, 69%, 39%, 0.12);
 
   --shadow-small: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
     0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -48,7 +50,6 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
   --navbar-height: 3.2rem;
-
 }
 
 *,

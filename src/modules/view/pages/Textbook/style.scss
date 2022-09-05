@@ -29,8 +29,8 @@
   &__body {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: space-around;
+    gap: 2rem;
+    justify-content: space-between;
   };
 
   &__footer {
@@ -62,6 +62,10 @@
   &__pagination {
     display: flex;
     gap: 0.25rem;
+
+    &[hidden] {
+      visibility: hidden;
+    }
 
     .btn {
       width: 30px;
@@ -121,8 +125,13 @@
   &_C2:hover + label,
   &_C2:checked + label {
     color: var(--color-C2);
-  }  
-}
+  }
+
+  &_H:hover + label,
+  &_H:checked + label {
+    color: var(--color-H);
+  }
+}  
 
 .radio-label {
   display: inline-block;
@@ -153,6 +162,12 @@
   border-radius: 2.2rem;
   transition: 0.3s ease-in-out;
 
+  &.disabled {
+    background-color: var(--color-white-600);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   &:hover {
     background-color: var(--color-secondary-400);
   }
@@ -179,7 +194,7 @@
   max-width: 70rem;
   margin: 0 auto;
   padding: 0 1.25rem;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1048px) {
     max-width: 40rem;
   }
   @media only screen and (max-width: 512px) {

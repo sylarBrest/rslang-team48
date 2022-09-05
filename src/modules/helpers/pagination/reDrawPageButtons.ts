@@ -18,6 +18,9 @@ const reDrawPageButtons = () => {
       temp.textContent = increaseStringNumberByStep(pageNumber, 1);
     }
   });
+
+  const pagination = <HTMLDivElement>document.querySelector('.textbook__pagination');
+  pagination.hidden = +wordsDataLocal.group === 6;
 };
 
 export default reDrawPageButtons;
