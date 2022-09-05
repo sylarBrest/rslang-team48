@@ -22,8 +22,8 @@ export const getWordsDataByMouseClick = (e: Event) => {
   const wordTranslateElem = <HTMLElement>document.querySelector('.game__sprint-word-translate');
   const wordText = String(wordElem.textContent);
   const wordTranslateText = String(wordTranslateElem.textContent);
-  const audioCorrect = new Audio('./src/assets/audio/correct.mp3');
-  const audioIncorrect = new Audio('./src/assets/audio/error.mp3');
+  const audioCorrect = new Audio('./assets/audio/correct.mp3');
+  const audioIncorrect = new Audio('./assets/audio/error.mp3');
   const bool = (<HTMLButtonElement>e.target).getAttribute('data-boolean');
 
   let answer = false;
