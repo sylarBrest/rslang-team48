@@ -39,7 +39,6 @@ const userLogin = async () => {
 
       await updateUserData(name, userId, token, refreshToken);
 
-      window.location.replace('/#/home');
       window.location.reload();
     }
 

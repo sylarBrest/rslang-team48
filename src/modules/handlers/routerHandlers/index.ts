@@ -12,7 +12,6 @@ import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
   initSprintGame, initAudiocallGame,
 } from '@helpers';
-import { setWordsData, userDataLocal, wordsDataLocal } from '@store';
 import initWindowHandlers from '@handlers/windowHandlers';
 import initCardHandlers from '../cardHandlers';
 import initButtonHandlers from '../buttonHandlers';
@@ -37,11 +36,6 @@ const initRouterHandlers = () => {
   });
 
   router.add(/textbook/, async () => {
-    if (userDataLocal) {
-      await setWordsData();
-      console.log('1', wordsDataLocal);
-    }
-
     main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
@@ -74,11 +68,7 @@ const initRouterHandlers = () => {
     activeLinkHandler('team');
   });
 
-  router.add(/home/, async () => {
-    if (userDataLocal) {
-      await setWordsData();
-    }
-
+  router.add(/home/, () => {
     main.innerHTML = renderHome();
     activeLinkHandler('home');
     initWindowHandlers();

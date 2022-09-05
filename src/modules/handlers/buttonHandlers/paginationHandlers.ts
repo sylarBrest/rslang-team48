@@ -49,7 +49,10 @@ const initPaginationHandlers = () => {
 
     validatePageNumber();
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
-    await updateTextbookStatistics();
+    if (userDataLocal) {
+      await updateTextbookStatistics();
+    }
+
     reDrawPageButtons();
     colorActiveButton();
     updatePaginationButtonsState();

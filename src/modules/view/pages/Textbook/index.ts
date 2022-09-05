@@ -9,7 +9,6 @@ import { TWordContent } from 'modules/types/words';
 import './style.scss';
 
 export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2?: string) => {
-  console.log('3', wordsDataLocal);
   const response = userDataLocal
     ? await getAllAggregatedWords(<TQueriesAggregated>arg1)
     : await getWords(String(arg1), arg2);
@@ -32,7 +31,6 @@ export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2
 };
 
 export const renderTextbook = async () => {
-  console.log('2', wordsDataLocal);
   const queries = {
     group: wordsDataLocal.group,
     page: wordsDataLocal.page,

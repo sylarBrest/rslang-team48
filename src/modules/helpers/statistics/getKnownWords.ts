@@ -1,6 +1,6 @@
 import { ALL_WORDS_ON_SERVER, ZERO } from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from 'modules/types/aggregated';
+import { TAggregatedWord } from '@types';
 
 const getKnownWords = async () => {
   const queries = {

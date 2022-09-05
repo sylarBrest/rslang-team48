@@ -15,7 +15,10 @@ const initLevelHandlers = () => {
       wordsDataLocal.group = targetButton.dataset.group || ZERO;
       wordsDataLocal.page = ZERO;
       updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
-      await updateTextbookStatistics();
+      if (userDataLocal) {
+        await updateTextbookStatistics();
+      }
+
       const queries = {
         group: wordsDataLocal.group,
         page: wordsDataLocal.page,

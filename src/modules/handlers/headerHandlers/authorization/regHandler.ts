@@ -1,11 +1,11 @@
 import signIn from '@services/logins/signIn';
 import createUser from '@services/users/createUser';
-import { updateUserData, updateWordsData } from '@store';
+import { updateUserData } from '@store';
 import {
   EMAIL_REGEXP,
   EStatusCode, EWrongText,
   MAX_USERNAME_LENGTH, MIN_PASSWORD_LENGTH, MIN_USERNAME_LENGTH,
-  PASSWORD_REGEXP, USERNAME_REGEXP, ZERO,
+  PASSWORD_REGEXP, USERNAME_REGEXP,
 } from '@constants';
 import { TLoginData } from '@types';
 import { updateTextbookStatistics } from '@helpers';
@@ -54,8 +54,6 @@ const userRegistration = async () => {
       } = loginData;
 
       updateUserData(name, userId, token, refreshToken);
-
-      updateWordsData(ZERO, ZERO);
 
       await updateTextbookStatistics();
 
