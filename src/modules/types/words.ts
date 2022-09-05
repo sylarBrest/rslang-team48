@@ -1,7 +1,8 @@
 import { TUserWord } from './optional';
 
 export type TWordContent = {
-  id: string;
+  _id?: string;
+  id?: string;
   group: number;
   page: number;
   word: string;

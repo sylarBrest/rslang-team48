@@ -6,7 +6,7 @@ export type TUserAggregatedWord = {
   optional: TOptionalWord;
 };
 
-type TCombinedWord = TWordContent & {
+export type TCombinedWord = TWordContent & {
   userWord?: TUserAggregatedWord;
 };
 

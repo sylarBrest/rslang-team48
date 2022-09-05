@@ -162,3 +162,11 @@ h6 {
   color: var(--color-white-500);
   font-size: 0.8rem;
 }
+
+.card__done-btn-green {
+  background-image: url('@assets/svg/done-green.svg');
+}
+
+.card__complex-btn-yellow {
+  background-image: url('@assets/svg/favorite-yellow.svg');
+}

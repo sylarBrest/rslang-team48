@@ -1,6 +1,8 @@
 import { userDataLocal } from '@store';
 import cardClickAudioHandler from './cardClickAudioHandler';
 import cardClickHandler from './cardClickHandler';
+import cardClickHardHandler from './cardClickHardHandler';
+import cardClickKnownHandler from './cardClickKnownHandler';
 import cardHoverHandler from './cardHoverHandler';
 
 const initCardHandlers = () => {
@@ -8,6 +10,8 @@ const initCardHandlers = () => {
 
   if (userDataLocal) {
     cardHoverHandler();
+    cardClickHardHandler();
+    cardClickKnownHandler();
   }
 
   cardClickAudioHandler();
