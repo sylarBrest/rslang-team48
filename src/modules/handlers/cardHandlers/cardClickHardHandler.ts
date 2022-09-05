@@ -43,8 +43,6 @@ const cardClickHardHandler = () => {
         card.setAttribute('data-difficulty', newDifficulty);
         if (+wordsDataLocal.group === 6) {
           card.style.display = 'none';
-        } else {
-          updateGameButtons();
         }
 
         return updateUserWord(wordId, newDifficulty, optional);
@@ -60,7 +58,11 @@ const cardClickHardHandler = () => {
         series: 0,
       };
 
-      card.setAttribute('data-difficulty', EDifficulty.KNOWN);
+      card.setAttribute('data-difficulty', EDifficulty.HARD);
+      if (+wordsDataLocal.group !== 6) {
+        updateGameButtons();
+      }
+
       return createUserWord(wordId, EDifficulty.HARD, optional);
     });
   });
