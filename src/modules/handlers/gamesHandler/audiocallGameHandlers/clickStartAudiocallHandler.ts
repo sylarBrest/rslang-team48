@@ -8,9 +8,8 @@ import {
 import { getRandomInteger } from '@utils';
 import { playAudio, showGameResult } from '@helpers';
 import renderAudiocallGame from '@view/pages/Audiocall';
-import { TWordContent } from 'modules/types/words';
+import { TWordContent, TAggregatedWord } from '@types';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from 'modules/types/aggregated';
 import clickNextButtonHandler from './clickNextButtonHandler';
 import clickPlayAudioHandler from './clickPlayAudioHandler';
 import clickTranslationButtonsHandler from './clickTranslationButtonsHandler';

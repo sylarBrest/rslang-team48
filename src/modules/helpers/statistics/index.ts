@@ -6,4 +6,6 @@ export { default as getOptionalFromStatistic } from './getOptionalFromStatistic'
 
 export { default as updateGameStats } from './updateGameStats';
 
+export { default as updateTextbookStatistics } from './updateTextbookStatistics';
+
 export { default as updateWordsOnServer } from './updateWordsOnServer';

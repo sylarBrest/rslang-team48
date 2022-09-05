@@ -1,5 +1,5 @@
 import { DEFAULT_FILTER, WORDS_PER_PAGE, ZERO } from '@constants';
-import { colorActiveButton, reDrawPageButtons } from '@helpers';
+import { colorActiveButton, reDrawPageButtons, updateTextbookStatistics } from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
@@ -15,6 +15,10 @@ const initLevelHandlers = () => {
       wordsDataLocal.group = targetButton.dataset.group || ZERO;
       wordsDataLocal.page = ZERO;
       updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
+      if (userDataLocal) {
+        await updateTextbookStatistics();
+      }
+
       const queries = {
         group: wordsDataLocal.group,
         page: wordsDataLocal.page,

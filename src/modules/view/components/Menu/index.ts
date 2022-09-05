@@ -1,6 +1,8 @@
 import { userDataLocal } from '@store';
 import './style.scss';
 
+const renderUserName = () => `<p class="menu__user-name">${userDataLocal.name}</p>`;
+
 const renderMenu = () => `
   <nav class="navbar container">
     <a href="./index.html" class="logo"></a>
@@ -28,7 +30,6 @@ const renderMenu = () => `
                   </li>
                 </ul>
             </li>
-            
             ${userDataLocal ? `<li class="menu__item" data-view="stat">
               <a href="/#/statistic" class="menu__link menu__link_stat">Статистика</a>
             </li>` : ''}
@@ -37,7 +38,8 @@ const renderMenu = () => `
             </li>
         </ul>
       </div>
-      <button class="menu__login-btn">Войти</button>
+      ${userDataLocal ? renderUserName() : ''}
+      <button class="menu__login-btn ${userDataLocal ? 'login' : ''}">${userDataLocal ? 'Выйти' : 'Войти'}</button>
   </nav>
 `;
 

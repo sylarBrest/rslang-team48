@@ -54,8 +54,3 @@ export type TSprintGameAnswers = {
   wordTranslate: string;
   isCorrectAnswer: string;
 };
-
-export type TPageParameters = {
-  group: string;
-  page: string;
-};
