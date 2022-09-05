@@ -1,5 +1,10 @@
 export type TDifficulty = 'unset' | 'known' | 'hard';
 
+export type TPageParameters = {
+  group: string;
+  page: string;
+};
+
 export type TUserWord = {
   id: string;
   difficulty: TDifficulty;
@@ -17,13 +22,6 @@ export type TOptionalWord = {
   series: number;
 };
 
-export type IGameStatistics = {
-  game: string;
-  percent: number;
-  series: number;
-  date: string;
-};
-
 export type TGameStat = {
   date: string;
   attempts: number;
@@ -37,6 +35,7 @@ export type TOptionalStat = {
   sprint: TGameStat;
   appeared: number;
   correct: number;
+  textbook: TPageParameters;
 };
 
 export type TUserStat = {

@@ -1,6 +1,6 @@
 
 import { getRandomInteger, shuffleArray } from '@utils';
-import { TTemporalWordsData, TWordContent } from 'modules/types/words';
+import { TTemporalWordsData, TWordContent } from '@types';
 
 export const temporalWordsData: TTemporalWordsData = {
   dictionary: {},

@@ -2,15 +2,20 @@ import {
   HOST, EUrl, EHttpMethod,
 } from '@constants';
 import { userDataLocal } from '@store';
-import { TQueriesAggregated } from 'modules/types/aggregated';
+import { TQueriesAggregated } from '@types';
 
-const getAllAggregatedWords = async (queries: TQueriesAggregated) => {
-  const searchParams = new URLSearchParams({
-    group: queries.group,
-    page: queries.page,
-    wordsPerPage: queries.wordsPerPage,
-    filter: queries.filter,
-  });
+const getAllAggregatedWords = async (queries: TQueriesAggregated, isStat = false) => {
+  const searchParams = isStat
+    ? new URLSearchParams({
+      wordsPerPage: queries.wordsPerPage,
+      filter: queries.filter,
+    })
+    : new URLSearchParams({
+      group: queries.group,
+      page: queries.page,
+      wordsPerPage: queries.wordsPerPage,
+      filter: queries.filter,
+    });
 
   return fetch(`${HOST}${EUrl.USERS}/${userDataLocal.userId}${EUrl.AGGREGATED}?${searchParams}`, {
     method: EHttpMethod.GET,

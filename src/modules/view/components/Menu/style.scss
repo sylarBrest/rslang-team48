@@ -34,6 +34,10 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+
+  @media only screen and (max-width: 440px) {
+    display: none;
+  }
 }
 
 .menu {
@@ -171,6 +175,16 @@
     opacity: 1;
   }
 
+  &__user-name {
+    max-width: 100px;
+    margin-left: auto;
+    overflow: hidden;
+    color: var(--color-white-100);
+    white-space: nowrap;
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+
   &__login-btn {    
     display: flex;
     gap: 0.3rem;
@@ -204,10 +218,18 @@
       background-size: cover;
       content: '';
     }
+
+    &.login {
+      margin-left: unset;
+    }
+
+    &.login::before {
+      background-image: url('@assets/svg/logout-icon.svg');
+    }
   }
 
   // Responsive Media Query
-  @media only screen and (min-width: 56rem) {
+  @media only screen and (min-width: 60rem) {
     position: relative;
     top: 0;
     width: auto;
@@ -227,6 +249,10 @@
 
     &__dropdown-content {
       flex-direction: row;
+    }
+
+    &__user-name {
+      margin-left: 0;
     }
 
     &__login-btn {

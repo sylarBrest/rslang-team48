@@ -3,8 +3,7 @@ import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggrega
 import getWords from '@services/words/getWords';
 import { userDataLocal, wordsDataLocal } from '@store';
 import Card from '@view/components/Card';
-import { TAggregatedWord, TQueriesAggregated } from 'modules/types/aggregated';
-import { TWordContent } from 'modules/types/words';
+import { TWordContent, TAggregatedWord, TQueriesAggregated } from '@types';
 
 import './style.scss';
 
@@ -93,7 +92,6 @@ export const renderTextbook = async () => {
 }
       </div>
       <div class="textbook__footer">
-        
       </div>
     </section>    
   `;

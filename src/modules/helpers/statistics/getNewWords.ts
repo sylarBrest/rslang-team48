@@ -1,6 +1,6 @@
 import { ALL_WORDS_ON_SERVER, ZERO } from '@constants';
 import getAllAggregatedWords from '@services/users/aggregatedWords/getAllAggregatedWords';
-import { TAggregatedWord } from 'modules/types/aggregated';
+import { TAggregatedWord } from '@types';
 
 const getNewWords = async () => {
   const queries = {
@@ -9,7 +9,7 @@ const getNewWords = async () => {
     wordsPerPage: ALL_WORDS_ON_SERVER,
     filter: '{"userWord.optional.isNew":true}',
   };
-  const response = await getAllAggregatedWords(queries);
+  const response = await getAllAggregatedWords(queries, true);
 
   const data: TAggregatedWord[] = await response.json();
 

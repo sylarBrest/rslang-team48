@@ -112,6 +112,13 @@
     width: 75%;    
   }
 
+  &__input:valid {
+    background-color: #e5f8e5;
+  }
+
+  &__input:invalid {
+    background-color: #ffebeb;
+  }
 }
 
 .modal-show {
@@ -159,4 +166,9 @@
 
 .btn_sign-up::before {  
   background-image: url('@assets/svg/new-user.svg');
+}
+
+.wrong {
+  padding-left: 10px;
+  color: #c10000;
 }

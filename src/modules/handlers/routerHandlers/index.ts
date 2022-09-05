@@ -36,7 +36,6 @@ const initRouterHandlers = () => {
   });
 
   router.add(/textbook/, async () => {
-    // initWordsData();
     main.innerHTML = await renderTextbook();
     activeLinkHandler('textbook');
     initCardHandlers();
