@@ -1,0 +1,126 @@
+.stat {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+      margin: 2vh auto;
+    }
+  }
+
+  &__today,
+  &__overall {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    
+    @media only screen and (max-width: 640px) {
+      flex-direction: column;
+    }
+
+    .title {
+      width: 4rem;
+
+      @media only screen and (max-width: 640px) {
+        width: auto;
+      }
+    }
+  }
+
+  &__words-new,
+  &__words-learned,
+  &__right-answer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 7vw;
+    height: auto;
+    padding: 0.8rem;
+    color: var(--color-white-100);
+    font-weight: 600;
+    font-size: 2rem;
+    background-color: var(--color-secondary-600);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-medium);
+
+    span {
+      color: var(--color-white-200);
+      font-weight: 300;
+      font-size: 1rem;
+    }
+  }
+
+  &__games {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+    
+    @media only screen and (max-width: 640px) {
+      flex-direction: column;
+    }
+  }
+
+  &__sprint,
+  &__audiocall {
+    min-width: 20vw;
+    height: auto;
+    padding: 1rem;
+    color: var(--color-white-100);
+    font-size: 1rem;
+    background-color: var(--color-primary-200);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-medium);
+
+    @media only screen and (max-width: 640px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  &__sprint-title,
+  &__audiocall-title {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-align: center;
+
+    @media only screen and (max-width: 640px) {
+      flex-direction: column;
+    }
+
+    &::before {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      content: '';
+    }
+  }
+
+  &__audiocall-title::before {
+    background-image: url('@assets/svg/ear-icon.svg');
+  }
+
+  &__sprint-title::before {
+    background-image: url('@assets/svg/run-icon.svg');
+  }
+
+  &__sprint-learned,
+  &__audiocall-learned,
+  &__sprint-right-answer,
+  &__audiocall-right-answer,
+  &__sprint-right-answer,
+  &__sprint-streak,
+  &__audiocall-streak {
+    margin-top: 1vh;
+  }
+}

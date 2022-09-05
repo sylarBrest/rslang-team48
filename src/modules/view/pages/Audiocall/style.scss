@@ -1,0 +1,87 @@
+.game__audiocall {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 40vh;
+
+  progress {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    appearance: none;
+  }
+
+  progress::-webkit-progress-bar {
+    height: 3px;
+    background-color: #1a1a1a;
+  }
+
+  progress::-webkit-progress-value {
+    height: 3px;
+    background-color: #fecf23;
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 10px;
+  }
+
+  &-img {
+    width: 7vw;
+    height: 7vw;
+    visibility: hidden;
+  }
+
+  &-audio {
+    width: 5vw;
+    height: 5vw;
+    background-image: url('@assets/svg/sound.svg');
+  }
+
+  &-audio:hover {
+    transform: scale(1.1);
+  }
+
+  &-word {
+    width: 7vw;
+    font-size: 2vw;
+    visibility: hidden;
+  }
+
+  &-translate-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1vh;
+  }
+
+  &-button {
+    width: min-content;
+    padding: 5px;
+    font-size: 1vw;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+  }
+
+  &-button:hover {
+    background: #35c77f;
+    transform: scale(1.1);
+  }
+
+  &-next-button {
+    width: min-content;
+    margin: 0 auto;
+    padding: 5px;
+    font-size: 1vw;
+    border: 1px solid #1a1a1a;
+    border-radius: 5px;
+    visibility: hidden;
+  }
+
+  &-next-button:hover {
+    color: #fff;
+    background: #1a1a1a;
+    transform: scale(1.1);
+  }
+}
