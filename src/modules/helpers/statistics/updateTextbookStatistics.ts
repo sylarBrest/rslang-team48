@@ -1,31 +1,32 @@
-/* eslint-disable consistent-return */
 import { EStatusCode } from '@constants';
 import getUserStatistic from '@services/users/statistic/getUserStatistic';
-import { getDateNow } from '@utils';
+import updateUserStatistic from '@services/users/statistic/updateUserStatistic';
 import { wordsDataLocal } from '@store';
-import { TOptionalStat, TUserStat } from '@types';
+import { TUserStat } from '@types';
+import getKnownWords from './getKnownWords';
 
-const getOptionalFromStatistic = async (): Promise<TOptionalStat | void> => {
+const updateTextbookStatistics = async () => {
   const response = await getUserStatistic();
+  const knownWords = await getKnownWords();
 
   if (response.status === EStatusCode.OK) {
     const { optional }: TUserStat = await response.json();
 
-    return optional;
-  }
+    optional.textbook.group = wordsDataLocal.group;
+    optional.textbook.page = wordsDataLocal.page;
 
-  if (response.status === EStatusCode.NOT_FOUND) {
-    const dateToday = getDateNow();
+    await updateUserStatistic(knownWords.count, optional);
+  } else if (response.status === EStatusCode.NOT_FOUND) {
     const optional = {
-      date: dateToday,
+      date: 'null',
       audiocall: {
-        date: dateToday,
+        date: 'null',
         correct: 0,
         attempts: 0,
         streak: 0,
       },
       sprint: {
-        date: dateToday,
+        date: 'null',
         correct: 0,
         attempts: 0,
         streak: 0,
@@ -37,8 +38,9 @@ const getOptionalFromStatistic = async (): Promise<TOptionalStat | void> => {
         page: wordsDataLocal.page,
       },
     };
-    return optional;
+
+    await updateUserStatistic(knownWords.count, optional);
   }
 };
 
-export default getOptionalFromStatistic;
+export default updateTextbookStatistics;

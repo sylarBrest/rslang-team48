@@ -1,11 +1,14 @@
 import { ZERO } from '@constants';
+import { updateTextbookStatistics } from '@helpers';
 import { clearUserData, updateWordsData, userDataLocal } from '@store';
 
-const userLogout = () => {
-  clearUserData();
-  updateWordsData(ZERO, ZERO);
-  window.location.replace('/#/home');
-  window.location.reload();
+const userLogout = async () => {
+  await updateTextbookStatistics().then(() => {
+    clearUserData();
+    updateWordsData(ZERO, ZERO);
+    window.location.replace('/#/home');
+    window.location.reload();
+  });
 };
 
 const userLogin = () => {

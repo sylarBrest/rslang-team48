@@ -37,8 +37,9 @@ const userLogin = async () => {
         token, refreshToken, userId, name,
       } = loginData;
 
-      updateUserData(name, userId, token, refreshToken);
+      await updateUserData(name, userId, token, refreshToken);
 
+      window.location.replace('/#/home');
       window.location.reload();
     }
 

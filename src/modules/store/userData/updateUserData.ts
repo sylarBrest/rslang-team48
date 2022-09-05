@@ -1,6 +1,6 @@
 import { ELocalStorage } from '@constants';
 
-const updateUserData = (name: string, userId: string, token: string, refreshToken: string) => {
+const updateUserData = async (name: string, userId: string, token: string, refreshToken: string) => {
   const value = JSON.stringify({
     name,
     userId,

@@ -1,6 +1,7 @@
 import { DEFAULT_FILTER, WORDS_PER_PAGE, ZERO } from '@constants';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState, validatePageNumber,
+  updateTextbookStatistics,
 } from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
@@ -48,6 +49,7 @@ const initPaginationHandlers = () => {
 
     validatePageNumber();
     updateWordsData(wordsDataLocal.group, wordsDataLocal.page);
+    await updateTextbookStatistics();
     reDrawPageButtons();
     colorActiveButton();
     updatePaginationButtonsState();
