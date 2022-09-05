@@ -1,4 +1,4 @@
-import { HOST } from '@constants';
+import { HOST, EDifficulty } from '@constants';
 import { userDataLocal } from '@store';
 import { TWordContent } from 'modules/types/words';
 import './style.scss';
@@ -21,7 +21,7 @@ const Card = ({
 }: TWordContent & { index: number }) => {
   const result = `${userWord?.optional.correct}/${userWord?.optional.appeared}`;
   const template = `
-  <div class="card" data-index="${index}">
+  <div class="card" data-index="${index}" ${userWord?.difficulty ? `data-difficulty="${userWord?.difficulty}"` : ''}>
     <div class="card__header">
       <img src="${HOST}/${image}" alt="${word}" class="card__image"/>
       <div class="card__header-row">
@@ -36,7 +36,9 @@ const Card = ({
     </div>
     ${
   userDataLocal
-    ? `<div class="card__buttons">
+    ? `<div class="
+      card__buttons${userWord?.difficulty && userWord?.difficulty !== EDifficulty.UNSET ? ' card__buttons_active' : ''}
+      ">
       <button data-word-id="${_id}" class="card__btn card__done-btn
       ${userWord?.difficulty === 'known' ? 'card__done-btn-green' : ''}"></button>
       <button data-word-id="${_id}" class="card__btn card__complex-btn
