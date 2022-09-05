@@ -212,6 +212,10 @@ input {
     color: var(--color-white-100);
     background-color: var(--color-primary-200);
     box-shadow: var(--shadow-medium);
+
+    &:hover {
+      background-color: var(--color-primary-300);
+    }
   }
 
   &-neutral {
