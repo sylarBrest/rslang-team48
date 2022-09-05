@@ -16,6 +16,8 @@ const cardClickHandler = () => {
         cardBody.classList.toggle('card__body_active');
         if (!card.classList.contains('card_buttons_active')) card.classList.add('card_buttons_active');
 
+        const cardBodyActive = cardBody.classList.contains('card__body_active');
+
         const cardWidth = document.querySelector<HTMLElement>('.card')?.offsetWidth || 1;
         const containerWidth = document.querySelector<HTMLElement>('.textbook__body')?.offsetWidth || 1;
         const cols = Math.floor((containerWidth / (cardWidth + CARDS_COL_GAP)));
@@ -38,7 +40,7 @@ const cardClickHandler = () => {
 
         const footerOffset = Math.max(...resultArr);
 
-        if (cardBody.classList.contains('card__body_active')) {
+        if (cardBodyActive) {
           cardBody.style.transform = `translateY(calc(${(cardHeader.offsetHeight)}px))`;
           textbookFooter.style.transform = `translateY(${footerOffset}px)`;
         } else {
@@ -52,7 +54,7 @@ const cardClickHandler = () => {
             const dataIndex = index + ((i + 1) * cols);
             const element = <HTMLElement>document.querySelector(`[data-index="${dataIndex}"]`);
             const curVal = (element?.style.transform.match(/\d+/gm) || [0])[0];
-            if (element && cardBody.classList.contains('card__body_active')) {
+            if (element && cardBodyActive) {
               element.style.transform = `translateY(${+curVal + cardBody.offsetHeight}px)`;
             } else if (element) {
               element.style.transform = `translateY(${+curVal - cardBody.offsetHeight}px)`;

@@ -11,6 +11,7 @@ const cardClickHardHandler = () => {
     item.addEventListener('click', async (e: Event) => {
       const target = <HTMLElement>e.target;
       const wordId = String(target.getAttribute('data-word-id'));
+      const card = <HTMLElement>target.parentElement?.parentElement;
 
       target.classList.toggle('card__complex-btn-yellow');
 
@@ -37,6 +38,7 @@ const cardClickHardHandler = () => {
           optional.series = 0;
         }
 
+        card.setAttribute('data-difficulty', newDifficulty);
         return updateUserWord(wordId, newDifficulty, optional);
       }
 
@@ -50,6 +52,7 @@ const cardClickHardHandler = () => {
         series: 0,
       };
 
+      card.setAttribute('data-difficulty', EDifficulty.KNOWN);
       return createUserWord(wordId, EDifficulty.HARD, optional);
     });
   });

@@ -1,5 +1,5 @@
-import { HOST } from '@constants';
-import { userDataLocal } from '@store';
+import { EDifficulty, HOST } from '@constants';
+import { userDataLocal, wordsDataLocal } from '@store';
 import { TWordContent } from '@types';
 import './style.scss';
 
@@ -19,10 +19,35 @@ const Card = ({
   userWord,
   index,
 }: TWordContent & { index: number }) => {
+  let level = 'A1';
+
+  switch (wordsDataLocal.group) {
+    case '0':
+      level = 'A1';
+      break;
+    case '1':
+      level = 'A2';
+      break;
+    case '2':
+      level = 'B1';
+      break;
+    case '3':
+      level = 'B2';
+      break;
+    case '4':
+      level = 'C1';
+      break;
+    case '5':
+      level = 'C2';
+      break;
+    default:
+      level = 'A1';
+  }
+
   const result = `${userWord?.optional.correct}/${userWord?.optional.appeared}`;
   const template = `
-  <div class="card" data-index="${index}">
-    <div class="card__header">
+  <div class="card" data-index="${index}" ${userWord?.difficulty ? `data-difficulty="${userWord?.difficulty}"` : ''}>
+    <div class="card__header ${level}-border">
       <img src="${HOST}/${image}" alt="${word}" class="card__image"/>
       <div class="card__header-row">
         <h4 class="card__heading">${word}<button 
@@ -32,11 +57,16 @@ const Card = ({
         </h4>
         <h5 class="card__subheading">${wordTranslate}</h5>
         <h5 class="card__subheading word__transcription">${transcription}</h5>
+        <div class="card__down-arrow-wrapper">
+          <div class="card__down-arrow"></div>
+        </div>
       </div>
     </div>
     ${
   userDataLocal
-    ? `<div class="card__buttons">
+    ? `<div class="
+      card__buttons${userWord?.difficulty && userWord?.difficulty !== EDifficulty.UNSET ? ' card__buttons_active' : ''}
+      ">
       <button data-word-id="${_id}" class="card__btn card__done-btn
       ${userWord?.difficulty === 'known' ? 'card__done-btn-green' : ''}"></button>
       <button data-word-id="${_id}" class="card__btn card__complex-btn
