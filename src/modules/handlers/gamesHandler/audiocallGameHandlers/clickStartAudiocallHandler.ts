@@ -1,5 +1,5 @@
 import {
-  FIRST_PAGE, LAST_PAGE, EStatusCode, WORDS_PER_PAGE, WITHOUT_KNOWN_FILTER, MIN_WORDS_FOR_GAME,
+  FIRST_PAGE, LAST_PAGE, EStatusCode, WORDS_PER_PAGE, WITHOUT_KNOWN_FILTER, ALL_WORDS_ON_SERVER, MIN_WORDS_FOR_GAME,
 } from '@constants';
 import getWords from '@services/words/getWords';
 import {
@@ -35,13 +35,24 @@ const clickStartAudiocallHandler = (flag: boolean) => {
     const randomPage = String(getRandomInteger(FIRST_PAGE, LAST_PAGE));
     const group = flag ? selectedGroup : wordsDataLocal.group;
     const page = flag ? randomPage : wordsDataLocal.page;
-    const response = userDataLocal
-      ? await getAllAggregatedWords({
+
+    const isHardWordsGroup = +wordsDataLocal.group === 6;
+    const queries = isHardWordsGroup
+      ? {
+        group,
+        page,
+        wordsPerPage: ALL_WORDS_ON_SERVER,
+        filter: '{"userWord.difficulty":"hard"}',
+      }
+      : {
         group,
         page,
         wordsPerPage: WORDS_PER_PAGE,
         filter: WITHOUT_KNOWN_FILTER,
-      })
+      };
+
+    const response = userDataLocal
+      ? await getAllAggregatedWords(queries, isHardWordsGroup)
       : await getWords(group, page);
 
     if (response.status === EStatusCode.OK) {

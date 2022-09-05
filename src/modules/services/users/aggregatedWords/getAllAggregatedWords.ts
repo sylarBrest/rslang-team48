@@ -4,8 +4,8 @@ import {
 import { userDataLocal } from '@store';
 import { TQueriesAggregated } from '@types';
 
-const getAllAggregatedWords = async (queries: TQueriesAggregated, isStat = false) => {
-  const searchParams = isStat
+const getAllAggregatedWords = async (queries: TQueriesAggregated, isAll = false) => {
+  const searchParams = isAll
     ? new URLSearchParams({
       wordsPerPage: queries.wordsPerPage,
       filter: queries.filter,
