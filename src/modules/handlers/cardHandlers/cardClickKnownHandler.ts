@@ -42,6 +42,7 @@ const cardClickKnownHandler = () => {
         }
 
         card.setAttribute('data-difficulty', newDifficulty);
+        updateGameButtons();
         return updateUserWord(wordId, newDifficulty, optional);
       }
 

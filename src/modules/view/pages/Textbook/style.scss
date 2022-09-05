@@ -163,7 +163,7 @@
   transition: 0.3s ease-in-out;
 
   &.disabled {
-    background-color: var(--color-black-500);
+    background-color: var(--color-white-600);
     cursor: not-allowed;
     pointer-events: none;
   }
