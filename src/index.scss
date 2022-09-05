@@ -86,7 +86,7 @@ body {
   background-color: var(--color-white-100);
 }
 
-body > * {
+#root {
   display: flex;
   flex-direction: column;
   height: 100%;
