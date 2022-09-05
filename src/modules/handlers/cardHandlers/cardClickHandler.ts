@@ -1,4 +1,5 @@
 import { CARDS_ON_PAGE_COUNT, CARDS_COL_GAP } from '@constants';
+import { wordsDataLocal } from '@store';
 
 const cardClickHandler = () => {
   const cards = [...document.querySelectorAll<HTMLElement>('.card')];
@@ -20,10 +21,11 @@ const cardClickHandler = () => {
 
         const cardWidth = document.querySelector<HTMLElement>('.card')?.offsetWidth || 1;
         const containerWidth = document.querySelector<HTMLElement>('.textbook__body')?.offsetWidth || 1;
-        const cols = Math.floor((containerWidth / (cardWidth + CARDS_COL_GAP)));
+        const cols = Math.floor((containerWidth / (cardWidth + (CARDS_COL_GAP * 1.1))));
         const index = +(card.dataset.index || 0);
         const bottomRows = Math.floor((CARDS_ON_PAGE_COUNT - index) / cols);
         const textbookFooter = <HTMLElement>document.querySelector('.footer');
+        const isNotHardPage = wordsDataLocal.group !== '6';
 
         const cardsArr = cards
           .reduce((acc, el, i) => {
@@ -38,14 +40,14 @@ const cardClickHandler = () => {
           resultArr.push(cardsArr.reduce((acc, el) => acc + el[x], 0));
         }
 
-        const footerOffset = Math.max(...resultArr);
+        const footerOffset = isNotHardPage ? Math.max(...resultArr) : cardBody.offsetHeight;
 
         if (cardBodyActive) {
           cardBody.style.transform = `translateY(calc(${(cardHeader.offsetHeight)}px))`;
           textbookFooter.style.transform = `translateY(${footerOffset}px)`;
         } else {
           cardBody.style.transform = 'translateY(0)';
-          textbookFooter.style.transform = `translateY(${footerOffset}px)`;
+          textbookFooter.style.transform = `translateY(${0}px)`;
         }
 
         new Array(bottomRows)
@@ -54,9 +56,9 @@ const cardClickHandler = () => {
             const dataIndex = index + ((i + 1) * cols);
             const element = <HTMLElement>document.querySelector(`[data-index="${dataIndex}"]`);
             const curVal = (element?.style.transform.match(/\d+/gm) || [0])[0];
-            if (element && cardBodyActive) {
+            if (element && cardBodyActive && isNotHardPage) {
               element.style.transform = `translateY(${+curVal + cardBody.offsetHeight}px)`;
-            } else if (element) {
+            } else if (element && isNotHardPage) {
               element.style.transform = `translateY(${+curVal - cardBody.offsetHeight}px)`;
             }
           });
