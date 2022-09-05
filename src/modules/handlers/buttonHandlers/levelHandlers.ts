@@ -21,7 +21,9 @@ const initLevelHandlers = () => {
         await updateTextbookStatistics();
       }
 
-      const queries = index === 6
+      const isHardWordsGroup = index === 6;
+
+      const queries = isHardWordsGroup
         ? {
           group: wordsDataLocal.group,
           page: wordsDataLocal.page,
@@ -36,7 +38,7 @@ const initLevelHandlers = () => {
         };
 
       textbookBody.innerHTML = userDataLocal
-        ? await renderTextbookBody(queries, '', index === 6)
+        ? await renderTextbookBody(queries, '', isHardWordsGroup)
         : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
       initCardHandlers();
       reDrawPageButtons();

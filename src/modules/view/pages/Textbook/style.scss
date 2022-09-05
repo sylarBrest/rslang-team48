@@ -63,6 +63,10 @@
     display: flex;
     gap: 0.25rem;
 
+    &[hidden] {
+      visibility: hidden;
+    }
+
     .btn {
       width: 30px;
       height: 30px;
@@ -121,7 +125,12 @@
   &_C2:hover + label,
   &_C2:checked + label {
     color: #ff69b4;
-  }  
+  }
+
+  &_H:hover + label,
+  &_H:checked + label {
+    color: #8f6a1c;
+  }
 }
 
 .radio-label {

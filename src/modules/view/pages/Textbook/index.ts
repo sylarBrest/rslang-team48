@@ -33,7 +33,8 @@ export const renderTextbookBody = async (arg1: string | TQueriesAggregated, arg2
 };
 
 export const renderTextbook = async () => {
-  const queries = +wordsDataLocal.group > 5
+  const isHardWordsGroup = +wordsDataLocal.group === 6;
+  const queries = isHardWordsGroup
     ? {
       group: wordsDataLocal.group,
       page: wordsDataLocal.page,
@@ -99,7 +100,7 @@ export const renderTextbook = async () => {
       <div class="textbook__body section textbook-container">
         ${
   userDataLocal
-    ? await renderTextbookBody(queries, '', +wordsDataLocal.group > 5)
+    ? await renderTextbookBody(queries, '', isHardWordsGroup)
     : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page)
 }
       </div>
