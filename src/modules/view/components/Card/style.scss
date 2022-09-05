@@ -22,6 +22,7 @@ h6 {
 
   &__heading,
   &__subheading {    
+    z-index: 6;
     text-transform: lowercase;
   }
 
@@ -88,10 +89,12 @@ h6 {
     background-color: var(--color-black-100);
     border-radius: 0 0.5rem 0.5rem 0;
     transform: translateX(-2rem);
+    opacity: 0;
     transition: 0.2s;
 
     &_active {
       transform: translateX(0);
+      opacity: 1;
     }
   }
 
@@ -107,9 +110,7 @@ h6 {
   &__header {
     z-index: 2;
     width: 100%;
-    // padding: 0.5rem 0;
     background-color: $card-header-color;
-    border: 1px solid $card-border-color;
     border-radius: 1rem;
     cursor: pointer;
     transition: 0.3s;
@@ -149,7 +150,36 @@ h6 {
       visibility: visible;
       opacity: 1;
     }
-  }  
+  }
+
+  &__down-arrow-wrapper {
+    top: 0.5rem;
+    align-self: center;
+    overflow: hidden;
+  }
+
+  &__down-arrow {
+    align-self: center;
+    width: 3rem;
+    height: 1rem;
+    background-image: url('@assets/svg/card-down.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    transition: 0.3s ease-in-out;
+
+    &_hover {
+      animation: move-down 1s ease-in-out infinite;
+    }
+  }
+
+  &__sprint {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    color: var(--color-white-500);
+    font-size: 0.8rem;
+    border-top: 0.05rem var(--color-white-400) solid;
+  }
 }
 
 .word {
@@ -169,4 +199,57 @@ h6 {
 
 .card__complex-btn-yellow {
   background-image: url('@assets/svg/favorite-yellow.svg');
+}
+
+.A1-border {
+  border: solid 0.05rem var(--color-A1-transparent);
+  border-bottom: solid 0.3rem var(--color-A1-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-A1-transparent),
+    0 1px 2px 0 var(--color-A1-transparent);
+}
+
+.A2-border {
+  border: solid 0.05rem var(--color-A2-transparent);
+  border-bottom: solid 0.3rem var(--color-A2-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-A2-transparent),
+    0 1px 2px 0 var(--color-A2-transparent);
+}
+
+.B1-border {
+  border: solid 0.05rem var(--color-B1-transparent);
+  border-bottom: solid 0.3rem var(--color-B1-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-B1-transparent),
+    0 1px 2px 0 var(--color-B1-transparent);
+}
+
+.B2-border {
+  border: solid 0.05rem var(--color-B2-transparent);
+  border-bottom: solid 0.3rem var(--color-B2-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-B2-transparent),
+    0 1px 2px 0 var(--color-B2-transparent);
+}
+
+.C1-border {
+  border: solid 0.05rem var(--color-C1-transparent);
+  border-bottom: solid 0.3rem var(--color-C1-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-C1-transparent),
+    0 1px 2px 0 var(--color-C1-transparent);
+}
+
+.C2-border {
+  border: solid 0.05rem var(--color-C2-transparent);
+  border-bottom: solid 0.3rem var(--color-C2-transparent);
+  box-shadow: 0 1px 3px 0 var(--color-C2-transparent),
+    0 1px 2px 0 var(--color-C2-transparent);
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+    scale: 0.5;
+  }
 }
