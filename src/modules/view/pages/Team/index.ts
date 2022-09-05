@@ -15,8 +15,19 @@ const renderTeam = () => `
           </span>
         </h3>
         <div class="team-card__image team-card__image_aliaksandr"></div>
-        <div class="team-card__badges"></div>
-        <p class="team-card__info"></p>        
+        <div class="team-card__badges">
+          <div class="team-card__badge">Конфигурация</div>
+          <div class="team-card__badge">Роутинг</div>
+          <div class="team-card__badge">Аутентификация</div>
+          <div class="team-card__badge">Учебник</div>
+          <div class="team-card__badge">Пагинация</div>
+          <div class="team-card__badge">Статистика</div>
+        </div>
+        <p class="team-card__info">
+          На велосипеде уедешь далеко, а с JavaScript - ещё дальше! 
+          В проекте отвечал за роутинг приложения, участвовал в разработке учебника, 
+          статистики, аутентификации.
+        </p>        
       </div>
       <div class="team-card">        
         <h3 class="team-card__heading">
@@ -36,9 +47,9 @@ const renderTeam = () => `
           <div class="team-card__badge">Бэкенд</div>
         </div>        
         <p class="team-card__info">
-          Искал возможность путешествовать и работать удаленно - нашел себя в разработке.
-          В проекте занимался разработкой игры спринт, игры аудиовызов, участие в разработке 
-          статистики, авторизации, подготовка для работы с сервером
+          Искал возможность путешествовать и работать удаленно — нашел себя в разработке. 
+          В проекте занимался разработкой мини-игр спринт и аудиовызов, 
+          участвовал в разработке статистики, авторизации, подготовке для работы с сервером.
         </p>        
       </div>
       <div class="team-card">
@@ -58,7 +69,7 @@ const renderTeam = () => `
         </div>
         <p class="team-card__info">
           Пользуясь случаем, хочу признаться в любви своей семье, Футураме и фронтенду. 
-          В проекте я отвечал за стили и ux/ui.
+          В проекте я отвечал за дизайн и ux/ui.
         </p>
       </div>
     </div>      
