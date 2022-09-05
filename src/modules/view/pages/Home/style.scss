@@ -15,7 +15,7 @@
   background-color: #f3f0f1;
   background-image: url('@assets/img/female-student.webp');
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: right 3rem;
   background-size: auto 100%;
   opacity: 0;
   transition: 1s;
@@ -45,7 +45,7 @@
   margin: 0 auto;
   margin-top: var(--navbar-height);
   margin-bottom: 100vh;
-  color: var(--color-black-100);
+  color: var(--color-primary-100);
   opacity: 0;
   transition: 0.3s ease-in-out;
   
@@ -94,7 +94,7 @@
 
   &__subheading {
     padding-top: 10rem;
-    color: var(--color-black-400);
+    color: var(--color-primary-400);
     font-weight: 700;
     font-size: var(--subheading-size);
     text-align: right;
@@ -179,7 +179,7 @@
     padding: 0.2rem 0;
     font-weight: 600;
     font-size: 1.5rem;
-    border-bottom: solid 0.1rem var(--color-black-500);
+    border-bottom: solid 0.1rem var(--color-primary-500);
   }
 
   &__answer {
@@ -228,7 +228,7 @@
   max-width: 16rem;
   padding: 1rem;
   background-color: var(--color-white-100);
-  border: 1px solid var(--color-black-400);
+  border: 1px solid var(--color-primary-400);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-medium);
   opacity: 1;
