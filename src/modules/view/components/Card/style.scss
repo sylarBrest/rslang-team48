@@ -110,6 +110,7 @@ h6 {
   &__header {
     z-index: 2;
     width: 100%;
+    background-color: $card-header-color;
     border-radius: 1rem;
     cursor: pointer;
     transition: 0.3s;
