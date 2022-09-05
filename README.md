@@ -1,2 +1,0 @@
-# rs-lang
-RS Lang
