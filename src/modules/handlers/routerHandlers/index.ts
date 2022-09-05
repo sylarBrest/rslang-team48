@@ -10,7 +10,7 @@ import {
 } from '@constants';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
-  initSprintGame, initAudiocallGame,
+  initSprintGame, initAudiocallGame, updateGameButtons,
 } from '@helpers';
 import initWindowHandlers from '@handlers/windowHandlers';
 import initCardHandlers from '../cardHandlers';
@@ -42,6 +42,7 @@ const initRouterHandlers = () => {
     initButtonHandlers();
     reDrawPageButtons();
     colorActiveButton();
+    updateGameButtons();
     updatePaginationButtonsState();
     initWindowHandlers();
   });

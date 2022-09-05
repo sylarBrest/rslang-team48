@@ -1,7 +1,7 @@
 import { DEFAULT_FILTER, WORDS_PER_PAGE, ZERO } from '@constants';
 import {
-  colorActiveButton, reDrawPageButtons, updatePaginationButtonsState, validatePageNumber,
-  updateTextbookStatistics,
+  colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
+  updateTextbookStatistics, updateGameButtons, validatePageNumber,
 } from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
@@ -66,6 +66,7 @@ const initPaginationHandlers = () => {
       ? await renderTextbookBody(queries)
       : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
     initCardHandlers();
+    updateGameButtons();
   });
 };
 

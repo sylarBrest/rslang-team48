@@ -1,7 +1,9 @@
 import {
   ALL_WORDS_ON_SERVER, DEFAULT_FILTER, WORDS_PER_PAGE, ZERO,
 } from '@constants';
-import { colorActiveButton, reDrawPageButtons, updateTextbookStatistics } from '@helpers';
+import {
+  colorActiveButton, reDrawPageButtons, updateGameButtons, updateTextbookStatistics,
+} from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { renderTextbookBody } from '@view/pages/Textbook';
 import initCardHandlers from '../cardHandlers';
@@ -42,6 +44,7 @@ const initLevelHandlers = () => {
         : await renderTextbookBody(wordsDataLocal.group, wordsDataLocal.page);
       initCardHandlers();
       reDrawPageButtons();
+      updateGameButtons();
       colorActiveButton();
     }));
 };

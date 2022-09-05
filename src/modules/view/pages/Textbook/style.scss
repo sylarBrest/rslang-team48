@@ -160,6 +160,12 @@
   border-radius: 2.2rem;
   transition: 0.3s ease-in-out;
 
+  &.disabled {
+    background-color: var(--color-black-500);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   &:hover {
     background-color: var(--color-blue-400);
   }
