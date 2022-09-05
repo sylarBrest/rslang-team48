@@ -1,8 +1,14 @@
 .team {
+  &__header {
+    display: flex;
+    justify-content: center;
+  }
+  
   &__body {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
   }
 }
 
@@ -11,9 +17,13 @@
   flex-direction: column;
   flex-grow: 1;
   gap: 0.5rem;
-  align-items: flex-start;
+  align-items: center;
   max-width: 21rem;
   padding: 0.5rem;
+
+  @media screen and (max-width: 512px) {
+    width: 17rem;    
+  }
 
   a {
     padding: 0.1rem;
@@ -30,6 +40,14 @@
     font-weight: 600;
     font-size: 1.2rem;
   }
+
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    align-items: flex-start;
+    justify-content: center;
+  }
     
   &__badge {
     display: inline-block;
@@ -40,7 +58,7 @@
     border-radius: 1rem;
   }
 
-  &__info {
+  &__info {    
     padding-left: 0.2rem;
   }
 
@@ -53,8 +71,8 @@
     border-radius: 1rem;
 
     @media screen and (max-width: 512px) {
-      width: 17rem;
-      height: 17rem;
+      width: 18rem;
+      height: 18rem;
     }
 
     &_aliaksandr {
