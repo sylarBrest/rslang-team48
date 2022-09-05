@@ -32,6 +32,9 @@ const Card = ({
         </h4>
         <h5 class="card__subheading">${wordTranslate}</h5>
         <h5 class="card__subheading word__transcription">${transcription}</h5>
+        <div class="card__down-arrow-wrapper">
+          <div class="card__down-arrow"></div>
+        </div>
       </div>
     </div>
     ${

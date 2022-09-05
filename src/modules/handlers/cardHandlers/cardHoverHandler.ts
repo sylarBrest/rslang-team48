@@ -4,6 +4,7 @@ const cardHoverHandler = () => {
   const cards = [...document.querySelectorAll<HTMLElement>('.card')];
   cards.forEach((card) => {
     const cardButtons = <HTMLElement>card.querySelector('.card__buttons');
+    const downArrow = <HTMLElement>card.querySelector('.card__down-arrow');
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let cursorOnButtons = false;
 
@@ -19,6 +20,7 @@ const cardHoverHandler = () => {
       if (!target.classList.contains('card__btn') && !target.classList.contains('card__active')
       ) {
         cardButtons.classList.toggle('card__buttons_active', true);
+        downArrow.classList.toggle('card__down-arrow_hover', true);
       }
     });
 
@@ -26,7 +28,7 @@ const cardHoverHandler = () => {
       const difficulty = Boolean(
         card.getAttribute('data-difficulty') && card.getAttribute('data-difficulty') !== EDifficulty.UNSET,
       );
-      console.log(difficulty);
+      downArrow.classList.toggle('card__down-arrow_hover', false);
       const target = <HTMLDivElement>e.target;
       // console.log(cardButtonsActive);
       if (!target.classList.contains('card__btn')

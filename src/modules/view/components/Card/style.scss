@@ -151,6 +151,27 @@ h6 {
     }
   }
 
+  &__down-arrow-wrapper {
+    top: 0.5rem;
+    align-self: center;
+    overflow: hidden;
+  }
+
+  &__down-arrow {
+    align-self: center;
+    width: 3rem;
+    height: 1rem;
+    background-image: url('@assets/svg/card-down.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    transition: 0.3s ease-in-out;
+
+    &_hover {
+      animation: move-down 1s ease-in-out infinite;
+    }
+  }
+
   &__sprint {
     margin-top: 0.5rem;
     padding-top: 0.5rem;
@@ -177,4 +198,15 @@ h6 {
 
 .card__complex-btn-yellow {
   background-image: url('@assets/svg/favorite-yellow.svg');
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+    scale: 0.5;
+  }
 }
