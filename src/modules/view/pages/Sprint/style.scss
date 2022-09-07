@@ -1,7 +1,9 @@
 .game__sprint {
+  min-height: 30vh;
+
   &-timer {
-    font-weight: bold;
-    font-size: 2vw;
+    font-weight: 600;
+    font-size: 3rem;
     font-style: italic;
   }
 
@@ -10,7 +12,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 7vh;
     color: #fff;
     font-size: 2vw;
     text-shadow: 1px 1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, -1px -1px 0 #000;
@@ -18,34 +19,45 @@
   }
 
   &-buttons {
-    width: 22vw;
-    height: 5vh;
-    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white-100);
   }
 
-  &-logic-button:active {
-    transform: scale(1.1);
+  &-logic-button {
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-white-100);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    border: 0.1rem solid var(--color-white-200);
+    border-bottom: 0.3rem solid var(--color-white-200);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px -1px rgba(34, 60, 80, 0.2) inset;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(0.15rem);
+    }
+
+    &:active {
+      transform: translateY(0.2rem);
+    }
   }
 }
 
 .sprint__play-false {
-  width: 9.5vw;
-  height: inherit;
-  margin-left: 2.5vw;
-  color: #fff;
-  font-size: 1.5vw;
-  background: #000;
-  border: 3px solid #000;
-  clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+  background-color: hsl(0, 100%, 36%);
+  background-image: url('@assets/svg/false.svg');  
 }
 
 .sprint__play-true {
-  width: 9.5vw;
-  height: inherit;
-  margin-left: -2.5vw;
-  font-weight: bold;
-  font-size: 1.5vw;
-  border: 3px solid #000;
-  clip-path: polygon(25% 0, 100% 0%, 100% 99%, 0% 100%);
+  background-color: hsl(128, 100%, 36%);
+  background-image: url('@assets/svg/true.svg');
 }
 
