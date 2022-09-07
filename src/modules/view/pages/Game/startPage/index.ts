@@ -1,10 +1,10 @@
 import './style.scss';
 
 const renderStartGame = (title: string, description: string, flag: boolean) => `
-  <section class="container section">
+  <section class="container section game__container">
     <div class="game__layout">
       <div class="game__sprint">
-        <div class="game__title">${title}</div>
+        <h2 class="game__title">${title}</h2>
         <div class="game__description">
           ${description}
         </div>

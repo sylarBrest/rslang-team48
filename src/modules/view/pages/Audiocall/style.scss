@@ -1,67 +1,100 @@
 .game__audiocall {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   justify-content: space-evenly;
-  height: 40vh;
-
-  progress {
-    display: block;
-    width: 80%;
-    margin: 10px auto;
-    appearance: none;
-  }
-
-  progress::-webkit-progress-bar {
-    height: 3px;
-    background-color: #1a1a1a;
-  }
-
-  progress::-webkit-progress-value {
-    height: 3px;
-    background-color: #fecf23;
-  }
-
-  &-header {
+  min-height: 20rem;
+  
+  &-progress-bar {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+
+    progress {
+      display: block;
+      width: 80%;
+      border-radius: 1rem;
+      appearance: none;
+    }
+    
+    progress::-webkit-progress-bar {
+      border-radius: 1rem;
+    }
+  
+    progress[value]::-webkit-progress-value {
+      background-image:
+        -webkit-linear-gradient(-45deg, 
+        transparent 33%, rgba(0, 0, 0, 0.1) 33%, 
+        rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+        -webkit-linear-gradient(top,
+        rgba(255, 255, 255, 0.25),
+        rgba(0, 0, 0, 0.25)),
+        -webkit-linear-gradient(left, var(--color-secondary-400), hsl(128, 100%, 36%));
+      background-size: 2rem 1.2rem, 100% 100%, 100% 100%;
+      border-radius: 1rem;
+    }
+  }
+  
+  &-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
     margin: 0 10px;
   }
 
   &-img {
-    width: 7vw;
-    height: 7vw;
-    visibility: hidden;
+    width: 16rem;
+    height: 16rem;
+    object-fit: cover;
+    border-radius: 1rem;
+    visibility: hidden;    
   }
 
   &-audio {
-    width: 5vw;
-    height: 5vw;
+    width: 3rem;
+    height: 3rem;
     background-image: url('@assets/svg/sound.svg');
+    transition: 0.3s ease-in-out;
   }
 
   &-audio:hover {
     transform: scale(1.1);
   }
 
-  &-word {
-    width: 7vw;
-    font-size: 2vw;
-    visibility: hidden;
+  &-word {    
+    font-weight: 600;
+    font-size: 1.5rem;
+    visibility: hidden;    
   }
 
   &-translate-buttons {
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
     margin-top: 1vh;
   }
 
   &-button {
-    width: min-content;
-    padding: 5px;
-    font-size: 1vw;
-    border: 1px solid #1a1a1a;
-    border-radius: 5px;
+    min-width: 3rem;
+    padding: 0.5rem 0.4rem;
+    color: var(--color-white-100);
+    background-color: (--color-secondary-400);
+    border: 0.1rem solid var(--color-white-200);
+    border-bottom: 0.3rem solid var(--color-white-200);
+    border-radius: 1rem;
+    box-shadow: 0 5px 10px -1px rgba(34, 60, 80, 0.2) inset;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(0.15rem);
+    }
+
+    &:active {
+      transform: translateY(0.2rem);
+    }    
   }
 
   &-button:hover {
@@ -69,14 +102,35 @@
     transform: scale(1.1);
   }
 
+  &-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
   &-next-button {
-    width: min-content;
-    margin: 0 auto;
-    padding: 5px;
-    font-size: 1vw;
-    border: 1px solid #1a1a1a;
-    border-radius: 5px;
+    min-width: 4rem;
+    height: 3rem;
+    padding: 0.5rem 0.4rem;
+    color: var(--color-white-100);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background-color: hsl(128, 100%, 36%);
+    border: 0.1rem solid var(--color-white-200);
+    border-bottom: 0.3rem solid var(--color-white-200);
+    border-radius: 1rem;
+    box-shadow: 0 5px 10px -1px rgba(34, 60, 80, 0.2) inset;
     visibility: hidden;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(0.15rem);
+    }
+  
+    &:active {
+      transform: translateY(0.2rem);
+    }
   }
 
   &-next-button:hover {

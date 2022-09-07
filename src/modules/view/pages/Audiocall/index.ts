@@ -27,7 +27,9 @@ const renderAudiocallGame = () => {
         <button class="game__audiocall-option-four game__audiocall-button">${wordTranslateFour}</button>
         <button class="game__audiocall-option-five game__audiocall-button">${wordTranslateFive}</button>
       </div>
-      <button class="game__audiocall-next-button">Далее</button>
+      <div class="game__audiocall-footer">
+        <button class="game__audiocall-next-button">Далее</button>
+      <div class="game__audiocall-footer">
     </div>
   `;
 };

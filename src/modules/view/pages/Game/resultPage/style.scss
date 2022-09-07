@@ -7,18 +7,21 @@
   }
 
   &-home {
-    display: block;
-    background-image: url('@assets/img/home.png');
+    background-image: url('@assets/svg/home.svg');    
   }
 
   &-again {
-    background-image: url('@assets/img/again.png');
+    background-image: url('@assets/svg/refresh.svg');
   }
 
   &-button {
     width: 35px;
     height: 35px;
     margin-top: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: 0.3s ease-in-out;    
   }
 
   &-button:hover {
@@ -26,9 +29,12 @@
   }
 
   &-table-wrapper {
-    height: 30vh;
-    margin: 0 5px;
+    min-height: 30vh;
+    margin: 0 0.3rem;
+    padding: 1rem;
     overflow-y: scroll;
+    color: var(--color-primary-100);
+    border-radius: 1rem;
   }
 
   &-table-wrapper::-webkit-scrollbar {

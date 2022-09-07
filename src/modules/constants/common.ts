@@ -12,9 +12,10 @@ export const SPRINT_DESCRIPTION = `Спринт - тренировка на ск
 export const AUDIOCALL_TITLE = 'АУДИОВЫЗОВ';
 
 export const AUDIOCALL_DESCRIPTION = `
-Тренировака Аудиовызов улучшает твое восприятие речи на слух. 
-В игре можно использовать клавиши 1 - 5 для выбора ответов, 
-Space для воспроизведения слова и клавишу Enter для переключения на следующий вопрос.
+Тренировка Аудиовызов улучшает твое восприятие речи на слух. 
+В игре можно использовать клавиши <span class="key">1</span> — <span class="key">5</span> для выбора ответов, 
+<span class="key">Space</span>
+ для воспроизведения слова и клавишу <span class="key">Enter</span> для переключения на следующий вопрос.
 `;
 
 export const DEFAULT_FILTER = `{"$or":[{"userWord.difficulty":"unset"},

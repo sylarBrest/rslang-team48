@@ -7,5 +7,6 @@ module.exports = {
     "max-nesting-depth": null,
     "selector-class-pattern": null,
     "selector-max-id": null,
+    "selector-no-qualifying-type": null,
   }
 };
