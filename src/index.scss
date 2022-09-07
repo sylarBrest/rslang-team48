@@ -27,6 +27,8 @@
   --color-secondary-800: hsl(226, 71%, 40%);
   --color-secondary-900: hsl(224, 64%, 33%);
 
+  --color-green-100: hsla(95, 79%, 46%, 0.175);
+
   --color-A1: hsl(260, 60%, 65%);
   --color-A1-transparent: hsla(260, 60%, 65%, 0.12);
   --color-A2: hsl(210, 100%, 56%);
@@ -71,13 +73,13 @@
 html {
   box-sizing: inherit;
   height: 100%;
+  overflow-x: hidden;
   font-size: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   height: 100%;
-  overflow-x: hidden;
   color: var(--color-primary-100);
   font-weight: 400;
   font-size: clamp(1rem, 2vw, 1.125rem);

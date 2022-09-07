@@ -97,7 +97,7 @@ export const renderTextbook = async () => {
           <a href="/#/textbook/sprint" class="btn_game btn_game_sprint">Спринт</a>
         </div>        
       </div>
-      <div class="textbook__body section textbook-container">
+      <div class="textbook__body textbook-container">
         ${
   userDataLocal
     ? await renderTextbookBody(queries, '', isHardWordsGroup)

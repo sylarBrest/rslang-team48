@@ -10,7 +10,7 @@ import {
 } from '@constants';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
-  initSprintGame, initAudiocallGame, updateGameButtons,
+  initSprintGame, initAudiocallGame, updateGameButtons, fillBg,
 } from '@helpers';
 import { wordsDataLocal } from '@store';
 import initWindowHandlers from '@handlers/windowHandlers';
@@ -43,6 +43,7 @@ const initRouterHandlers = () => {
     initButtonHandlers();
     reDrawPageButtons();
     colorActiveButton();
+    fillBg();
     if (+wordsDataLocal.group !== 6) {
       updateGameButtons();
     }

@@ -390,12 +390,7 @@
 
 @keyframes reviews-reveal {
   0% {
-    transform: translateX(50vw);
     opacity: 0;
-  }
-
-  70% {
-    transform: translateX(-5vw);
   }
 
   100% {

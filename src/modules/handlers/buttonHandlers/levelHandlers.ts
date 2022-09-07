@@ -2,7 +2,7 @@ import {
   ALL_WORDS_ON_SERVER, DEFAULT_FILTER, WORDS_PER_PAGE, ZERO,
 } from '@constants';
 import {
-  colorActiveButton, reDrawPageButtons, updateGameButtons, updateTextbookStatistics,
+  colorActiveButton, fillBg, reDrawPageButtons, updateGameButtons, updateTextbookStatistics,
 } from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { renderTextbookBody } from '@view/pages/Textbook';
@@ -49,6 +49,7 @@ const initLevelHandlers = () => {
       }
 
       colorActiveButton();
+      fillBg();
     }));
 };
 

@@ -1,7 +1,7 @@
 import { DEFAULT_FILTER, WORDS_PER_PAGE, ZERO } from '@constants';
 import {
   colorActiveButton, reDrawPageButtons, updatePaginationButtonsState,
-  updateTextbookStatistics, updateGameButtons, validatePageNumber,
+  updateTextbookStatistics, updateGameButtons, validatePageNumber, fillBg,
 } from '@helpers';
 import { updateWordsData, userDataLocal, wordsDataLocal } from '@store';
 import { increaseStringNumberByStep } from '@utils';
@@ -69,6 +69,8 @@ const initPaginationHandlers = () => {
     if (+wordsDataLocal.group !== 6) {
       updateGameButtons();
     }
+
+    fillBg();
   });
 };
 
