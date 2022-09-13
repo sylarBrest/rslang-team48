@@ -18,4 +18,4 @@ LEARN&dot — приложения для изучения английског�
 [Бэкенд](https://github.com/rolling-scopes-school/react-rslang-be) приложения взят из [технического задания](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/stage-2/rs-lang/rslang.md) без изменений. 
 
 ### Деплой
-[Деплой](https://rslang-sylarbrest.netlify.app/#/textbook) приложения выполнен на платформе *Netlify*.
+[Деплой](https://rslang-sylarbrest.netlify.app) приложения выполнен на платформе *Netlify*.
